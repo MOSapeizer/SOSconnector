@@ -38,8 +38,12 @@ public class Request {
         connection.setDoOutput(true); // Triggers POST.
         connection.setRequestMethod(method);
         connection.setRequestProperty("User-Agent", USER_AGENT);
-
+        this.connection = connection;
         return connection;
+    }
+
+    public HttpURLConnection getConnection(){
+        return this.getConnection();
     }
 
     public void writeIn(String input) throws IOException {
@@ -49,17 +53,17 @@ public class Request {
         wr.close();
     }
 
-    private InputStreamReader getConnectionReader() throws IOException {
-        return new InputStreamReader(connection.getInputStream(), "UTF-8");
-    }
-
-    private BufferedReader getBufferedReader() throws IOException {
-        return new BufferedReader( getConnectionReader() );
-    }
-
     public String getResponseBody() throws IOException{
         BufferedReader in = getBufferedReader();
         return readFrom(in);
+    }
+
+    protected BufferedReader getBufferedReader() throws IOException {
+        return new BufferedReader( getConnectionReader() );
+    }
+
+    private InputStreamReader getConnectionReader() throws IOException {
+        return new InputStreamReader(connection.getInputStream(), "UTF-8");
     }
 
     protected String readFrom(BufferedReader in) throws IOException {
@@ -71,5 +75,11 @@ public class Request {
         in.close();
         return out.toString();
     }
+
+
+
+
+
+
 
 }

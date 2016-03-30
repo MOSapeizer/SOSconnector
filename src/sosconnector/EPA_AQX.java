@@ -21,6 +21,7 @@ import java.io.StringReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.Buffer;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -123,25 +124,10 @@ public class EPA_AQX extends TimerTask {
     
     private void getAQXStationFromEPA() {
         try {
-
-            URL obj = new URL( opendataURL );
-            HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
-            connection.setDoOutput(true); // Triggers POST.
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("User-Agent", USER_AGENT);
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            String str = response.toString();
-            insertSiteIntoDatabase(str);
-
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
+            Request request = new Request( opendataURL );
+            request.setConnection("GET");
+            String response = request.getResponseBody();
+            insertSiteIntoDatabase(response);
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
