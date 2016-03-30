@@ -53,7 +53,7 @@ public class EPA_AQX extends TimerTask {
             request.writeIn( insertString );
             return request.getResponseBody();
         } catch (IOException e) {
-            e.printStackTrace();
+            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
     }
@@ -65,8 +65,8 @@ public class EPA_AQX extends TimerTask {
     }
     
     public void sendInsertobservationRequest(String url, String stationName, StringBuffer allObsString) {
-        String insertSensorXml = InsertRequest.insertObservationXml(stationName, allObsString);
-        String response = sendInsertRequest(url, insertSensorXml);
+        String insertObservationXml = InsertRequest.insertObservationXml(stationName, allObsString);
+        String response = sendInsertRequest(url, insertObservationXml);
         writeToDocumnet( response );
     }
     
