@@ -33,15 +33,59 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EPA_AQX.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EPA_AQX.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/EPA_AQX.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="68" column="71" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
+            <state relative-caret-position="357">
+              <caret line="93" column="49" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#writeToDocumnet#0;class#EPA_AQX#0" expanded="false" />
                 <element signature="method#sendInsertRequest#0;class#EPA_AQX#0" expanded="false" />
+                <element signature="method#sendInsertsensorRequest#0;class#EPA_AQX#0" expanded="false" />
+                <element signature="method#sendInsertobservationRequest#0;class#EPA_AQX#0" expanded="false" />
+                <element signature="method#getDOMBuilder#0;class#EPA_AQX#0" expanded="false" />
+                <element signature="method#getTagContent#0;class#EPA_AQX#0" expanded="false" />
+                <marker date="1459320949000" expanded="false" signature="1315:1430" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DBManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/DBManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="401">
+              <caret line="178" column="261" selection-start-line="178" selection-start-column="261" selection-end-line="178" selection-end-column="261" />
+              <folding>
+                <marker date="1459321040000" expanded="true" signature="2706:3211" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="3251:3390" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="3430:3650" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="3690:3848" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="3888:4008" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="4048:4264" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="4321:4578" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="4618:5015" placeholder="CREATE TABLE... IF" />
+                <marker date="1459321040000" expanded="true" signature="10116:10151" placeholder="SELECT 1 FRO... missingValue" />
+                <marker date="1459321040000" expanded="true" signature="10947:11002" placeholder="SELECT 1 FRO... missingValue" />
+                <marker date="1459321040000" expanded="true" signature="13744:13792" placeholder="SELECT TWD97... epa_aqx_station" />
+                <marker date="1459321040000" expanded="true" signature="14564:14612" placeholder="SELECT TWD97... epa_aqx_station" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SiteDTO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/SiteDTO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="655">
+              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+              <folding>
+                <element signature="e#930#931#0" expanded="true" />
+                <element signature="e#1008#1009#0" expanded="true" />
+                <element signature="e#1043#1044#0" expanded="true" />
+                <element signature="e#1079#1080#0" expanded="true" />
+                <element signature="e#1115#1116#0" expanded="true" />
+                <element signature="e#1146#1147#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,11 +94,11 @@
       <file leaf-file-name="InsertRequest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/InsertRequest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="32" column="86" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="86" />
+            <state relative-caret-position="462">
+              <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
               <folding>
-                <element signature="method#insertSensorXml#0;class#InsertRequest#0" expanded="false" />
-                <element signature="method#setConnection#0;class#InsertRequest#0" expanded="false" />
+                <element signature="method#setURL#0;class#InsertRequest#0" expanded="false" />
+                <element signature="method#getInsertSensorXml#0;class#InsertRequest#0" expanded="false" />
                 <element signature="method#writeIn#0;class#InsertRequest#0" expanded="false" />
                 <element signature="method#getConnectionReader#0;class#InsertRequest#0" expanded="false" />
                 <element signature="method#getBufferedReader#0;class#InsertRequest#0" expanded="false" />
@@ -85,7 +129,10 @@
         <option value="$PROJECT_DIR$/src/sosconnector/sendInsertSensorRequest.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/SendInsertSensorRequest.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/InsertRequest.java" />
+        <option value="$PROJECT_DIR$/src/sosconnector/siteDTO.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/EPA_AQX.java" />
+        <option value="$PROJECT_DIR$/src/sosconnector/DBManager.java" />
+        <option value="$PROJECT_DIR$/src/sosconnector/SiteDTO.java" />
       </list>
     </option>
   </component>
@@ -102,8 +149,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="477" />
-    <option name="y" value="56" />
+    <option name="x" value="274" />
+    <option name="y" value="68" />
     <option name="width" value="2021" />
     <option name="height" value="1167" />
   </component>
@@ -616,15 +663,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1459245329020</updated>
-      <workItem from="1459245330223" duration="9151000" />
+      <workItem from="1459245330223" duration="14036000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9151000" />
+    <option name="totallyTimeSpent" value="14036000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="477" y="56" width="2021" height="1167" extended-state="0" />
+    <frame x="274" y="68" width="2021" height="1167" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -659,7 +706,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="8" />
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -721,13 +768,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_77.jdk/Contents/Home/src.zip!/org/w3c/dom/Element.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="60" column="17" selection-start-line="60" selection-start-column="17" selection-end-line="60" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/EPA_AQX.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="93" column="49" selection-start-line="93" selection-start-column="49" selection-end-line="93" selection-end-column="49" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#sendInsertRequest#0;class#EPA_AQX#0" expanded="false" />
+            <element signature="method#sendInsertsensorRequest#0;class#EPA_AQX#0" expanded="false" />
+            <element signature="method#sendInsertobservationRequest#0;class#EPA_AQX#0" expanded="false" />
+            <element signature="method#getDOMBuilder#0;class#EPA_AQX#0" expanded="false" />
+            <element signature="method#getTagContent#0;class#EPA_AQX#0" expanded="false" />
+            <marker date="1459320949000" expanded="false" signature="1315:1430" placeholder="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/InsertRequest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="32" column="86" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="86" />
+        <state relative-caret-position="462">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
           <folding>
-            <element signature="method#insertSensorXml#0;class#InsertRequest#0" expanded="false" />
-            <element signature="method#setConnection#0;class#InsertRequest#0" expanded="false" />
+            <element signature="method#setURL#0;class#InsertRequest#0" expanded="false" />
+            <element signature="method#getInsertSensorXml#0;class#InsertRequest#0" expanded="false" />
             <element signature="method#writeIn#0;class#InsertRequest#0" expanded="false" />
             <element signature="method#getConnectionReader#0;class#InsertRequest#0" expanded="false" />
             <element signature="method#getBufferedReader#0;class#InsertRequest#0" expanded="false" />
@@ -736,14 +807,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/EPA_AQX.java">
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/DBManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="68" column="71" selection-start-line="68" selection-start-column="71" selection-end-line="68" selection-end-column="71" />
+        <state relative-caret-position="401">
+          <caret line="178" column="261" selection-start-line="178" selection-start-column="261" selection-end-line="178" selection-end-column="261" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#writeToDocumnet#0;class#EPA_AQX#0" expanded="false" />
-            <element signature="method#sendInsertRequest#0;class#EPA_AQX#0" expanded="false" />
+            <marker date="1459321040000" expanded="true" signature="2706:3211" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="3251:3390" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="3430:3650" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="3690:3848" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="3888:4008" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="4048:4264" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="4321:4578" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="4618:5015" placeholder="CREATE TABLE... IF" />
+            <marker date="1459321040000" expanded="true" signature="10116:10151" placeholder="SELECT 1 FRO... missingValue" />
+            <marker date="1459321040000" expanded="true" signature="10947:11002" placeholder="SELECT 1 FRO... missingValue" />
+            <marker date="1459321040000" expanded="true" signature="13744:13792" placeholder="SELECT TWD97... epa_aqx_station" />
+            <marker date="1459321040000" expanded="true" signature="14564:14612" placeholder="SELECT TWD97... epa_aqx_station" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/SiteDTO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="655">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding>
+            <element signature="e#930#931#0" expanded="true" />
+            <element signature="e#1008#1009#0" expanded="true" />
+            <element signature="e#1043#1044#0" expanded="true" />
+            <element signature="e#1079#1080#0" expanded="true" />
+            <element signature="e#1115#1116#0" expanded="true" />
+            <element signature="e#1146#1147#0" expanded="true" />
           </folding>
         </state>
       </provider>

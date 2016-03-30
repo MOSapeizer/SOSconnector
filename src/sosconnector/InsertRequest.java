@@ -14,28 +14,14 @@ import static java.lang.System.in;
 /**
  * Created by zil on 2016/3/30.
  */
-public class InsertRequest {
-
-    public URL url;
-    public HttpURLConnection connection;
-
-    private final static String USER_AGENT = "Mozilla/5.0";
+public class InsertRequest extends Request {
 
     public InsertRequest(String urlString) throws IOException {
-        this.url = setURL( urlString );
+        super(urlString);
         this.connection = setConnection();
     }
 
-    protected URL setURL(String urlString) {
-        try {
-            return  new URL(urlString);
-        } catch (MalformedURLException e) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return null;
-    }
-
-    protected static String insertSensorXml(String stationName) {
+    protected static String getInsertSensorXml(String stationName) {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<swes:InsertSensor\n"
                 + "    xmlns:swes=\"http://www.opengis.net/swes/2.0\"\n"
@@ -100,7 +86,7 @@ public class InsertRequest {
 
     }
 
-    protected static String insertObservationXml(String stationName, StringBuffer allObsString) {
+    protected static String getInsertObservationXml(String stationName, StringBuffer allObsString) {
         String insertobservationxml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<sos:InsertObservation\n"
                 + "    xmlns:sos=\"http://www.opengis.net/sos/2.0\"\n"
@@ -121,45 +107,11 @@ public class InsertRequest {
     }
 
     public HttpURLConnection setConnection() throws IOException {
-
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setDoOutput(true); // Triggers POST.
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Accept", "application/xml");
+        HttpURLConnection connection = super.setConnection("POST");
         connection.setRequestProperty("Charset", "UTF-8");
         connection.setRequestProperty("Content-Type", "application/xml; charset=utf-8");
-//        connection.setRequestProperty("User-Agent", USER_AGENT);
-
         return connection;
     }
 
-    public void writeIn(String input) throws IOException {
-        OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
-        wr.write( input );
-        wr.flush();
-        wr.close();
-    }
 
-    private InputStreamReader getConnectionReader() throws IOException {
-        return new InputStreamReader(connection.getInputStream(), "UTF-8");
-    }
-
-    private BufferedReader getBufferedReader() throws IOException {
-        return new BufferedReader( getConnectionReader() );
-    }
-
-    public String getResponseBody() throws IOException{
-        BufferedReader in = getBufferedReader();
-        return readFrom(in);
-    }
-
-    protected String readFrom(BufferedReader in) throws IOException {
-        String inputLine;
-        StringBuffer out = new StringBuffer();
-        while ((inputLine = in.readLine()) != null) {
-            out.append(inputLine);
-        }
-        in.close();
-        return out.toString();
-    }
 }

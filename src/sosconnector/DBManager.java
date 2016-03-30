@@ -171,12 +171,22 @@ public class DBManager {
         return bool;
     }
 
-    public void insertStation_epa_aqx(String SiteName, String SiteEngName, String AreaName, String County, String Township, String SiteAddress, String TWD97Lon, String TWD97Lat, String SiteType) {
+    public void insertStation_epa_aqx(SiteDTO site) {
         try {
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/connector_new?user=root&password=1234567&useUnicode=true&characterEncoding=utf-8");
 //            Connection conn = getConnection();
             Statement statement = conn.createStatement();
-            statement.execute("Insert IGNORE into epa_aqx_station values('" + SiteName  + "','" + SiteEngName + "','" + AreaName+ "','" + County +"','" + Township +"','" + SiteAddress+"','" + TWD97Lon+"','" + TWD97Lat+"','" + SiteType+ "');");
+            statement.execute("Insert IGNORE into epa_aqx_station values('"
+                    + site.getSiteName()  + "','"
+                    + site.getSiteEngName() + "','"
+                    + site.getAreaName()+ "','"
+                    + site.getCounty() +"','"
+                    + site.getTownship() +"','"
+                    + site.getSiteAddress() +"','"
+                    + site.getTWD97Lon()+"','"
+                    + site.getTWD97Lat() +"','"
+                    + site.getSiteType() + "');");
+
             statement.close();
             conn.close();
         } catch (SQLException ex) {
