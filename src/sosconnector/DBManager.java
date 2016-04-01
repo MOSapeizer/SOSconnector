@@ -194,12 +194,29 @@ public class DBManager {
         }
     }
     
-    public void insertAQX_epa(String SiteName, String County, String PSI, String MajorPollutant, String Status, String SO2, String CO, String O3, String PM10, String PM2_5, String NO2,String WindSpeed ,String WindDirec ,String FPMI ,String NOx ,String NO , String PublishTime) {
+    public void insertAQX_epa(ObservationDTO obs) {
         try {
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/connector_new?user=root&password=1234567&useUnicode=true&characterEncoding=utf-8");
 //            Connection conn = getConnection();
             Statement statement = conn.createStatement();
-            statement.execute("Insert IGNORE into epa_aqx_reading values('" + SiteName+ "','" + PublishTime  + "','" + County + "','" + PSI+ "','" + MajorPollutant +"','" + Status +"','" + SO2+"','" + CO+"','" + O3+"','" + PM10+"','" + PM2_5+"','" + NO2+"','" + WindSpeed+"','" + WindDirec+"','" + FPMI+"','" + NOx+"','" + NO+ "');");
+            statement.execute("Insert IGNORE into epa_aqx_reading values('"
+                    + obs.getSiteName()+ "','"
+                    + obs.getPublishTime()  + "','"
+                    + obs.getCounty() + "','"
+                    + obs.getPSI() + "','"
+                    + obs.getMajorPollutant() +"','"
+                    + obs.getStatus() +"','"
+                    + obs.getSO2() + "','"
+                    + obs.getCO() + "','"
+                    + obs.getO3() + "','"
+                    + obs.getPM10() + "','"
+                    + obs.getPM2_5() + "','"
+                    + obs.getNO2() + "','"
+                    + obs.getWindSpeed() + "','"
+                    + obs.getWindDirec() + "','"
+                    + obs.getFPMI() + "','"
+                    + obs.getNOx() +"','"
+                    + obs.getNO() + "');" );
             statement.close();
             conn.close();
         } catch (SQLException ex) {

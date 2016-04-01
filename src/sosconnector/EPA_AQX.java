@@ -14,14 +14,17 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+import java.beans.PropertyDescriptor;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.StringReader;
+import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.Buffer;
+import java.util.Arrays;
 import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -41,6 +44,31 @@ public class EPA_AQX extends TimerTask {
     public void run() {
         getAQXStationFromEPA();
         getAQXReadingFromEPA();
+    }
+
+
+    private void getAQXStationFromEPA() {
+        try {
+            Request request = new Request( SiteURL );
+            request.setConnection("GET");
+            String response = request.getResponseBody();
+            insertSiteIntoDatabase(response);
+        } catch (IOException ex) {
+            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void getAQXReadingFromEPA() {
+        try {
+
+            Request request = new Request( opendataURL );
+            request.setConnection("GET");
+            String response = request.getResponseBody();
+            insertObservationIntoDatabase( response );
+
+        } catch (IOException ex) {
+            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     public void writeToDocumnet(String input) {
@@ -113,126 +141,65 @@ public class EPA_AQX extends TimerTask {
         return null;
     }
 
+    public ObservationDTO makeObservation (Node node){
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+            return new ObservationDTO( (Element) node );
+        }
+        return null;
+    }
+
+    public void insertObservationIntoDatabase(String str){
+        NodeList list = getDataListFrom(str);
+        for (int temp = 0; temp < list.getLength(); temp++) {
+            Node node = list.item(temp);
+            ObservationDTO obs = makeObservation(node);
+            if(obs != null) sendInsertObservationRequestIfNotRedundant(obs);
+        }
+    }
+
     public void insertSiteIntoDatabase(String str){
         NodeList list = getDataListFrom(str);
         for (int index = 0; index < list.getLength(); index++) {
             Node node = list.item(index);
             SiteDTO site = makeSite(node);
-            sendInsertRequestIfNotRedundant(site);
+            if(site != null) sendInsertRequestIfNotRedundant(site);
         }
     }
     
-    private void getAQXStationFromEPA() {
-        try {
-            Request request = new Request( SiteURL );
-            request.setConnection("GET");
-            String response = request.getResponseBody();
-            insertSiteIntoDatabase(response);
-        } catch (IOException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
+
+
+    public String[] latLon(String siteName){
+        String[] position = new String[2];
+        position[0] = DBManager.getInstance().Getlon( siteName );
+        position[1] = DBManager.getInstance().Getlat( siteName );
+        return position;
+    }
+
+    public StringBuffer allObsInSite(ObservationDTO obs){
+        String[] latLon = latLon( obs.getSiteName() );
+        StringBuffer allObsString = new StringBuffer();
+        allObsString = allObsString.append( obs.observationXML("1", latLon, "PSI", obs.getPSI() ) );
+        allObsString = allObsString.append(obs.observationXML("2", latLon, "SO2", obs.getSO2() ));
+        allObsString = allObsString.append(obs.observationXML("3", latLon, "CO", obs.getCO() ));
+        allObsString = allObsString.append(obs.observationXML("4", latLon, "O3", obs.getO3() ));
+        allObsString = allObsString.append(obs.observationXML("5", latLon, "PM10", obs.getPM10() ));
+        allObsString = allObsString.append(obs.observationXML("6", latLon, "PM2.5", obs.getPM2_5() ));
+        allObsString = allObsString.append(obs.observationXML("7", latLon, "NO2", obs.getNO2() ));
+        allObsString = allObsString.append(obs.observationXML("8", latLon, "WindSpeed", obs.getWindSpeed() ));
+        allObsString = allObsString.append(obs.observationXML("9", latLon, "WindDirec", obs.getWindDirec() ));
+        allObsString = allObsString.append(obs.observationXML("10", latLon, "FPMI", obs.getFPMI() ));
+        allObsString = allObsString.append(obs.observationXML("11", latLon, "NOx", obs.getNOx() ));
+        allObsString = allObsString.append(obs.observationXML("12", latLon, "NO", obs.getNO() ));
+        return allObsString;
+    }
+
+    public void sendInsertObservationRequestIfNotRedundant(ObservationDTO obs){
+        String siteName = obs.getSiteName();
+        String publishTime = obs.getPublishTime();
+        if (DBManager.getInstance().ifReadingRedundant("epa_aqx_reading", siteName, publishTime) == -1) {
+            DBManager.getInstance().insertAQX_epa( obs );
+            sendInsertobservationRequest(epaURL, siteName, allObsInSite(obs));
         }
     }
-        
-    private void getAQXReadingFromEPA() {
-        try {
 
-            Request request = new Request( opendataURL );
-            request.setConnection("GET");
-            String str = request.getResponseBody();
-
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder;
-            InputSource is;
-            is = new InputSource(new StringReader(str));
-            builder = factory.newDocumentBuilder();
-            org.w3c.dom.Document doc = builder.parse(is);
-            NodeList nList = doc.getElementsByTagName("Data");
-            for (int temp = 0; temp < nList.getLength(); temp++) {
-                Node nNode = nList.item(temp);
-                if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element eElement = (Element) nNode;
-                    String SiteName = eElement.getElementsByTagName("SiteName").item(0).getTextContent();
-                    String County = eElement.getElementsByTagName("County").item(0).getTextContent();
-                    String PSI = eElement.getElementsByTagName("PSI").item(0).getTextContent();
-                    String MajorPollutant = eElement.getElementsByTagName("MajorPollutant").item(0).getTextContent();
-                    String Status = eElement.getElementsByTagName("Status").item(0).getTextContent();
-                    String SO2 = eElement.getElementsByTagName("SO2").item(0).getTextContent();
-                    String CO = eElement.getElementsByTagName("CO").item(0).getTextContent();
-                    String O3 = eElement.getElementsByTagName("O3").item(0).getTextContent();
-                    String PM10 = eElement.getElementsByTagName("PM10").item(0).getTextContent();
-                    String PM2_5 = eElement.getElementsByTagName("PM2.5").item(0).getTextContent();
-                    String NO2 = eElement.getElementsByTagName("NO2").item(0).getTextContent();
-                    String WindSpeed = eElement.getElementsByTagName("WindSpeed").item(0).getTextContent();
-                    String WindDirec = eElement.getElementsByTagName("WindDirec").item(0).getTextContent();
-                    String FPMI = eElement.getElementsByTagName("FPMI").item(0).getTextContent();
-                    String NOx = eElement.getElementsByTagName("NOx").item(0).getTextContent();
-                    String NO = eElement.getElementsByTagName("NO").item(0).getTextContent();
-                    String PublishTime = eElement.getElementsByTagName("PublishTime").item(0).getTextContent();
-                    PublishTime = PublishTime.replace(" ", "T");
-                    
-                    if (DBManager.getInstance().ifReadingRedundant("epa_aqx_reading", SiteName, PublishTime) == -1) {
-                        DBManager.getInstance().insertAQX_epa(SiteName, County, PSI, MajorPollutant, Status, SO2, CO, O3, PM10, PM2_5, NO2,WindSpeed ,WindDirec ,FPMI ,NOx ,NO , PublishTime);
-                        String TWD97Lon = DBManager.getInstance().Getlon(SiteName);
-                        String TWD97Lat = DBManager.getInstance().Getlat(SiteName);
-            
-                        StringBuffer allobsstring = new StringBuffer();
-                        allobsstring = allobsstring.append(composeString("1",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_PSI", SiteName, TWD97Lon, TWD97Lat, PSI));
-                        allobsstring = allobsstring.append(composeString("2",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_SO2", SiteName, TWD97Lon, TWD97Lat, SO2));
-                        allobsstring = allobsstring.append(composeString("3",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_CO", SiteName, TWD97Lon, TWD97Lat, CO));
-                        allobsstring = allobsstring.append(composeString("4",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_O3", SiteName, TWD97Lon, TWD97Lat, O3));
-                        allobsstring = allobsstring.append(composeString("5",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_PM10", SiteName, TWD97Lon, TWD97Lat, PM10));
-                        allobsstring = allobsstring.append(composeString("6",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_PM2.5", SiteName, TWD97Lon, TWD97Lat, PM2_5));
-                        allobsstring = allobsstring.append(composeString("7",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_NO2", SiteName, TWD97Lon, TWD97Lat, NO2));
-                        allobsstring = allobsstring.append(composeString("8",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_WindSpeed", SiteName, TWD97Lon, TWD97Lat, WindSpeed));
-                        allobsstring = allobsstring.append(composeString("9",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_WindDirec", SiteName, TWD97Lon, TWD97Lat, WindDirec));
-                        allobsstring = allobsstring.append(composeString("10",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_FPMI", SiteName, TWD97Lon, TWD97Lat, FPMI));
-                        allobsstring = allobsstring.append(composeString("11",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_NOx", SiteName, TWD97Lon, TWD97Lat, NOx));
-                        allobsstring = allobsstring.append(composeString("12",PublishTime, SiteName, "urn:ogc:def:phenomenon:OGC:2.0:AQX_NO", SiteName, TWD97Lon, TWD97Lat, NO));
-                        
-                        sendInsertobservationRequest(epaURL, SiteName, allobsstring);
-                    }
-                }
-            }
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
-    private String composeString(String oid, String rtime, String stationName, String property, String codeSpace, String lon, String lat, String reading){
-        String obsstring = "<sos:observation>\n"
-                    + "        <om:OM_Observation gml:id=\"o" + oid + "\">\n"
-                    + "            <om:type xlink:href=\"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement\"/>\n"
-                    + "            <om:phenomenonTime>\n"
-                    + "                <gml:TimeInstant gml:id=\"phenomenonTime" + oid + "\">\n"
-                    + "                    <gml:timePosition>" + rtime + "</gml:timePosition>\n"
-                    + "                </gml:TimeInstant>\n"
-                    + "            </om:phenomenonTime>\n"
-                    + "            <om:resultTime xlink:href=\"#phenomenonTime" + oid + "\"/>\n"
-                    + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:EPA:sensor" + stationName + "\"/>\n"
-                    + "            <om:observedProperty xlink:href=\"" + property + "\"/>\n"
-                    + "            <om:featureOfInterest>\n"
-                    + "                <sams:SF_SpatialSamplingFeature gml:id=\"SF_SpatialSamplingFeature\">\n"
-                    + "                    <gml:identifier codeSpace=\"\">" + codeSpace + "</gml:identifier>\n"
-                    + "                    <gml:name>52°North</gml:name>\n"
-                    + "                    <sf:type xlink:href=\"http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint\"/>\n"
-                    + "                    <sf:sampledFeature xlink:href=\"http://www.52north.org/test/featureOfInterest/1\"/>\n"
-                    + "                    <sams:shape>\n"
-                    + "                        <gml:Point gml:id=\"test_feature_9\">\n"
-                    + "                            <gml:pos srsName=\"http://www.opengis.net/def/crs/EPSG/0/4326\">" + lon + " " + lat + "</gml:pos>\n"
-                    + "                        </gml:Point>\n"
-                    + "                    </sams:shape>\n"
-                    + "                </sams:SF_SpatialSamplingFeature>\n"
-                    + "            </om:featureOfInterest>\n"
-                    + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"mm\">" + reading + "</om:result>\n"
-                    + "        </om:OM_Observation>\n"
-                    + "    </sos:observation>\n";
-        
-        return obsstring;
-    }
 }

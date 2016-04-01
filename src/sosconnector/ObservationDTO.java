@@ -48,6 +48,37 @@ public class ObservationDTO {
         this.PublishTime = getTagContent("PublishTime").replace(" ", "T");
     }
 
+    public String observationXML(String id, String[] latLon, String obsName, String obsValue){
+        String obsXML = "<sos:observation>\n"
+                + "        <om:OM_Observation gml:id=\"o" + id + "\">\n"
+                + "            <om:type xlink:href=\"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement\"/>\n"
+                + "            <om:phenomenonTime>\n"
+                + "                <gml:TimeInstant gml:id=\"phenomenonTime_" + id + "\">\n"
+                + "                    <gml:timePosition>" + PublishTime + "</gml:timePosition>\n"
+                + "                </gml:TimeInstant>\n"
+                + "            </om:phenomenonTime>\n"
+                + "            <om:resultTime xlink:href=\"#phenomenonTime_" + id + "\"/>\n"
+                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:EPA:sensor" + SiteName + "\"/>\n"
+                + "            <om:observedProperty xlink:href=\"urn:ogc:def:phenomenon:OGC:2.0:AQX_" + obsName + "\"/>\n"
+                + "            <om:featureOfInterest>\n"
+                + "                <sams:SF_SpatialSamplingFeature gml:id=\"SF_SpatialSamplingFeature\">\n"
+                + "                    <gml:identifier codeSpace=\"\">" + SiteName + "</gml:identifier>\n"
+                + "                    <gml:name>52°North</gml:name>\n"
+                + "                    <sf:type xlink:href=\"http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingPoint\"/>\n"
+                + "                    <sf:sampledFeature xlink:href=\"http://www.52north.org/test/featureOfInterest/1\"/>\n"
+                + "                    <sams:shape>\n"
+                + "                        <gml:Point gml:id=\"test_feature_9\">\n"
+                + "                            <gml:pos srsName=\"http://www.opengis.net/def/crs/EPSG/0/4326\">" + latLon[0] + " " + latLon[1] + "</gml:pos>\n"
+                + "                        </gml:Point>\n"
+                + "                    </sams:shape>\n"
+                + "                </sams:SF_SpatialSamplingFeature>\n"
+                + "            </om:featureOfInterest>\n"
+                + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"mm\">" + obsValue + "</om:result>\n"
+                + "        </om:OM_Observation>\n"
+                + "    </sos:observation>\n";
+        return obsXML;
+    }
+
     public String getTagContent(String tag) {
         return node.getElementsByTagName(tag).item(0).getTextContent();
     }
