@@ -1,6 +1,6 @@
 # SOSconnector
 
-Connector Between Goverment OpenData and SOS
+Connector Between Government OpenData and SOS
 
 1. pull sensor data from goverment opendata
 2. change into SOS observation format
