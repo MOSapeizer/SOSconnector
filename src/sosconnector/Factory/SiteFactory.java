@@ -9,14 +9,14 @@ import sosconnector.DTO.SiteDTO;
 /**
  * Created by zil on 2016/4/1.
  */
-public class SiteFactory extends SendInsertRequest<SiteDTO> {
+public class SiteFactory extends ResponseFactory<SiteDTO> {
 
     public SiteFactory( String source ){
         super(source);
     }
 
     @Override
-    public Boolean redundantOrNot(SiteDTO site) {
+    public Boolean whichIsNotRedundant(SiteDTO site) {
         String siteName = site.getSiteName();
         return (DBManager.getInstance().ifStationRedundant("epa_aqx_station", siteName) == -1);
     }
@@ -30,10 +30,10 @@ public class SiteFactory extends SendInsertRequest<SiteDTO> {
     }
 
     @Override
-    public void manipulate(SiteDTO site) {
+    public void finalManipulate(SiteDTO site) {
         String siteName = site.getSiteName();
         DBManager.getInstance().insertStation_epa_aqx(site);
-        sendInsertRequest(siteName, epaURL);
+        sendInsertRequestWithPayload(siteName, epaURL);
     }
 
     @Override

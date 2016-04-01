@@ -8,14 +8,14 @@ import sosconnector.Request.InsertRequest;
 /**
  * Created by zil on 2016/4/1.
  */
-public class ObsFactory extends SendInsertRequest<ObservationDTO> {
+public class ObsFactory extends ResponseFactory<ObservationDTO> {
 
     public ObsFactory(String source) {
         super(source);
     }
 
     @Override
-    public Boolean redundantOrNot(ObservationDTO obj) {
+    public Boolean whichIsNotRedundant(ObservationDTO obj) {
         String siteName = obj.getSiteName();
         String publishTime = obj.getPublishTime();
         return (DBManager.getInstance().ifReadingRedundant("epa_aqx_reading", siteName, publishTime) == -1);
@@ -30,7 +30,7 @@ public class ObsFactory extends SendInsertRequest<ObservationDTO> {
     }
 
     @Override
-    public void manipulate(ObservationDTO obj) {
+    public void finalManipulate(ObservationDTO obj) {
         String siteName = obj.getSiteName();
         DBManager.getInstance().insertAQX_epa( obj );
         sendInsertObsRequest(epaURL, siteName, allObsInSite(obj));

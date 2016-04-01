@@ -15,13 +15,17 @@ import java.util.logging.Logger;
 /**
  * Created by zil on 2016/4/1.
  */
-abstract public class SendInsertRequest<T> {
+abstract public class ResponseFactory<T> {
 
     protected String source;
     protected final String epaURL = "http://localhost:8080/epa-aqx-sos/service";
 
-    public SendInsertRequest(String source){
+    public ResponseFactory(String source){
         this.source = source;
+    }
+
+    public void start(){
+        insertDataIntoDatabase();
     }
 
     public void insertDataIntoDatabase(){
@@ -29,12 +33,12 @@ abstract public class SendInsertRequest<T> {
         for (int temp = 0; temp < list.getLength(); temp++) {
             Node node = list.item(temp);
             T obj = make(node);
-            if(obj != null) sendInsertRequestIfNotRedundant(obj);
+            if(obj != null) manipulateObjIfNotRedundant(obj);
         }
     }
 
-    public void sendInsertRequestIfNotRedundant(T obj){
-        if ( redundantOrNot( obj ) ) manipulate( obj );
+    public void manipulateObjIfNotRedundant(T obj){
+        if ( whichIsNotRedundant( obj ) ) finalManipulate( obj );
     }
 
     public void sendInsertRequestWithPayload(String stationName, String url) {
@@ -43,11 +47,11 @@ abstract public class SendInsertRequest<T> {
         writeToDocumnet( response );
     }
 
-    abstract public Boolean redundantOrNot(T obj);
+    abstract public Boolean whichIsNotRedundant(T obj);
 
     abstract public T make(Node node);
 
-    abstract public void manipulate(T obj);
+    abstract public void finalManipulate(T obj);
 
     abstract public String getXML( String name );
 
