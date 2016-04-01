@@ -35,8 +35,8 @@ public class EPA_AQX extends TimerTask {
     
     private final static String USER_AGENT = "Mozilla/5.0";
     private final String epaURL = "http://localhost:8080/epa-aqx-sos/service";
-    private final String opendataURL = "http://opendata.epa.gov.tw/ws/Data/AQXSite/?$orderby=SiteName&$skip=0&$top=1000&format=xml";
-    
+    private final String SiteURL = "http://opendata.epa.gov.tw/ws/Data/AQXSite/?$orderby=SiteName&$skip=0&$top=1000&format=xml";
+    private final String opendataURL = "http://opendata.epa.gov.tw/ws/Data/AQX/?$orderby=SiteName&$skip=0&$top=1000&format=xml";
     @Override
     public void run() {
         getAQXStationFromEPA();
@@ -124,7 +124,7 @@ public class EPA_AQX extends TimerTask {
     
     private void getAQXStationFromEPA() {
         try {
-            Request request = new Request( opendataURL );
+            Request request = new Request( SiteURL );
             request.setConnection("GET");
             String response = request.getResponseBody();
             insertSiteIntoDatabase(response);
@@ -136,21 +136,9 @@ public class EPA_AQX extends TimerTask {
     private void getAQXReadingFromEPA() {
         try {
 
-            String url = "http://opendata.epa.gov.tw/ws/Data/AQX/?$orderby=SiteName&$skip=0&$top=1000&format=xml";
-            URL obj = new URL(url);
-            HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
-            connection.setDoOutput(true); // Triggers POST.
-            connection.setRequestMethod("GET");
-            connection.setRequestProperty("User-Agent", USER_AGENT);
-            BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream()));
-            String inputLine;
-            StringBuffer response = new StringBuffer();
-            while ((inputLine = in.readLine()) != null) {
-                response.append(inputLine);
-            }
-            in.close();
-
-            String str = response.toString();
+            Request request = new Request( opendataURL );
+            request.setConnection("GET");
+            String str = request.getResponseBody();
 
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder;
