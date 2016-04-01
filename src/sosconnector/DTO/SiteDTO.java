@@ -1,4 +1,4 @@
-package sosconnector;
+package sosconnector.DTO;
 
 import org.w3c.dom.Element;
 

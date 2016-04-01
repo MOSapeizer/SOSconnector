@@ -1,15 +1,7 @@
-package sosconnector;
+package sosconnector.Request;
 
 import java.io.*;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.nio.Buffer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import static java.lang.System.in;
 
 /**
  * Created by zil on 2016/3/30.
@@ -21,7 +13,7 @@ public class InsertRequest extends Request {
         this.connection = setConnection();
     }
 
-    protected static String getInsertSensorXml(String stationName) {
+    public static String getInsertSensorXml(String stationName) {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<swes:InsertSensor\n"
                 + "    xmlns:swes=\"http://www.opengis.net/swes/2.0\"\n"
@@ -86,7 +78,7 @@ public class InsertRequest extends Request {
 
     }
 
-    protected static String getInsertObservationXml(String stationName, StringBuffer allObsString) {
+    public static String getInsertObservationXml(String stationName, StringBuffer allObsString) {
         String insertobservationxml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<sos:InsertObservation\n"
                 + "    xmlns:sos=\"http://www.opengis.net/sos/2.0\"\n"

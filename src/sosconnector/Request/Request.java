@@ -1,4 +1,6 @@
-package sosconnector;
+package sosconnector.Request;
+
+import sosconnector.SOSConnector;
 
 import java.io.BufferedReader;
 import java.io.IOException;
