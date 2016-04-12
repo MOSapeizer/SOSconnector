@@ -2,20 +2,20 @@ package sosconnector.Factory;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import sosconnector.DBManager;
-import sosconnector.DTO.ObservationDTO;
+import sosconnector.DTO.EpaDTO;
 import sosconnector.Request.InsertRequest;
 
 /**
  * Created by zil on 2016/4/1.
  */
-public class ObsFactory extends ResponseFactory<ObservationDTO> {
+public class ObsFactory extends ResponseFactory<EpaDTO> {
 
     public ObsFactory(String source) {
         super(source);
     }
 
     @Override
-    public Boolean whichIsRedundant(ObservationDTO obj) {
+    public Boolean whichIsRedundant(EpaDTO obj) {
         String siteName = obj.getSiteName();
         String publishTime = obj.getPublishTime();
         return (DBManager.getInstance().ifReadingRedundant("epa_aqx_reading", siteName, publishTime) != -1);
@@ -27,15 +27,15 @@ public class ObsFactory extends ResponseFactory<ObservationDTO> {
     }
 
     @Override
-    public ObservationDTO operateNode(Node node) {
+    public EpaDTO operateNode(Node node) {
         if (node.getNodeType() == Node.ELEMENT_NODE) {
-            return new ObservationDTO( (Element) node );
+            return new EpaDTO( (Element) node );
         }
         return null;
     }
 
     @Override
-    public void finalManipulate(ObservationDTO obj) {
+    public void finalManipulate(EpaDTO obj) {
         String siteName = obj.getSiteName();
         DBManager.getInstance().insertAQX_epa( obj );
         sendInsertObsRequest(epaURL, siteName, allObsInSite(obj));
@@ -52,7 +52,7 @@ public class ObsFactory extends ResponseFactory<ObservationDTO> {
         return null;
     }
 
-    public StringBuffer allObsInSite(ObservationDTO obs){
+    public StringBuffer allObsInSite(EpaDTO obs){
         String[] latLon = latLon( obs.getSiteName() );
         StringBuffer allObsString = new StringBuffer();
         allObsString = allObsString.append( obs.observationXML("1", latLon, "PSI", obs.getPSI() ) );

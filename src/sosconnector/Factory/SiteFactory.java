@@ -4,19 +4,19 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import sosconnector.DBManager;
 import sosconnector.Request.InsertRequest;
-import sosconnector.DTO.SiteDTO;
+import sosconnector.DTO.EpaSiteDTO;
 
 /**
  * Created by zil on 2016/4/1.
  */
-public class SiteFactory extends ResponseFactory<SiteDTO> {
+public class SiteFactory extends ResponseFactory<EpaSiteDTO> {
 
     public SiteFactory( String source ){
         super(source);
     }
 
     @Override
-    public Boolean whichIsRedundant(SiteDTO site) {
+    public Boolean whichIsRedundant(EpaSiteDTO site) {
         String siteName = site.getSiteName();
         return siteIsDuplicate(siteName);
     }
@@ -31,15 +31,15 @@ public class SiteFactory extends ResponseFactory<SiteDTO> {
     }
 
     @Override
-    public SiteDTO operateNode(Node node) {
+    public EpaSiteDTO operateNode(Node node) {
         if (node.getNodeType() == Node.ELEMENT_NODE) {
-            return new SiteDTO((Element) node);
+            return new EpaSiteDTO((Element) node);
         }
         return null;
     }
 
     @Override
-    public void finalManipulate(SiteDTO site) {
+    public void finalManipulate(EpaSiteDTO site) {
         String siteName = site.getSiteName();
         DBManager.getInstance().insertStation_epa_aqx(site);
         sendInsertRequestWithPayload(siteName, epaURL);

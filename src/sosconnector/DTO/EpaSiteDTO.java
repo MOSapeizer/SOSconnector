@@ -5,7 +5,7 @@ import org.w3c.dom.Element;
 /**
  * Created by zil on 2016/3/30.
  */
-public class SiteDTO {
+public class EpaSiteDTO {
     private Element node;
     private String SiteName;
     private String SiteEngName;
@@ -17,7 +17,7 @@ public class SiteDTO {
     private String TWD97Lat;
     private String SiteType;
 
-    public SiteDTO(Element node) {
+    public EpaSiteDTO(Element node) {
         this.node = node;
         this.SiteName = getTagContent("SiteName");
         this.SiteEngName = getTagContent("SiteEngName");

@@ -14,8 +14,8 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import sosconnector.DTO.ObservationDTO;
-import sosconnector.DTO.SiteDTO;
+import sosconnector.DTO.EpaDTO;
+import sosconnector.DTO.EpaSiteDTO;
 
 /**
  *
@@ -168,7 +168,7 @@ public class DBManager {
         return bool;
     }
 
-    public void insertStation_epa_aqx(SiteDTO site) {
+    public void insertStation_epa_aqx(EpaSiteDTO site) {
         try {
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/connector_new?user=root&password=1234567&useUnicode=true&characterEncoding=utf-8");
 //            Connection conn = getConnection();
@@ -191,7 +191,7 @@ public class DBManager {
         }
     }
     
-    public void insertAQX_epa(ObservationDTO obs) {
+    public void insertAQX_epa(EpaDTO obs) {
         try {
             Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/connector_new?user=root&password=1234567&useUnicode=true&characterEncoding=utf-8");
 //            Connection conn = getConnection();

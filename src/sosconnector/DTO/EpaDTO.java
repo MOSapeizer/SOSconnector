@@ -5,7 +5,7 @@ import org.w3c.dom.Element;
 /**
  * Created by zil on 2016/3/30.
  */
-public class ObservationDTO {
+public class EpaDTO {
 
     private Element node;
     private String County;
@@ -27,7 +27,7 @@ public class ObservationDTO {
     private String SiteName;
 
 
-    public ObservationDTO(Element node){
+    public EpaDTO(Element node){
         this.node = node;
         this.SiteName =  getTagContent("SiteName");
         this.County = getTagContent("County");
