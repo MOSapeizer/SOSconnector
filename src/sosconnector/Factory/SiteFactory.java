@@ -16,13 +16,22 @@ public class SiteFactory extends ResponseFactory<SiteDTO> {
     }
 
     @Override
-    public Boolean whichIsNotRedundant(SiteDTO site) {
+    public Boolean whichIsRedundant(SiteDTO site) {
         String siteName = site.getSiteName();
-        return (DBManager.getInstance().ifStationRedundant("epa_aqx_station", siteName) == -1);
+        return siteIsDuplicate(siteName);
+    }
+
+    public Boolean siteIsDuplicate(String siteName){
+        return DBManager.getInstance().ifStationRedundant("epa_aqx_station", siteName) != -1;
     }
 
     @Override
-    public SiteDTO make(Node node) {
+    public void initialize() {
+        setDataName("Data");
+    }
+
+    @Override
+    public SiteDTO operateNode(Node node) {
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             return new SiteDTO((Element) node);
         }

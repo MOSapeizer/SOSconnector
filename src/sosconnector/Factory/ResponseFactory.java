@@ -18,10 +18,15 @@ import java.util.logging.Logger;
 abstract public class ResponseFactory<T> {
 
     protected String source;
+    protected String dataName;
     protected final String epaURL = "http://localhost:8080/epa-aqx-sos/service";
 
     public ResponseFactory(String source){
         this.source = source;
+    }
+
+    public void setDataName(String dataName){
+        this.dataName = dataName;
     }
 
     public void start(){
@@ -29,16 +34,19 @@ abstract public class ResponseFactory<T> {
     }
 
     public void insertDataIntoDatabase(){
-        NodeList list = new DomParser( source ).getDataList();
+        initialize();
+        NodeList list = new DomParser( source ).getDataList(dataName);
         for (int temp = 0; temp < list.getLength(); temp++) {
             Node node = list.item(temp);
-            T obj = make(node);
+            T obj = operateNode(node);
             if(obj != null) manipulateObjIfNotRedundant(obj);
         }
     }
 
     public void manipulateObjIfNotRedundant(T obj){
-        if ( whichIsNotRedundant( obj ) ) finalManipulate( obj );
+        if ( whichIsRedundant( obj ) )
+            return;
+        else finalManipulate( obj );
     }
 
     public void sendInsertRequestWithPayload(String stationName, String url) {
@@ -47,9 +55,9 @@ abstract public class ResponseFactory<T> {
         writeToDocumnet( response );
     }
 
-    abstract public Boolean whichIsNotRedundant(T obj);
-
-    abstract public T make(Node node);
+    abstract public Boolean whichIsRedundant(T obj);
+    abstract public void initialize();
+    abstract public T operateNode(Node node);
 
     abstract public void finalManipulate(T obj);
 

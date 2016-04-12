@@ -15,14 +15,19 @@ public class ObsFactory extends ResponseFactory<ObservationDTO> {
     }
 
     @Override
-    public Boolean whichIsNotRedundant(ObservationDTO obj) {
+    public Boolean whichIsRedundant(ObservationDTO obj) {
         String siteName = obj.getSiteName();
         String publishTime = obj.getPublishTime();
-        return (DBManager.getInstance().ifReadingRedundant("epa_aqx_reading", siteName, publishTime) == -1);
+        return (DBManager.getInstance().ifReadingRedundant("epa_aqx_reading", siteName, publishTime) != -1);
     }
 
     @Override
-    public ObservationDTO make(Node node) {
+    public void initialize() {
+        setDataName("Data");
+    }
+
+    @Override
+    public ObservationDTO operateNode(Node node) {
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             return new ObservationDTO( (Element) node );
         }

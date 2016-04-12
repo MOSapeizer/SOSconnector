@@ -23,21 +23,27 @@ public class DomParser {
         this.source = source;
     }
 
-    public NodeList getDataList(){
+    public NodeList getDataList(String dataName){
         org.w3c.dom.Document dom = parseSource(source);
         if (dom == null) throw new AssertionError();
-        return dom.getElementsByTagName("Data");
+        return dom.getElementsByTagName(dataName);
     }
 
     private org.w3c.dom.Document parseSource(String source) {
         try {
+            source = replaceIllegalChars(source);
             DocumentBuilder builder = getDOMBuilder();
             InputSource is = new InputSource( new StringReader(source) );
+
             return builder.parse(is);
         } catch (ParserConfigurationException | SAXException | IOException e) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
+    }
+
+    private String replaceIllegalChars(String source){
+      return source.replace("\uFEFF", "");
     }
 
     private DocumentBuilder getDOMBuilder() throws ParserConfigurationException {
