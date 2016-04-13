@@ -9,6 +9,8 @@ package sosconnector;
  *
  * @author Sean
  */
+import sosconnector.EPA.EPA_AQX;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;

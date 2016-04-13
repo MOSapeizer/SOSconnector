@@ -25,7 +25,7 @@ abstract public class ResponseFactory<T> {
         this.source = source;
     }
 
-    public void setDataName(String dataName){
+    public void setFilterNodeName(String dataName){
         this.dataName = dataName;
     }
 
@@ -35,35 +35,29 @@ abstract public class ResponseFactory<T> {
 
     public void insertDataIntoDatabase(){
         initialize();
-        NodeList list = new DomParser( source ).getDataList(dataName);
-        for (int temp = 0; temp < list.getLength(); temp++) {
-            Node node = list.item(temp);
-            T obj = operateNode(node);
+        NodeList list = parseXMLtoList();
+        filterAndManipulateNodesIn( list );
+    }
+
+    private NodeList parseXMLtoList() {
+        return new DomParser( source ).getDataList(dataName);
+    }
+
+    private void filterAndManipulateNodesIn(NodeList list) {
+        for (int index = 0; index < list.getLength(); index++) {
+            Node node = list.item(index);
+            T obj = operateFilteredNode(node);
             if(obj != null) manipulateObjIfNotRedundant(obj);
         }
     }
 
-    public void manipulateObjIfNotRedundant(T obj){
-        if ( whichIsRedundant( obj ) )
-            return;
-        else finalManipulate( obj );
+    private void manipulateObjIfNotRedundant(T obj){
+        if (!whichFilteredNodeIsRedundant( obj )) {
+            finalManipulate( obj );
+        }
     }
 
-    public void sendInsertRequestWithPayload(String stationName, String url) {
-        String insertSensorXml = getXML( stationName );
-        String response = sendInsertRequest(url, insertSensorXml);
-        writeToDocumnet( response );
-    }
-
-    abstract public Boolean whichIsRedundant(T obj);
-    abstract public void initialize();
-    abstract public T operateNode(Node node);
-
-    abstract public void finalManipulate(T obj);
-
-    abstract public String getXML( String name );
-
-    public String sendInsertRequest(String url, String requestBody) {
+    protected String sendInsertRequest(String url, String requestBody) {
         InsertRequest request = null;
         try {
             request = new InsertRequest(url);
@@ -75,9 +69,13 @@ abstract public class ResponseFactory<T> {
         return null;
     }
 
-    public void writeToDocumnet(String input) {
+    protected void writeToDocumnet(String input) {
         Document doc = Jsoup.parse( input );
         System.out.println("sendInsertsensorRequest\n" + doc);
     }
+    abstract public void initialize();
+    abstract public T operateFilteredNode(Node node);
+    abstract public Boolean whichFilteredNodeIsRedundant(T obj);
+    abstract public void finalManipulate(T obj);
 
 }

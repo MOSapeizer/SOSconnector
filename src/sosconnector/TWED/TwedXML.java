@@ -1,6 +1,7 @@
-package sosconnector.ObservationXML;
+package sosconnector.TWED;
 
 import sosconnector.DTO.TwedDTO;
+import sosconnector.ObservationXML.ObservationXML;
 
 /**
  * Created by zil on 2016/4/12.
@@ -13,6 +14,11 @@ public class TwedXML implements ObservationXML {
 
     public TwedXML(TwedDTO twed){
         this.twed = twed;
+    }
+
+    @Override
+    public String getInsertSensorXml(String siteName) {
+        return null;
     }
 
     @Override

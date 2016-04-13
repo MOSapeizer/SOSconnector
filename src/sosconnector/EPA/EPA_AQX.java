@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sosconnector;
-import sosconnector.Factory.ObsFactory;
-import sosconnector.Factory.SiteFactory;
+package sosconnector.EPA;
 import sosconnector.Request.Request;
+import sosconnector.SOSConnector;
 
 import java.io.IOException;
 import java.util.TimerTask;
@@ -31,7 +30,7 @@ public class EPA_AQX extends TimerTask {
     private void getAQXStationFromEPA() {
         try {
             String response = getResponseFromEPA( SiteURL );
-            new SiteFactory( response ).insertDataIntoDatabase();
+            new EpaSiteFactory( response ).insertDataIntoDatabase();
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -40,7 +39,7 @@ public class EPA_AQX extends TimerTask {
     private void getAQXReadingFromEPA() {
         try {
             String response = getResponseFromEPA( opendataURL );
-            new ObsFactory( response ).insertDataIntoDatabase();
+            new EpaFactory( response ).insertDataIntoDatabase();
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }

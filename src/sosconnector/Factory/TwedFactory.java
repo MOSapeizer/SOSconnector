@@ -15,27 +15,24 @@ public class TwedFactory extends ResponseFactory<TwedDTO> {
 
     @Override
     public void initialize() {
-        setDataName("twed:RealtimeWaterLevel_OPENDATA");
+        setFilterNodeName("twed:RealtimeWaterLevel_OPENDATA");
     }
 
     @Override
-    public TwedDTO operateNode(Node node) {
+    public TwedDTO operateFilteredNode(Node node) {
         TwedDTO twed = new TwedDTO( (Element) node );
         return twed;
     }
 
     @Override
-    public Boolean whichIsRedundant(TwedDTO obj) {
+    public Boolean whichFilteredNodeIsRedundant(TwedDTO obj) {
         return obj.getWaterLevel().equals("");
     }
 
     @Override
     public void finalManipulate(TwedDTO obj) {
+        //there need to send InsertObservationXML
         System.out.println("test for not empty");
     }
 
-    @Override
-    public String getXML(String name) {
-        return null;
-    }
 }
