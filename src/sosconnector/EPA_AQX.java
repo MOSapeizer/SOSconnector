@@ -30,10 +30,8 @@ public class EPA_AQX extends TimerTask {
 
     private void getAQXStationFromEPA() {
         try {
-            Request request = new Request( SiteURL );
-            request.setConnection("GET");
-            String response = request.getResponseBody();
-            new ObsFactory( response ).insertDataIntoDatabase();
+            String response = getResponseFromEPA( SiteURL );
+            new SiteFactory( response ).insertDataIntoDatabase();
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -41,14 +39,17 @@ public class EPA_AQX extends TimerTask {
 
     private void getAQXReadingFromEPA() {
         try {
-
-            Request request = new Request( opendataURL );
-            request.setConnection("GET");
-            String response = request.getResponseBody();
-            new SiteFactory( response ).insertDataIntoDatabase();
+            String response = getResponseFromEPA( opendataURL );
+            new ObsFactory( response ).insertDataIntoDatabase();
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    private String getResponseFromEPA(String url) throws IOException {
+        Request request = new Request( url );
+        request.setConnection("GET");
+        return request.getResponseBody();
     }
 
 }

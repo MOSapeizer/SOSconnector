@@ -2,13 +2,12 @@ package sosconnector.ObservationXML;
 
 import sosconnector.DBManager;
 import sosconnector.DTO.EpaDTO;
-import sosconnector.DTO.TwedDTO;
 import sosconnector.Request.InsertRequest;
 
 /**
  * Created by zil on 2016/4/13.
  */
-public class EpaXML {
+public class EpaXML implements ObservationXML {
     private EpaDTO epa;
     private String[] latLon;
 
@@ -25,28 +24,29 @@ public class EpaXML {
     }
 
     public String getInsertObservationXML(){
-        String insertObservationXml = InsertRequest.getInsertObservationXml(epa.getSiteName(), allObservationInSite());
+        String insertObservationXml = InsertRequest.getInsertObservationXml(epa.getSiteName(), allObservations());
         return insertObservationXml;
     }
 
-    public StringBuffer allObservationInSite(){
+
+    public StringBuffer allObservations(){
         StringBuffer allObsString = new StringBuffer();
-        allObsString = allObsString.append( observationXML("1", "PSI", epa.getPSI() ) );
-        allObsString = allObsString.append( observationXML("2", "SO2", epa.getSO2() ));
-        allObsString = allObsString.append( observationXML("3", "CO", epa.getCO() ));
-        allObsString = allObsString.append( observationXML("4", "O3", epa.getO3() ));
-        allObsString = allObsString.append( observationXML("5", "PM10", epa.getPM10() ));
-        allObsString = allObsString.append( observationXML("6", "PM2.5", epa.getPM2_5() ));
-        allObsString = allObsString.append( observationXML("7", "NO2", epa.getNO2() ));
-        allObsString = allObsString.append( observationXML("8", "WindSpeed", epa.getWindSpeed() ));
-        allObsString = allObsString.append( observationXML("9", "WindDirec", epa.getWindDirec() ));
-        allObsString = allObsString.append( observationXML("10", "FPMI", epa.getFPMI() ));
-        allObsString = allObsString.append( observationXML("11", "NOx", epa.getNOx() ));
-        allObsString = allObsString.append( observationXML("12", "NO", epa.getNO() ));
+        allObsString = allObsString.append( SingleObservationXML("1", "PSI", epa.getPSI() ) );
+        allObsString = allObsString.append( SingleObservationXML("2", "SO2", epa.getSO2() ));
+        allObsString = allObsString.append( SingleObservationXML("3", "CO", epa.getCO() ));
+        allObsString = allObsString.append( SingleObservationXML("4", "O3", epa.getO3() ));
+        allObsString = allObsString.append( SingleObservationXML("5", "PM10", epa.getPM10() ));
+        allObsString = allObsString.append( SingleObservationXML("6", "PM2.5", epa.getPM2_5() ));
+        allObsString = allObsString.append( SingleObservationXML("7", "NO2", epa.getNO2() ));
+        allObsString = allObsString.append( SingleObservationXML("8", "WindSpeed", epa.getWindSpeed() ));
+        allObsString = allObsString.append( SingleObservationXML("9", "WindDirec", epa.getWindDirec() ));
+        allObsString = allObsString.append( SingleObservationXML("10", "FPMI", epa.getFPMI() ));
+        allObsString = allObsString.append( SingleObservationXML("11", "NOx", epa.getNOx() ));
+        allObsString = allObsString.append( SingleObservationXML("12", "NO", epa.getNO() ));
         return allObsString;
     }
 
-    private String observationXML(String id, String obsName, String obsValue){
+    private String SingleObservationXML(String id, String obsName, String obsValue){
         String obsXML = "<sos:observation>\n"
                 + "        <om:OM_Observation gml:id=\"o" + id + "\">\n"
                 + "            <om:type xlink:href=\"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement\"/>\n"
