@@ -63,11 +63,11 @@ abstract public class ResponseFactory<T> {
 
     abstract public String getXML( String name );
 
-    public String sendInsertRequest(String url, String insertString) {
+    public String sendInsertRequest(String url, String requestBody) {
         InsertRequest request = null;
         try {
             request = new InsertRequest(url);
-            request.writeIn( insertString );
+            request.writeIn( requestBody );
             return request.getResponseBody();
         } catch (IOException e) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
