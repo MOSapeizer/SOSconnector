@@ -29,7 +29,7 @@ abstract public class ResponseFactory<T> {
         this.dataName = dataName;
     }
 
-    public void start(){
+    public void work(){
         insertDataIntoDatabase();
     }
 
@@ -47,8 +47,11 @@ abstract public class ResponseFactory<T> {
         for (int index = 0; index < list.getLength(); index++) {
             Node node = list.item(index);
             T obj = operateFilteredNode(node);
+            //這邊應該可以把node都存起來
+            //然後把manipulate的時機放在迴圈做完的時候
             if(obj != null) manipulateObjIfNotRedundant(obj);
         }
+        //就是這個位置來manipulate 推好的DTO，存完錢開始撒錢的感覺？
     }
 
     private void manipulateObjIfNotRedundant(T obj){

@@ -5,12 +5,7 @@
  */
 package sosconnector;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -34,17 +29,10 @@ public class DBManager {
     private DBManager() {
         try {
             Class.forName(JDBC_DRIVER);
-            Connection conn=DriverManager.getConnection("jdbc:mysql://localhost/connector_new?user=root&password=1234567&useUnicode=true&characterEncoding=utf-8"); 
-//Connection conn = getConnection();
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost/connector_new?user=" + USER + "&password=" + PASSWORD + "&useUnicode=true&characterEncoding=utf-8");
             //reset the database
             try {
                 Statement statement = conn.createStatement();
-
-                
-//                statement.execute("CREATE TABLE IF NOT EXISTS station(sid int, name VARCHAR(50) CHARACTER SET utf8, en_name VARCHAR(50), lon double, lat double,district VARCHAR(50) CHARACTER SET utf8, debrisNO VARCHAR(50) CHARACTER SET utf8, disaster VARCHAR(50) CHARACTER SET utf8, river VARCHAR(50) CHARACTER SET utf8, drainage VARCHAR(50) CHARACTER SET utf8, catchment VARCHAR(50) CHARACTER SET utf8, subcatchment VARCHAR(50) CHARACTER SET utf8, en_district VARCHAR(80), en_debrisNO VARCHAR(50), en_disaster VARCHAR(50), en_river VARCHAR(50), en_drainage VARCHAR(50), en_catchment VARCHAR(50), en_subcatchment VARCHAR(50), imgURL VARCHAR(80), stationURL VARCHAR(80), primary key(sid));");
-//                statement.execute("CREATE TABLE IF NOT EXISTS rain(stationname VARCHAR(50) CHARACTER SET utf8, name VARCHAR(50) CHARACTER SET utf8, lon VARCHAR(50), lat VARCHAR(50), primary key(stationname));");
-//                statement.execute("CREATE TABLE IF NOT EXISTS reading(stationname VARCHAR(50) CHARACTER SET utf8, rtime VARCHAR(50) CHARACTER SET utf8, tenMin float, oneHr float, threeHr float, sixHr float, oneDay float, twentyfourHr float, twelveHr float, primary key(stationname,rtime));");
-
                 statement.execute("CREATE TABLE IF NOT EXISTS swcb_station(sid int, name VARCHAR(50), en_name VARCHAR(50), lon double, lat double,district VARCHAR(50), debrisNO VARCHAR(50), disaster VARCHAR(50), river VARCHAR(50), drainage VARCHAR(50), catchment VARCHAR(50), subcatchment VARCHAR(50), en_district VARCHAR(80), en_debrisNO VARCHAR(50), en_disaster VARCHAR(50), en_river VARCHAR(50), en_drainage VARCHAR(50), en_catchment VARCHAR(50), en_subcatchment VARCHAR(50), imgURL VARCHAR(80), stationURL VARCHAR(80), primary key(sid));");
                 statement.execute("CREATE TABLE IF NOT EXISTS swcb_rain(stationname VARCHAR(50), name VARCHAR(50), lon VARCHAR(50), lat VARCHAR(50), primary key(stationname));");
                 statement.execute("CREATE TABLE IF NOT EXISTS swcb_reading(stationname VARCHAR(50), rtime VARCHAR(50), tenMin float, oneHr float, threeHr float, sixHr float, oneDay float, twentyfourHr float, twelveHr float, primary key(stationname,rtime));");
@@ -60,9 +48,7 @@ public class DBManager {
             } catch (SQLException ex) {
                 System.out.println("Create DB Tables Error:" + ex.getMessage());
             }
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(DBManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

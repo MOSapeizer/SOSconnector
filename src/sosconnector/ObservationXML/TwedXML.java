@@ -1,4 +1,4 @@
-package sosconnector.TWED;
+package sosconnector.ObservationXML;
 
 import sosconnector.DTO.TwedDTO;
 import sosconnector.ObservationXML.ObservationXML;
@@ -8,7 +8,7 @@ import sosconnector.ObservationXML.ObservationXML;
  */
 
 // wait for insertSensor.
-public class TwedXML implements ObservationXML {
+public class TwedXML extends ObservationXML {
 
     private TwedDTO twed;
 
@@ -16,14 +16,25 @@ public class TwedXML implements ObservationXML {
         this.twed = twed;
     }
 
+
     @Override
-    public String getInsertSensorXml(String siteName) {
-        return null;
+    protected String setPrefix() {
+        return "TWED";
     }
 
     @Override
-    public String getInsertObservationXML() {
-        return null;
+    protected String setSiteName() {
+        return twed.getStationIdentifier();
+    }
+
+    @Override
+    protected String[] setProperties() {
+        return new String[]{"WaterLevel"};
+    }
+
+    @Override
+    protected String setPropertyPrefix() {
+        return "urn:ogc:def:phenomenon:OGC:2.0:WL";
     }
 
     @Override

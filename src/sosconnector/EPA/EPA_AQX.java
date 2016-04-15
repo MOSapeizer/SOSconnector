@@ -30,7 +30,10 @@ public class EPA_AQX extends TimerTask {
     private void getAQXStationFromEPA() {
         try {
             String response = getResponseFromEPA( SiteURL );
-            new EpaSiteFactory( response ).insertDataIntoDatabase();
+            EpaSiteFactory epaSite = new EpaSiteFactory( response );
+
+            epaSite.work();
+
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -39,7 +42,10 @@ public class EPA_AQX extends TimerTask {
     private void getAQXReadingFromEPA() {
         try {
             String response = getResponseFromEPA( opendataURL );
-            new EpaFactory( response ).insertDataIntoDatabase();
+            EpaFactory epa = new EpaFactory( response );
+
+            epa.work();
+
         } catch (IOException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
