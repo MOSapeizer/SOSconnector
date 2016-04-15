@@ -4,7 +4,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
-import sosconnector.DomParser;
 import sosconnector.Request.InsertRequest;
 import sosconnector.SOSConnector;
 
@@ -19,7 +18,7 @@ abstract public class ResponseFactory<T> {
 
     protected String source;
     protected String dataName;
-    protected final String epaURL = "http://localhost:8080/epa-aqx-sos/service";
+    protected String url = setSOSUrl();
 
     public ResponseFactory(String source){
         this.source = source;
@@ -60,7 +59,7 @@ abstract public class ResponseFactory<T> {
         }
     }
 
-    protected String sendInsertRequest(String url, String requestBody) {
+    protected String sendInsertRequest(String requestBody) {
         InsertRequest request = null;
         try {
             request = new InsertRequest(url);
@@ -76,6 +75,8 @@ abstract public class ResponseFactory<T> {
         Document doc = Jsoup.parse( input );
         System.out.println("sendInsertsensorRequest\n" + doc);
     }
+
+    protected abstract String setSOSUrl();
     abstract public void initialize();
     abstract public T operateFilteredNode(Node node);
     abstract public Boolean whichFilteredNodeIsRedundant(T obj);

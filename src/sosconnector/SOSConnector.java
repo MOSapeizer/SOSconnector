@@ -503,13 +503,7 @@ public class SOSConnector extends TimerTask {
                     }
                 }
             }
-        } catch (MalformedURLException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParserConfigurationException ex) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SAXException ex) {
+        } catch (IOException | ParserConfigurationException | SAXException ex) {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

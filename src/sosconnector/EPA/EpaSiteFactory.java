@@ -11,10 +11,15 @@ import sosconnector.DTO.EpaSiteDTO;
 /**
  * Created by zil on 2016/4/1.
  */
-public class EpaSiteFactory extends ResponseFactory<EpaSiteDTO> {
+class EpaSiteFactory extends ResponseFactory<EpaSiteDTO> {
 
     public EpaSiteFactory(String source ){
         super(source);
+    }
+
+    @Override
+    protected String setSOSUrl() {
+        return "http://localhost:8080/epa-aqx-sos/service";
     }
 
     @Override
@@ -44,12 +49,12 @@ public class EpaSiteFactory extends ResponseFactory<EpaSiteDTO> {
     public void finalManipulate(EpaSiteDTO site) {
         String siteName = site.getSiteName();
         DBManager.getInstance().insertStation_epa_aqx(site);
-        sendInsertRequestWithPayload(siteName, epaURL);
+        sendInsertRequestWithPayload(siteName);
     }
 
-    private void sendInsertRequestWithPayload(String siteName, String url) {
-        String insertSensorXml = InsertRequest.getInsertSensorXML(new EpaXML().getInsertSensorXml(siteName));
-        String response = sendInsertRequest(url, insertSensorXml);
+    private void sendInsertRequestWithPayload(String siteName) {
+        String insertSensorXml = new EpaXML().getInsertSensorXml(siteName);
+        String response = sendInsertRequest(insertSensorXml);
         writeToDocumnet( response );
     }
 }

@@ -51,23 +51,23 @@ public class EpaXML extends ObservationXML {
     @Override
     public StringBuffer allObservations() {
         StringBuffer allObsString = new StringBuffer();
-        allObsString = allObsString.append(SingleObservationXML("1", "PSI", epa.getPSI()));
-        allObsString = allObsString.append(SingleObservationXML("2", "SO2", epa.getSO2()));
-        allObsString = allObsString.append(SingleObservationXML("3", "CO", epa.getCO()));
-        allObsString = allObsString.append(SingleObservationXML("4", "O3", epa.getO3()));
-        allObsString = allObsString.append(SingleObservationXML("5", "PM10", epa.getPM10()));
-        allObsString = allObsString.append(SingleObservationXML("6", "PM2.5", epa.getPM2_5()));
-        allObsString = allObsString.append(SingleObservationXML("7", "NO2", epa.getNO2()));
-        allObsString = allObsString.append(SingleObservationXML("8", "WindSpeed", epa.getWindSpeed()));
-        allObsString = allObsString.append(SingleObservationXML("9", "WindDirec", epa.getWindDirec()));
-        allObsString = allObsString.append(SingleObservationXML("10", "FPMI", epa.getFPMI()));
-        allObsString = allObsString.append(SingleObservationXML("11", "NOx", epa.getNOx()));
-        allObsString = allObsString.append(SingleObservationXML("12", "NO", epa.getNO()));
+        allObsString = allObsString.append(singleObservationXML("1", "PSI", epa.getPSI()));
+        allObsString = allObsString.append(singleObservationXML("2", "SO2", epa.getSO2()));
+        allObsString = allObsString.append(singleObservationXML("3", "CO", epa.getCO()));
+        allObsString = allObsString.append(singleObservationXML("4", "O3", epa.getO3()));
+        allObsString = allObsString.append(singleObservationXML("5", "PM10", epa.getPM10()));
+        allObsString = allObsString.append(singleObservationXML("6", "PM2.5", epa.getPM2_5()));
+        allObsString = allObsString.append(singleObservationXML("7", "NO2", epa.getNO2()));
+        allObsString = allObsString.append(singleObservationXML("8", "WindSpeed", epa.getWindSpeed()));
+        allObsString = allObsString.append(singleObservationXML("9", "WindDirec", epa.getWindDirec()));
+        allObsString = allObsString.append(singleObservationXML("10", "FPMI", epa.getFPMI()));
+        allObsString = allObsString.append(singleObservationXML("11", "NOx", epa.getNOx()));
+        allObsString = allObsString.append(singleObservationXML("12", "NO", epa.getNO()));
         return allObsString;
     }
 
 
-    private String SingleObservationXML(String id, String obsName, String obsValue){
+    private String singleObservationXML(String id, String obsName, String obsValue){
         String obsXML = "<sos:observation>\n"
                 + "        <om:OM_Observation gml:id=\"o" + id + "\">\n"
                 + "            <om:type xlink:href=\"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement\"/>\n"

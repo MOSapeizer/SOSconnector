@@ -1,9 +1,10 @@
-package sosconnector;
+package sosconnector.Factory;
 
 import com.sun.java.browser.plugin2.DOM;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
+import sosconnector.SOSConnector;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;

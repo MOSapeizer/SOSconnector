@@ -17,6 +17,11 @@ public class EpaFactory extends ResponseFactory<EpaDTO> {
     }
 
     @Override
+    protected String setSOSUrl() {
+        return "http://localhost:8080/epa-aqx-sos/service";
+    }
+
+    @Override
     public void initialize() {
         setFilterNodeName("Data");
     }
@@ -39,11 +44,11 @@ public class EpaFactory extends ResponseFactory<EpaDTO> {
     @Override
     public void finalManipulate(EpaDTO epa) {
         DBManager.getInstance().insertAQX_epa( epa );
-        sendInsertObsRequest(epaURL, new EpaXML( epa ).getInsertObservationXML());
+        sendInsertObsRequest(new EpaXML( epa ).getInsertObservationXML());
     }
 
-    public void sendInsertObsRequest(String url, String requestBody){
-        String response = sendInsertRequest(url, requestBody);
+    public void sendInsertObsRequest(String requestBody){
+        String response = sendInsertRequest(requestBody);
         writeToDocumnet( response );
     }
 

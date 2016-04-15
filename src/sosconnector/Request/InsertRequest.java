@@ -13,12 +13,6 @@ public class InsertRequest extends Request {
         this.connection = setConnection();
     }
 
-    public static String getInsertSensorXML(Object obj){
-
-        return null;
-    }
-
-
 
     public HttpURLConnection setConnection() throws IOException {
         HttpURLConnection connection = super.setConnection("POST");

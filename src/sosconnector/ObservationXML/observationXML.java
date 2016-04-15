@@ -5,7 +5,7 @@ package sosconnector.ObservationXML;
  */
 abstract class ObservationXML {
     String prefix  = setPrefix();
-    private String[] properties = setProperties();
+    protected String[] properties = setProperties();
     private String propertyPrefix = setPropertyPrefix();
     protected abstract String setPrefix();
     protected abstract String setSiteName();

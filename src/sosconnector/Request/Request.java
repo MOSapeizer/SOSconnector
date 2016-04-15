@@ -18,34 +18,11 @@ import java.util.logging.Logger;
 public class Request {
 
     public URL url;
-    public HttpURLConnection connection = null;
+    HttpURLConnection connection = null;
     private final static String USER_AGENT = "Mozilla/5.0";
 
     public Request(String urlString){
         this.url = setURL( urlString );
-    }
-
-    protected URL setURL(String urlString) {
-        try {
-            return  new URL(urlString);
-        } catch (MalformedURLException e) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
-        }
-        return null;
-    }
-
-    public HttpURLConnection setConnection(String method) throws IOException {
-
-        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-        connection.setDoOutput(true); // Triggers POST.
-        connection.setRequestMethod(method);
-        connection.setRequestProperty("User-Agent", USER_AGENT);
-        this.connection = connection;
-        return connection;
-    }
-
-    public HttpURLConnection getConnection(){
-        return this.getConnection();
     }
 
     public void writeIn(String input) throws IOException {
@@ -60,7 +37,33 @@ public class Request {
         return readFrom(in);
     }
 
-    protected BufferedReader getBufferedReader() throws IOException {
+
+    public HttpURLConnection setConnection(String method) throws IOException {
+
+        HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+        connection.setDoOutput(true); // Triggers POST.
+        connection.setRequestMethod(method);
+        connection.setRequestProperty("User-Agent", USER_AGENT);
+        this.connection = connection;
+        return connection;
+    }
+
+    private URL setURL(String urlString) {
+        try {
+            return  new URL(urlString);
+        } catch (MalformedURLException e) {
+            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
+        }
+        return null;
+    }
+
+
+
+    private HttpURLConnection getConnection(){
+        return this.getConnection();
+    }
+
+    private BufferedReader getBufferedReader() throws IOException {
         return new BufferedReader( getConnectionReader() );
     }
 
@@ -68,7 +71,7 @@ public class Request {
         return new InputStreamReader(connection.getInputStream(), "UTF-8");
     }
 
-    protected String readFrom(BufferedReader in) throws IOException {
+    private String readFrom(BufferedReader in) throws IOException {
         String inputLine;
         StringBuffer out = new StringBuffer();
         while ((inputLine = in.readLine()) != null) {

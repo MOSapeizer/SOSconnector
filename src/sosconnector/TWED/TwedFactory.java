@@ -4,6 +4,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import sosconnector.DTO.TwedDTO;
 import sosconnector.Factory.ResponseFactory;
+import sosconnector.ObservationXML.TwedXML;
 
 /**
  * Created by zil on 2016/4/12.
@@ -19,6 +20,11 @@ public class TwedFactory extends ResponseFactory<TwedDTO> {
 
     public TwedFactory(String source) {
         super(source);
+    }
+
+    @Override
+    protected String setSOSUrl() {
+        return "http://localhost:8080/twed_waterLevel/service";
     }
 
     @Override
@@ -39,8 +45,8 @@ public class TwedFactory extends ResponseFactory<TwedDTO> {
 
     @Override
     public void finalManipulate(TwedDTO obj) {
-        //there need to send InsertObservationXML
-        System.out.println("test for not empty");
+        String resposne = sendInsertRequest( new TwedXML(obj).getInsertObservationXML() );
+        writeToDocumnet( resposne );
     }
 
 }
