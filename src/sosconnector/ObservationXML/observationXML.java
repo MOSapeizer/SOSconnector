@@ -102,7 +102,7 @@ abstract class ObservationXML {
         return insertobservationxml;
     }
 
-    protected String observablePropertyTag(String property){
+    private String observablePropertyTag(String property){
         return "<swes:observableProperty>" + propertyPrefix + "_" + property + "</swes:observableProperty>";
     }
 }
