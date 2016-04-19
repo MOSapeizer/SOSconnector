@@ -1,31 +1,32 @@
 package sosconnector.DAO;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
+import sosconnector.DTO.DTOFactory;
 import sosconnector.Factory.DomParser;
 import sosconnector.Request.Request;
 
+import java.io.File;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
  * Created by zil on 2016/4/1.
  */
-abstract public class DAOFactory<T> {
 
-    private String source;
+//必須重構到只剩下getInsertSensorXML還有getInsertObservationXML就好
+//    參數的部分只需要考慮URL和設定檔的黨名。
+abstract public class DAOFactory {
+
     private String dataName;
+    private DTOFactory dto;
     private String url;
-    private LinkedList<T> list;
 
-    public DAOFactory(String url){
+    public DAOFactory(String url, String configure_path){
         this.url = url;
-        this.source = getSourceFormGOV();
-        work();
+        this.dto = new DTOFactory(new File(configure_path),  getSourceFormGOV() );
+//        work();
     }
 
     public String getInsertSensorXML(){
@@ -36,11 +37,10 @@ abstract public class DAOFactory<T> {
         return null;
     }
 
-    public void work(){
-        initialize();
-        NodeList list = parseXMLtoNodeList();
-        filter( list );
-    }
+//    public void work(){
+//        NodeList list = parseXMLtoNodeList();
+//        filter( list );
+//    }
 
     private String getSourceFormGOV(){
         try {
@@ -55,34 +55,17 @@ abstract public class DAOFactory<T> {
         this.dataName = dataName;
     }
 
-    private NodeList parseXMLtoNodeList() {
-        return new DomParser( source ).getDataList(dataName);
-    }
+//    private NodeList parseXMLtoNodeList() {
+//        return new DomParser( source ).getDataList(dataName);
+//    }
+//
+//    private void filter(NodeList list) {
+//        for (int index = 0; index < list.getLength(); index++) {
+//            Node node = list.item(index);
+//            T obj = map(node);
+//            if(obj != null) reduce(obj);
+//        }
+//    }
 
-    private void filter(NodeList list) {
-        for (int index = 0; index < list.getLength(); index++) {
-            Node node = list.item(index);
-            T obj = map(node);
-            if(obj != null) reduce(obj);
-        }
-    }
-
-    abstract public void initialize();
-
-    abstract public T map(Node node);
-
-    private void reduce(T obj){
-        if (!condition( obj )) {
-            output( obj );
-        }
-    }
-
-    protected void writeToDocumnet(String input) {
-        Document doc = Jsoup.parse( input );
-        System.out.println("sendInsertsensorRequest\n" + doc);
-    }
-
-    abstract public Boolean condition(T obj);
-    abstract public void output(T obj);
 
 }
