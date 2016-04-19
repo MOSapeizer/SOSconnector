@@ -1,4 +1,4 @@
-package sosconnector.ObservationXML;
+package sosconnector.XML;
 
 import sosconnector.DBManager;
 import sosconnector.DTO.EpaDTO;

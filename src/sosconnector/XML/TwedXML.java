@@ -1,7 +1,6 @@
-package sosconnector.ObservationXML;
+package sosconnector.XML;
 
 import sosconnector.DTO.TwedDTO;
-import sosconnector.ObservationXML.ObservationXML;
 
 /**
  * Created by zil on 2016/4/12.
@@ -55,10 +54,10 @@ public class TwedXML extends ObservationXML {
                 + "                </gml:TimeInstant>\n"
                 + "            </om:phenomenonTime>\n"
                 + "            <om:resultTime xlink:href=\"#phenomenonTime_" + id + "\"/>\n"
-                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:TWED:sensor:" + twed.getStationIdentifier() + "\"/>\n"
-                + "            <om:observedProperty xlink:href=\"urn:ogc:def:phenomenon:OGC:2.0:" + property + "\"/>\n"
-                + "            <om:featureOfInterest xlink:href=\"" + twed.getStationIdentifier()  + "\">\n"
-                + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"cm\">" + twed.getWaterLevel() + "</om:result>\n"
+                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + prefix + ":sensor" + twed.getStationIdentifier() + "\"/>\n"
+                + "            <om:observedProperty xlink:href=\"" + propertyPrefix + "_" + property + "\"/>\n"
+                + "            <om:featureOfInterest xlink:href=\"" + twed.getStationIdentifier()  + "\"/>\n"
+                + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"m\">" + twed.getWaterLevel() + "</om:result>\n"
                 + "        </om:OM_Observation>\n"
                 + "    </sos:observation>\n";
         return obsXML;

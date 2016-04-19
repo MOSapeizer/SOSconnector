@@ -13,7 +13,6 @@ public class InsertRequest extends Request {
         this.connection = setConnection();
     }
 
-
     public HttpURLConnection setConnection() throws IOException {
         HttpURLConnection connection = super.setConnection("POST");
         connection.setRequestProperty("Charset", "UTF-8");

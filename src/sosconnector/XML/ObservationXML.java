@@ -1,4 +1,4 @@
-package sosconnector.ObservationXML;
+package sosconnector.XML;
 
 /**
  * Created by zil on 2016/4/13.
@@ -6,7 +6,7 @@ package sosconnector.ObservationXML;
 abstract class ObservationXML {
     String prefix  = setPrefix();
     protected String[] properties = setProperties();
-    private String propertyPrefix = setPropertyPrefix();
+    protected String propertyPrefix = setPropertyPrefix();
     protected abstract String setPrefix();
     protected abstract String setSiteName();
     protected abstract String[] setProperties();
@@ -36,7 +36,7 @@ abstract class ObservationXML {
                 + "                        <sml:IdentifierList>\n"
                 + "                            <sml:identifier name=\"uniqueID\">\n"
                 + "                                <sml:Term definition=\"urn:ogc:def:identifier:OGC:1.0:uniqueID\">\n"
-                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ prefix +":sensor" + siteName + "</sml:value>\n"
+                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ prefix +":sensor:" + siteName + "</sml:value>\n"
                 + "                                </sml:Term>\n"
                 + "                            </sml:identifier>\n"
                 + "                        </sml:IdentifierList>\n"

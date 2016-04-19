@@ -9,7 +9,6 @@ package sosconnector;
  *
  * @author Sean
  */
-import sosconnector.EPA.EPA_AQX;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,7 +30,7 @@ public class TimerDemo {
         Date firstTime = dateFormatter.parse("2015/06/30 21:27:00");
 
         // schedule(TimerTask task, Date firstTime, long period)
-        timer.schedule(new EPA_AQX(), 1000);
+        //timer.schedule(new EPA_AQX(), 1000);
 
 //         try {
 //             Thread.sleep(10000);

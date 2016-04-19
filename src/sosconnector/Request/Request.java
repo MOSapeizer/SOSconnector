@@ -25,6 +25,11 @@ public class Request {
         this.url = setURL( urlString );
     }
 
+    public Request(String method, String urlString) throws IOException {
+        this.url = setURL( urlString );
+        setConnection(method);
+    }
+
     public void writeIn(String input) throws IOException {
         OutputStreamWriter wr = new OutputStreamWriter(connection.getOutputStream(), "UTF-8");
         wr.write( input );
@@ -38,7 +43,7 @@ public class Request {
     }
 
 
-    public HttpURLConnection setConnection(String method) throws IOException {
+    HttpURLConnection setConnection(String method) throws IOException {
 
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true); // Triggers POST.
@@ -55,12 +60,6 @@ public class Request {
             Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
-    }
-
-
-
-    private HttpURLConnection getConnection(){
-        return this.getConnection();
     }
 
     private BufferedReader getBufferedReader() throws IOException {
