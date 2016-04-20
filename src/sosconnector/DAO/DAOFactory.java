@@ -20,18 +20,18 @@ abstract public class DAOFactory {
 
 
     private String url;
-    private DTOFactory dto;
-    private Class dtoClass;
-    private Class template;
-    private LinkedList<LinkedHashMap> dtoGroup;
+    private Class dtoClass = setDtoClass();
+    private Class template = setXmlTemplate();
+    private LinkedList<Object> dtoGroup;
 
-    public DAOFactory(String url, String configure_path, Class xml){
+    public DAOFactory(String url, String configure_path){
         this.url = url;
-        this.dto = new DTOFactory(new File(configure_path),  getSourceFormGOV() );
-        this.dtoClass = null;
-        this.template = xml;
-        this.dtoGroup = dto.getDataList();
+        this.dtoGroup = dtoFactory( configure_path,  getSourceFormGOV() ).make( dtoClass );
     }
+
+    protected abstract Class setXmlTemplate();
+
+    protected abstract Class setDtoClass();
 
     public String[] getInsertSensorXML(){
 
@@ -42,9 +42,9 @@ abstract public class DAOFactory {
         return null;
     }
 
-    private LinkedList<Object> generateDTO(){
-        dto.make();
-        return null;
+    private DTOFactory dtoFactory(String configure_path, String source){
+        File file = new File( configure_path );
+        return new DTOFactory( file, source);
     }
 
     private String getSourceFormGOV(){
