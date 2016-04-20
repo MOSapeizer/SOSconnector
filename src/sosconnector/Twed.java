@@ -1,26 +1,20 @@
 package sosconnector;
 
+import sosconnector.DTO.TwedDTO;
 
-import sosconnector.DTO.DTOFactory;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 /**
- * Created by zil on 2016/4/13.
+ * Created by zil on 2016/4/20.
  */
 public class Twed {
 
-    public static void main(String[] args) throws Exception {
-
-//        String eapUrl = "http://localhost:8080/epa-aqx-sos/service";
-        String url = "http://data.wra.gov.tw/Service/OpenData.aspx?id=2D09DB8B-6A1B-485E-88B5-923A462F475C&format=xml";
-
-        DTOFactory d = new DTOFactory(new File("SOSConnector/src/sosconnector/Configure/twed.xml"), "");
-        Configure c = (Configure) d.unmarshal();
-
+    public static void main(String[] args){
+        Object[] o = new Object[3];
+        o[0] = "1";
+        o[1] = "2";
+        o[2] = "3";
 
 
 

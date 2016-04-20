@@ -5,7 +5,7 @@ import org.w3c.dom.NodeList;
 import sosconnector.Configure;
 import sosconnector.Factory.DomParser;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
@@ -21,26 +21,31 @@ public class NodeParser {
         this.list = dom.getDataList( configure.getRoot() );
     }
 
-    public LinkedList<HashMap> parse(){
-        LinkedList<HashMap> data = new LinkedList<>();
+    public LinkedList<LinkedHashMap> parse(){
+        LinkedList<LinkedHashMap> data = new LinkedList<>();
         collect(data);
         return data;
     }
 
-    private void collect(LinkedList<HashMap> data){
+    private void collect(LinkedList<LinkedHashMap> data){
         for (int index = 0; index < list.getLength(); index++) {
             Element node = (Element) list.item(index);
-            HashMap<String, String> hashMap = match(node);
+            LinkedHashMap<String, String> hashMap = match(node);
             data.push(hashMap);
         }
     }
 
-    private HashMap<String, String> match(Element node){
-        HashMap<String, String> hashMap = new HashMap<>();
+    private LinkedHashMap<String, String> match(Element node){
+        LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
         for(String child : configure.getChild()){
-            hashMap.put(child, getTagContent(node, child));
+            String name = justifyName(child);
+            hashMap.put(name, getTagContent(node, child));
         }
         return hashMap;
+    }
+
+    private String justifyName(String name){
+        return null;
     }
 
     private String getTagContent(Element node, String tag) {

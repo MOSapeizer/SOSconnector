@@ -1,13 +1,12 @@
 package sosconnector.DAO;
 
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import sosconnector.DTO.DTOFactory;
-import sosconnector.Factory.DomParser;
 import sosconnector.Request.Request;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -19,17 +18,23 @@ import java.util.logging.Logger;
 //    參數的部分只需要考慮URL和設定檔的黨名。
 abstract public class DAOFactory {
 
-    private String dataName;
-    private DTOFactory dto;
-    private String url;
 
-    public DAOFactory(String url, String configure_path){
+    private String url;
+    private DTOFactory dto;
+    private Class dtoClass;
+    private Class template;
+    private LinkedList<LinkedHashMap> dtoGroup;
+
+    public DAOFactory(String url, String configure_path, Class xml){
         this.url = url;
         this.dto = new DTOFactory(new File(configure_path),  getSourceFormGOV() );
-//        work();
+        this.dtoClass = null;
+        this.template = xml;
+        this.dtoGroup = dto.getDataList();
     }
 
-    public String getInsertSensorXML(){
+    public String[] getInsertSensorXML(){
+
         return null;
     }
 
@@ -37,10 +42,10 @@ abstract public class DAOFactory {
         return null;
     }
 
-//    public void work(){
-//        NodeList list = parseXMLtoNodeList();
-//        filter( list );
-//    }
+    private LinkedList<Object> generateDTO(){
+        dto.make();
+        return null;
+    }
 
     private String getSourceFormGOV(){
         try {
@@ -50,22 +55,5 @@ abstract public class DAOFactory {
         }
         return null;
     }
-
-    void setFilterNodeName(String dataName){
-        this.dataName = dataName;
-    }
-
-//    private NodeList parseXMLtoNodeList() {
-//        return new DomParser( source ).getDataList(dataName);
-//    }
-//
-//    private void filter(NodeList list) {
-//        for (int index = 0; index < list.getLength(); index++) {
-//            Node node = list.item(index);
-//            T obj = map(node);
-//            if(obj != null) reduce(obj);
-//        }
-//    }
-
 
 }

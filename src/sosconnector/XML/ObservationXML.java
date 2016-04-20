@@ -3,7 +3,7 @@ package sosconnector.XML;
 /**
  * Created by zil on 2016/4/13.
  */
-abstract class ObservationXML {
+public abstract class ObservationXML {
     String prefix  = setPrefix();
     protected String[] properties = setProperties();
     protected String propertyPrefix = setPropertyPrefix();
@@ -11,9 +11,6 @@ abstract class ObservationXML {
     protected abstract String setSiteName();
     protected abstract String[] setProperties();
     protected abstract String setPropertyPrefix();
-
-    //如果有n個property就要append n個singleObservationXML
-    //待解的隱患
     protected abstract StringBuffer allObservations();
 
     public String getInsertSensorXml(String siteName) {
