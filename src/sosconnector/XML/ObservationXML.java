@@ -5,13 +5,12 @@ package sosconnector.XML;
  */
 public abstract class ObservationXML {
     String prefix  = setPrefix();
-    String siteName = setSiteName();
     protected String[] properties = setProperties();
     protected String propertyPrefix = setPropertyPrefix();
     protected abstract String setPrefix();
-    protected abstract String setSiteName();
     protected abstract String[] setProperties();
     protected abstract String setPropertyPrefix();
+    protected abstract String siteName();
     protected abstract StringBuffer allObservations();
 
     public String getInsertSensorXml() {
@@ -34,7 +33,7 @@ public abstract class ObservationXML {
                 + "                        <sml:IdentifierList>\n"
                 + "                            <sml:identifier name=\"uniqueID\">\n"
                 + "                                <sml:Term definition=\"urn:ogc:def:identifier:OGC:1.0:uniqueID\">\n"
-                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ prefix +":sensor:" + siteName + "</sml:value>\n"
+                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ prefix +":sensor:" + siteName() + "</sml:value>\n"
                 + "                                </sml:Term>\n"
                 + "                            </sml:identifier>\n"
                 + "                        </sml:IdentifierList>\n"
@@ -42,10 +41,10 @@ public abstract class ObservationXML {
                 + "                    <sml:capabilities name=\"offerings\">\n"
                 + "                        <swe:SimpleDataRecord>\n"
                 + "                            <!-- Field name or gml:name is used for the offering's name -->\n"
-                + "                            <swe:field name=\"" + siteName+ "\">\n"
+                + "                            <swe:field name=\"" + siteName() + "\">\n"
                 + "                                <swe:Text definition=\"urn:ogc:def:identifier:OGC:offeringID\">\n"
-                + "                                    <gml:name>" + siteName + "</gml:name>\n"
-                + "                                    <swe:value>" + siteName + "</swe:value>\n"
+                + "                                    <gml:name>" + siteName() + "</gml:name>\n"
+                + "                                    <swe:value>" + siteName() + "</swe:value>\n"
                 + "                                </swe:Text>\n"
                 + "                            </swe:field>\n"
                 + "                        </swe:SimpleDataRecord>\n"
@@ -69,7 +68,7 @@ public abstract class ObservationXML {
     }
 
     public String getInsertObservationXML(){
-        return ObservationXML.getInsertObservationXml(setSiteName(), allObservations());
+        return ObservationXML.getInsertObservationXml(siteName(), allObservations());
     }
 
     private StringBuffer observablePropertyGroup(){

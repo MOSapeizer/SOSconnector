@@ -62,12 +62,13 @@ public class DTOFactory {
         Object[] params = new Object[size];
         for( int i = 0 ; i < size ; i++ ){
             params[i] = data.get(key[i]);
+            System.out.println(params[i]);
         }
         Constructor constructor = c.getConstructors()[0];
         return constructor.newInstance(params);
     }
 
-    private LinkedList<LinkedHashMap> getData(String source ){
+    private LinkedList<LinkedHashMap> getData(String source){
         try {
             DomParser dom = new DomParser(source);
             NodeParser nodeParser = new NodeParser( dom , (Configure) unmarshal());

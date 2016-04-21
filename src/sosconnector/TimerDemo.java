@@ -32,12 +32,13 @@ public class TimerDemo {
         // schedule(TimerTask task, Date firstTime, long period)
         //timer.schedule(new EPA_AQX(), 1000);
 
-//         try {
-//             Thread.sleep(10000);
-//         }
-//             catch(InterruptedException e) {
-//         }
-// 
-//         timer.cancel();
+         try {
+             Thread.sleep(10000);
+         }
+             catch(InterruptedException e) {
+
+         }
+
+         timer.cancel();
     }
 }

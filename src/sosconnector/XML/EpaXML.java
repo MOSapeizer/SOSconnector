@@ -33,7 +33,7 @@ public class EpaXML extends ObservationXML {
     }
 
     @Override
-    protected String setSiteName() {
+    protected String siteName() {
         return epa.getSiteName();
     }
 

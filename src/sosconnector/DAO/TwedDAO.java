@@ -14,11 +14,11 @@ public class TwedDAO extends DAOFactory {
 
     @Override
     protected Class setXmlTemplate() {
-        return TwedDTO.class;
+        return TwedXML.class;
     }
 
     @Override
     protected Class setDtoClass() {
-        return TwedXML.class;
+        return TwedDTO.class;
     }
 }

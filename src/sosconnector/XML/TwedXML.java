@@ -22,11 +22,6 @@ public class TwedXML extends ObservationXML {
     }
 
     @Override
-    protected String setSiteName() {
-        return twed.getStationIdentifier();
-    }
-
-    @Override
     protected String[] setProperties() {
         return new String[]{"waterLevel"};
     }
@@ -34,6 +29,11 @@ public class TwedXML extends ObservationXML {
     @Override
     protected String setPropertyPrefix() {
         return "urn:ogc:def:phenomenon:OGC:2.0:";
+    }
+
+    @Override
+    protected String siteName() {
+        return twed.getStationIdentifier();
     }
 
     @Override

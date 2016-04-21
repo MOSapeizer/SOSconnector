@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,29 +33,38 @@ abstract public class DAOFactory {
 
     protected abstract Class setDtoClass();
 
-    public LinkedList<String> getInsertSensorXML() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public LinkedList<String> getInsertSensorXML() throws IllegalAccessException, InstantiationException, InvocationTargetException {
         LinkedList<String> sensorXMLGroup = new LinkedList<>();
         for( Object dto : dtoGroup ){
-            ObservationXML xml = newInstanceOfXML(dto);
-            String sensorXML = xml.getInsertSensorXml();
+            String sensorXML = invoke(newInstanceOfXML(dto), "getInsertSensorXml");
             sensorXMLGroup.push( sensorXML );
         }
         return sensorXMLGroup;
     }
 
-    public LinkedList<String> getInsertObservationXML() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public LinkedList<String> getInsertObservationXML() throws IllegalAccessException, InstantiationException, InvocationTargetException {
         LinkedList<String> observationXMLGroup = new LinkedList<>();
         for( Object dto : dtoGroup ){
-            ObservationXML xml = newInstanceOfXML(dto);
-            String observationXML = xml.getInsertObservationXML();
+            String observationXML = invoke(newInstanceOfXML(dto), "getInsertObservationXML");
             observationXMLGroup.push( observationXML );
         }
         return observationXMLGroup;
     }
 
-    private ObservationXML newInstanceOfXML(Object params) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    private String invoke(Object obj, String method){
+        Class c = obj.getClass();
+        try {
+            Method getInsertSensorXML = c.getMethod(method);
+            return (String) getInsertSensorXML.invoke(obj);
+        } catch ( NoSuchMethodException | InvocationTargetException | IllegalAccessException e) {
+            Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, "Cant invoke object method", e);
+        }
+        return "";
+    }
+
+    private Object newInstanceOfXML(Object params) throws IllegalAccessException, InvocationTargetException, InstantiationException {
         Constructor constructor = template.getConstructors()[0];
-        return (ObservationXML) constructor.newInstance(params);
+        return constructor.newInstance(params);
     }
 
     private DTOFactory dtoFactory(String configure_path, String source){
