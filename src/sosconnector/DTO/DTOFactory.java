@@ -24,10 +24,6 @@ public class DTOFactory {
     private LinkedList<LinkedHashMap> dataList;
     private Set keySet;
 
-    public DTOFactory(){
-
-    }
-
     public DTOFactory(File configure, String source){
         this.configure = configure;
         this.dataList = getData( source );

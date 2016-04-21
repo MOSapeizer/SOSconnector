@@ -5,6 +5,7 @@ package sosconnector.XML;
  */
 public abstract class ObservationXML {
     String prefix  = setPrefix();
+    String siteName = setSiteName();
     protected String[] properties = setProperties();
     protected String propertyPrefix = setPropertyPrefix();
     protected abstract String setPrefix();
@@ -13,7 +14,7 @@ public abstract class ObservationXML {
     protected abstract String setPropertyPrefix();
     protected abstract StringBuffer allObservations();
 
-    public String getInsertSensorXml(String siteName) {
+    public String getInsertSensorXml() {
         String xml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<swes:InsertSensor\n"
                 + "    xmlns:swes=\"http://www.opengis.net/swes/2.0\"\n"

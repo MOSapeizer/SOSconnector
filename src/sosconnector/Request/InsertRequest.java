@@ -20,5 +20,4 @@ public class InsertRequest extends Request {
         return connection;
     }
 
-
 }

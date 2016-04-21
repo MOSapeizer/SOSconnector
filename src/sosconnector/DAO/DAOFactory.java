@@ -2,10 +2,11 @@ package sosconnector.DAO;
 
 import sosconnector.DTO.DTOFactory;
 import sosconnector.Request.Request;
-
+import sosconnector.XML.ObservationXML;
 import java.io.File;
 import java.io.IOException;
-import java.util.LinkedHashMap;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,8 +15,6 @@ import java.util.logging.Logger;
  * Created by zil on 2016/4/1.
  */
 
-//必須重構到只剩下getInsertSensorXML還有getInsertObservationXML就好
-//    參數的部分只需要考慮URL和設定檔的黨名。
 abstract public class DAOFactory {
 
 
@@ -33,9 +32,15 @@ abstract public class DAOFactory {
 
     protected abstract Class setDtoClass();
 
-    public String[] getInsertSensorXML(){
-
-        return null;
+    public LinkedList<String> getInsertSensorXML(Class c) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        LinkedList<String> sensorXMLGroup = new LinkedList<>();
+        for( Object dto : dtoGroup ){
+            Constructor constructor = c.getConstructors()[0];
+            ObservationXML xml = (ObservationXML) constructor.newInstance(dto);
+            String sensorXML = xml.getInsertSensorXml();
+            sensorXMLGroup.push( sensorXML );
+        }
+        return sensorXMLGroup;
     }
 
     public String getInsertObservationXML(){

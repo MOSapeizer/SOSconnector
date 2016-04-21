@@ -39,7 +39,6 @@ public class TwedXML extends ObservationXML {
     @Override
     public StringBuffer allObservations() {
         StringBuffer allObs = new StringBuffer();
-        // there is a problem.
         allObs.append( singleObservationXML("1", properties[0]) );
         return allObs;
     }

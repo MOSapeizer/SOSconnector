@@ -16,7 +16,7 @@ public class NodeParser {
     private NodeList list;
     private Configure configure;
 
-    public NodeParser(DomParser dom, Configure configure ){
+    public NodeParser(DomParser dom, Configure configure){
         this.configure = configure;
         this.list = dom.getDataList( configure.getRoot() );
     }
@@ -45,7 +45,10 @@ public class NodeParser {
     }
 
     private String justifyName(String name){
-        return null;
+        String[] split = name.split(":");
+        if(split.length >= 2)
+            return split[1];
+        return split[0];
     }
 
     private String getTagContent(Element node, String tag) {

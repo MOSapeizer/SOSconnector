@@ -1,6 +1,7 @@
 package sosconnector;
 
 import sosconnector.DTO.TwedDTO;
+import sosconnector.XML.TwedXML;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -15,8 +16,6 @@ public class Twed {
         o[0] = "1";
         o[1] = "2";
         o[2] = "3";
-
-
 
     }
 }
