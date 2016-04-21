@@ -32,19 +32,29 @@ abstract public class DAOFactory {
 
     protected abstract Class setDtoClass();
 
-    public LinkedList<String> getInsertSensorXML(Class c) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+    public LinkedList<String> getInsertSensorXML() throws IllegalAccessException, InvocationTargetException, InstantiationException {
         LinkedList<String> sensorXMLGroup = new LinkedList<>();
         for( Object dto : dtoGroup ){
-            Constructor constructor = c.getConstructors()[0];
-            ObservationXML xml = (ObservationXML) constructor.newInstance(dto);
+            ObservationXML xml = newInstanceOfXML(dto);
             String sensorXML = xml.getInsertSensorXml();
             sensorXMLGroup.push( sensorXML );
         }
         return sensorXMLGroup;
     }
 
-    public String getInsertObservationXML(){
-        return null;
+    public LinkedList<String> getInsertObservationXML() throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        LinkedList<String> observationXMLGroup = new LinkedList<>();
+        for( Object dto : dtoGroup ){
+            ObservationXML xml = newInstanceOfXML(dto);
+            String observationXML = xml.getInsertObservationXML();
+            observationXMLGroup.push( observationXML );
+        }
+        return observationXMLGroup;
+    }
+
+    private ObservationXML newInstanceOfXML(Object params) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor constructor = template.getConstructors()[0];
+        return (ObservationXML) constructor.newInstance(params);
     }
 
     private DTOFactory dtoFactory(String configure_path, String source){

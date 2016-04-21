@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4d31e003-efa3-43d4-93b6-6747acf534bc" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/sosconnector/Factory/SOS_Transform.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DAO/DAOFactory.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DAO/DAOFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DTO/DTOFactory.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DTO/DTOFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Parser/NodeParser.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Parser/NodeParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Twed.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Twed.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Adapter/SOS_Adapter.java" afterPath="$PROJECT_DIR$/src/sosconnector/Adapter/SOS_Adapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java" afterPath="$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/DTO/DTOFactory.java" afterPath="$PROJECT_DIR$/src/sosconnector/DTO/DTOFactory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Parser/NodeParser.java" afterPath="$PROJECT_DIR$/src/sosconnector/Parser/NodeParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Request/InsertRequest.java" afterPath="$PROJECT_DIR$/src/sosconnector/Request/InsertRequest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Twed.java" afterPath="$PROJECT_DIR$/src/sosconnector/Twed.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" afterPath="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/XML/TwedXML.java" afterPath="$PROJECT_DIR$/src/sosconnector/XML/TwedXML.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java" afterPath="$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java" />
     </list>
     <ignored path="SOSConnector.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,15 +48,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DAOFactory.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DAOFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state relative-caret-position="397">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1461#1462#0" expanded="true" />
-                <element signature="e#1488#1489#0" expanded="true" />
+                <element signature="method#getInsertSensorXML#0;class#DAOFactory#0" expanded="false" />
+                <element signature="method#getInsertObservationXML#0;class#DAOFactory#0" expanded="false" />
+                <element signature="method#newInstanceOfXML#0;class#DAOFactory#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TwedDAO.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="506">
+              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
+                <element signature="e#273#274#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#363#364#0" expanded="true" />
+                <element signature="e#414#415#0" expanded="true" />
+                <element signature="e#450#451#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -144,6 +151,7 @@
         <option value="$PROJECT_DIR$/src/sosconnector/XML/TwedXML.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java" />
+        <option value="$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java" />
       </list>
     </option>
   </component>
@@ -948,12 +956,12 @@
       <workItem from="1459245330223" duration="14036000" />
       <workItem from="1461125008730" duration="56000" />
       <workItem from="1461125097952" duration="464000" />
-      <workItem from="1461130955951" duration="5814000" />
+      <workItem from="1461130955951" duration="6554000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20370000" />
+    <option name="totallyTimeSpent" value="21110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="236" y="99" width="2009" height="1180" extended-state="0" />
@@ -1126,14 +1134,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/Parser/NodeParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
@@ -1225,12 +1225,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="397">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1461#1462#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
+            <element signature="method#getInsertSensorXML#0;class#DAOFactory#0" expanded="false" />
+            <element signature="method#getInsertObservationXML#0;class#DAOFactory#0" expanded="false" />
+            <element signature="method#newInstanceOfXML#0;class#DAOFactory#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
+            <element signature="e#273#274#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#363#364#0" expanded="true" />
+            <element signature="e#414#415#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
           </folding>
         </state>
       </provider>
