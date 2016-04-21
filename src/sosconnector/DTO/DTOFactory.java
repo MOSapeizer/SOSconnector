@@ -1,7 +1,7 @@
 package sosconnector.DTO;
 
 import sosconnector.Configure;
-import sosconnector.Factory.DomParser;
+import sosconnector.Parser.DomParser;
 import sosconnector.Parser.NodeParser;
 
 import javax.xml.bind.JAXBContext;

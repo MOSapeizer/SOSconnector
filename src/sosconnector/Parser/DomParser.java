@@ -1,4 +1,4 @@
-package sosconnector.Factory;
+package sosconnector.Parser;
 
 import com.sun.java.browser.plugin2.DOM;
 import org.w3c.dom.NodeList;

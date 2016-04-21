@@ -3,7 +3,6 @@ package sosconnector.Parser;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import sosconnector.Configure;
-import sosconnector.Factory.DomParser;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
