@@ -16,10 +16,15 @@ public class Filter {
     public LinkedList<String> compare( LinkedList<String> list){
         if(list.size() == this.list.size())
             return this.list;
-        return unique(list);
+        return clean(list);
     }
 
-    private LinkedList<String> unique(LinkedList<String> list){
+    public LinkedList<String> unique(){
+
+        return null;
+    }
+
+    private LinkedList<String> clean(LinkedList<String> list){
         for( String xml: this.list) {
             list.remove(xml);
         }

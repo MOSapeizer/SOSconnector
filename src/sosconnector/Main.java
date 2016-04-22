@@ -12,16 +12,16 @@ public class Main {
     private final static int minutes = 60 * seconds;
 
     public static void main(String[] args){
-        Timer timer = new Timer( true );
-        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
-        System.out.println("現在時間：" + new Date());
-
-        try {
-            Thread.sleep(120 * seconds);
-        } catch (InterruptedException ignored) {
-        }
-
-        System.out.println("結束時間：" + new Date());
-        timer.cancel();
+//        Timer timer = new Timer( true );
+//        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
+//        System.out.println("現在時間：" + new Date());
+//
+//        try {
+//            Thread.sleep(120 * seconds);
+//        } catch (InterruptedException ignored) {
+//        }
+//
+//        System.out.println("結束時間：" + new Date());
+//        timer.cancel();
     }
 }

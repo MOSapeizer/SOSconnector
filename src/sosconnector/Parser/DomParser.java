@@ -47,4 +47,5 @@ public class DomParser {
     private DocumentBuilder getDOMBuilder() throws ParserConfigurationException {
         return DocumentBuilderFactory.newInstance().newDocumentBuilder();
     }
+
 }

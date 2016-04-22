@@ -38,7 +38,11 @@ public class NodeParser {
         LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
         for(String child : configure.getChild()){
             String name = justifyName(child);
-            hashMap.put(name, getTagContent(node, child));
+            NodeList tags = getTag(node, child);
+            if( tags.getLength() == 1)
+                hashMap.put(name, getTagContent(tags, child));
+            else
+                pushDeepTagContent(hashMap, tags, child);
         }
         return hashMap;
     }
@@ -50,8 +54,18 @@ public class NodeParser {
         return split[0];
     }
 
-    private String getTagContent(Element node, String tag) {
-        return node.getElementsByTagName(tag).item(0).getTextContent();
+    private NodeList getTag(Element node, String tag){
+        return node.getElementsByTagName(tag);
+    }
+
+    private void pushDeepTagContent(LinkedHashMap<String, String> hashMap, NodeList node, String child){
+        for( int index = 0 ; index < node.getLength() ; index++ ){
+            hashMap.put(child + index, node.item(index).getTextContent());
+        }
+    }
+
+    private String getTagContent(NodeList node, String tag) {
+        return node.item(0).getTextContent();
     }
 
 }
