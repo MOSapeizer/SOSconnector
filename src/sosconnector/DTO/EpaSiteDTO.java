@@ -6,7 +6,7 @@ import org.w3c.dom.Element;
  * Created by zil on 2016/3/30.
  */
 public class EpaSiteDTO {
-    private Element node;
+
     private String SiteName;
     private String SiteEngName;
     private String AreaName;
@@ -17,20 +17,18 @@ public class EpaSiteDTO {
     private String TWD97Lat;
     private String SiteType;
 
-    public EpaSiteDTO(Element node) {
-        this.node = node;
-        this.SiteName = getTagContent("SiteName");
-        this.SiteEngName = getTagContent("SiteEngName");
-        this.AreaName =  getTagContent("AreaName");
-        this.County = getTagContent("County");
-        this.Township = getTagContent("Township");
-        this.TWD97Lon = getTagContent("TWD97Lon");
-        this.TWD97Lat = getTagContent("TWD97Lat");
-        this.SiteType = getTagContent("SiteType");
+    public EpaSiteDTO(String siteName, String siteEngName, String areaName, String county, String township, String siteAddress, String twd97Lon, String twd97Lat, String siteType) {
+        SiteName = siteName;
+        SiteEngName = siteEngName;
+        AreaName = areaName;
+        County = county;
+        Township = township;
+        SiteAddress = siteAddress;
+        TWD97Lon = twd97Lon;
+        TWD97Lat = twd97Lat;
+        SiteType = siteType;
     }
-    public String getTagContent(String tag) {
-        return node.getElementsByTagName(tag).item(0).getTextContent();
-    }
+
     public String getSiteName() {
         return this.SiteName;
     }

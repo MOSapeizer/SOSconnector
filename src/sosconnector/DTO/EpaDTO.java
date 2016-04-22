@@ -7,7 +7,6 @@ import org.w3c.dom.Element;
  */
 public class EpaDTO {
 
-    private Element node;
     private String County;
     private String PSI;
     private String MajorPollutant;
@@ -26,31 +25,26 @@ public class EpaDTO {
     private String PublishTime;
     private String SiteName;
 
-
-    public EpaDTO(Element node){
-        this.node = node;
-        this.SiteName =  getTagContent("SiteName");
-        this.County = getTagContent("County");
-        this.PSI = getTagContent("PSI");
-        this.MajorPollutant = getTagContent("MajorPollutant");
-        this.Status = getTagContent("Status");
-        this.SO2 = getTagContent("SO2");
-        this.CO = getTagContent("CO");
-        this.O3 = getTagContent("O3");
-        this.PM10 = getTagContent("PM10");
-        this.PM2_5 = getTagContent("PM2.5");
-        this.NO2 = getTagContent("NO2");
-        this.WindSpeed = getTagContent("WindSpeed");
-        this.WindDirec = getTagContent("WindDirec");
-        this.FPMI = getTagContent("FPMI");
-        this.NOx = getTagContent("NOx");
-        this.NO = getTagContent("NO");
-        this.PublishTime = getTagContent("PublishTime").replace(" ", "T");
+    public EpaDTO(String county, String psi, String majorPollutant, String status, String so2, String co, String o3, String pm10, String pm2_5, String no2, String windSpeed, String windDirec, String fpmi, String nOx, String no, String publishTime, String siteName) {
+        County = county;
+        PSI = psi;
+        MajorPollutant = majorPollutant;
+        Status = status;
+        SO2 = so2;
+        CO = co;
+        O3 = o3;
+        PM10 = pm10;
+        PM2_5 = pm2_5;
+        NO2 = no2;
+        WindSpeed = windSpeed;
+        WindDirec = windDirec;
+        FPMI = fpmi;
+        NOx = nOx;
+        NO = no;
+        PublishTime = publishTime;
+        SiteName = siteName;
     }
 
-    private String getTagContent(String tag) {
-        return node.getElementsByTagName(tag).item(0).getTextContent();
-    }
 
     public String getSiteName(){
         return this.SiteName;

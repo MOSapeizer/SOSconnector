@@ -17,10 +17,11 @@ public class Main {
         System.out.println("現在時間：" + new Date());
 
         try {
-            Thread.sleep(200000);
-        } catch (InterruptedException e) {
+            Thread.sleep(120 * seconds);
+        } catch (InterruptedException ignored) {
         }
 
+        System.out.println("結束時間：" + new Date());
         timer.cancel();
     }
 }
