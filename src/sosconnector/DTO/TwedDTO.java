@@ -4,6 +4,7 @@ package sosconnector.DTO;
  * Created by zil on 2016/4/12.
  */
 public class TwedDTO {
+
     private String recordTime;
     private String stationIdentifier;
     private String waterLevel;

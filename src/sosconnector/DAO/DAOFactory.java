@@ -18,7 +18,6 @@ import java.util.logging.Logger;
 
 abstract public class DAOFactory {
 
-
     private String url;
     private Class dtoClass = setDtoClass();
     private Class template = setXmlTemplate();

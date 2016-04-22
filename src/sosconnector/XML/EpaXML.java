@@ -42,7 +42,6 @@ public class EpaXML extends ObservationXML {
         return new String[]{"PSI", "SO2", "CO", "O3", "PM10", "PM2.5", "NO2", "WindSpeed", "WindDirec", "FPMI", "NOx", "NO"};
     }
 
-
     @Override
     protected String setPropertyPrefix() {
         return "urn:ogc:def:phenomenon:OGC:2.0:AQX";

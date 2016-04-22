@@ -20,6 +20,7 @@ import java.util.logging.Logger;
  * Created by zil on 2016/4/19.
  */
 public class DTOFactory {
+
     private File configure;
     private LinkedList<LinkedHashMap> dataList;
     private Set keySet;

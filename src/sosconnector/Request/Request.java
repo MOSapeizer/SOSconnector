@@ -17,11 +17,11 @@ import java.util.logging.Logger;
  */
 public class Request {
 
-    public URL url;
+    private URL url;
     HttpURLConnection connection = null;
     private final static String USER_AGENT = "Mozilla/5.0";
 
-    public Request(String urlString){
+    Request(String urlString){
         this.url = setURL( urlString );
     }
 
@@ -72,7 +72,7 @@ public class Request {
 
     private String readFrom(BufferedReader in) throws IOException {
         String inputLine;
-        StringBuffer out = new StringBuffer();
+        StringBuilder out = new StringBuilder();
         while ((inputLine = in.readLine()) != null) {
             out.append(inputLine);
         }

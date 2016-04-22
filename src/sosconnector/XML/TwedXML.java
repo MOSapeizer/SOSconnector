@@ -6,7 +6,6 @@ import sosconnector.DTO.TwedDTO;
  * Created by zil on 2016/4/12.
  */
 
-// wait for insertSensor.
 public class TwedXML extends ObservationXML {
 
     private TwedDTO twed;
@@ -14,7 +13,6 @@ public class TwedXML extends ObservationXML {
     public TwedXML(TwedDTO twed){
         this.twed = twed;
     }
-
 
     @Override
     protected String setPrefix() {
