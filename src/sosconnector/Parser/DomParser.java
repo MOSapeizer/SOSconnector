@@ -1,11 +1,8 @@
 package sosconnector.Parser;
 
-import com.sun.java.browser.plugin2.DOM;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
-import sosconnector.SOSConnector;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -38,7 +35,7 @@ public class DomParser {
 
             return builder.parse(is);
         } catch (ParserConfigurationException | SAXException | IOException e) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(DomParser.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
     }

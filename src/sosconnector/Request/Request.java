@@ -1,7 +1,5 @@
 package sosconnector.Request;
 
-import sosconnector.SOSConnector;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -57,7 +55,7 @@ public class Request {
         try {
             return  new URL(urlString);
         } catch (MalformedURLException e) {
-            Logger.getLogger(SOSConnector.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(Request.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
     }
