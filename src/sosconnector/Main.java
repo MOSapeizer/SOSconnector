@@ -1,0 +1,26 @@
+package sosconnector;
+
+import java.util.Date;
+import java.util.Timer;
+
+/**
+ * Created by zil on 2016/4/21.
+ */
+public class Main {
+
+    private final static int seconds = 1000;
+    private final static int minutes = 60 * seconds;
+
+    public static void main(String[] args){
+        Timer timer = new Timer( true );
+        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
+        System.out.println("現在時間：" + new Date());
+
+        try {
+            Thread.sleep(200000);
+        } catch (InterruptedException e) {
+        }
+
+        timer.cancel();
+    }
+}
