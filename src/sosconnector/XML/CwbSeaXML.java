@@ -37,7 +37,7 @@ public class CwbSeaXML extends ObservationXML {
     protected StringBuffer allObservations() {
         StringBuffer allObs = new StringBuffer();
         allObs.append( singleObservationXML("1", "depth", "m", cwb.getDepth()) );
-        allObs.append( singleObservationXML("2", "degree", "m", cwb.getDegree()) );
+        allObs.append( singleObservationXML("2", "degree", "deg", cwb.getDegree()) );
         return allObs;
     }
 
