@@ -14,7 +14,6 @@ public class NodeParser {
 
     private NodeList list;
     private Configure configure;
-    private ParserAdapter parser;
 
     public NodeParser(DomParser dom, Configure configure){
         this.configure = configure;
@@ -30,13 +29,13 @@ public class NodeParser {
     private void collect(LinkedList<LinkedHashMap> data){
         for (int index = 0; index < list.getLength(); index++) {
             Element node = (Element) list.item(index);
-            LinkedList<LinkedHashMap> match = match(node);
-            data.addAll(match);
+            LinkedHashMap match = match(node);
+            data.push(match);
         }
     }
 
-    private LinkedList<LinkedHashMap> match(Element node){
-        LinkedList<LinkedHashMap> objects  = parser.parse(configure.getChild(), node);
+    private LinkedHashMap match(Element node){
+        LinkedHashMap objects  = new ParserAdapter(node).parse(configure.getChild());
         return objects;
     }
 
