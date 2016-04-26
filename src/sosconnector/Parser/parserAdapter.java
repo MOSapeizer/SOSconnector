@@ -2,6 +2,7 @@ package sosconnector.Parser;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
+import sosconnector.GovConfigure.Child;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -10,6 +11,8 @@ import java.util.LinkedList;
 /**
  * Created by zil on 2016/4/22.
  */
+
+//make this dynamic;
 public class ParserAdapter {
 
     private Type type;
@@ -22,17 +25,15 @@ public class ParserAdapter {
         this.type = type;
     }
 
-    public void parse(HashMap<String, String> hashMap,  String child, Element node){
-        String name = justifyName(child);
+    public LinkedList<LinkedHashMap> parse(Child[] tags, Element node){
+
+        return null;
+    }
+    private void checkType(){
         switch (type) {
-            case SINGLE:
-                hashMap.put(name, getTagContent(node, child));
-                break;
             case MULTIPLE:
-                pushDeepTagContent(hashMap, getTags(node, child));
                 break;
             case DUPLICATE:
-
                 break;
         }
     }

@@ -2,7 +2,7 @@ package sosconnector.Parser;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import sosconnector.Configure;
+import sosconnector.GovConfigure.Configure;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -19,8 +19,6 @@ public class NodeParser {
     public NodeParser(DomParser dom, Configure configure){
         this.configure = configure;
         this.list = dom.getDataList( configure.getRoot() );
-        String type = configure.getType();
-        this.parser = new ParserAdapter( ParserAdapter.Type.valueOf(type) );
     }
 
     public LinkedList<LinkedHashMap> parse(){
@@ -32,17 +30,14 @@ public class NodeParser {
     private void collect(LinkedList<LinkedHashMap> data){
         for (int index = 0; index < list.getLength(); index++) {
             Element node = (Element) list.item(index);
-            LinkedHashMap<String, String> hashMap = match(node);
-            data.push(hashMap);
+            LinkedList<LinkedHashMap> match = match(node);
+            data.addAll(match);
         }
     }
 
-    private LinkedHashMap<String, String> match(Element node){
-        LinkedHashMap<String, String> hashMap = new LinkedHashMap<>();
-        for(String child : configure.getChild()){
-            parser.parse(hashMap, child, node);
-        }
-        return hashMap;
+    private LinkedList<LinkedHashMap> match(Element node){
+        LinkedList<LinkedHashMap> objects  = parser.parse(configure.getChild(), node);
+        return objects;
     }
 
 }

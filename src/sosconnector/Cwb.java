@@ -15,7 +15,8 @@ public class Cwb extends TimerTask {
 
     @Override
     public void run() {
-        new SosFactory<>( new CwbSeaDAO(url, filePath), service );
+        CwbSeaDAO cwb = new CwbSeaDAO(url, filePath);
+        new SosFactory<>( cwb , service ).work();
     }
 
 }

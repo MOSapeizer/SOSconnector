@@ -22,6 +22,7 @@ public class Twed extends TimerTask {
 
     @Override
     public void run() {
-        new SosFactory<>( new TwedDAO(url, filePath), service );
+        TwedDAO twed = new TwedDAO(url, filePath);
+        new SosFactory<>( twed, service ).work();
     }
 }

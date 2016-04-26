@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Configure className="Cwd">
+<Configure className="CwbSea">
     <root>location</root>
     <child>locationName</child>
     <child>stationId</child>
     <child>obsTime</child>
-    <child>value</child>
+    <child type="MULTIPLE">value</child>
 </Configure>
