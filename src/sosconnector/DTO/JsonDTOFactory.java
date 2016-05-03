@@ -48,6 +48,6 @@ public class JsonDTOFactory {
     }
 
     private String[] getKeySet() {
-        return new String[]{ "行政區", "縣市", "攝影機名稱", "影像連結網址", "架設或拍攝地點", "緯度", "經度" };
+        return new String[]{ "縣市", "行政區", "攝影機名稱", "影像連結網址", "架設或拍攝地點", "緯度", "經度" };
     }
 }
