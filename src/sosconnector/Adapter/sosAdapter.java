@@ -20,6 +20,7 @@ public class SosAdapter {
 
     public void insert(String xml){
         String response = sendInsertRequest(xml);
+        System.out.println(response);
         Analyze.statistic(response);
     }
 

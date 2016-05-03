@@ -8,8 +8,8 @@ import java.util.TimerTask;
  * Created by zil on 2016/4/29.
  */
 public class Swcb extends TimerTask {
-    private final String url = "http://data.wra.gov.tw/Service/OpenData.aspx?id=2D09DB8B-6A1B-485E-88B5-923A462F475C&format=xml";
-    private final String service = "http://localhost:8080/twed_waterLevel/service";
+    private final String url = "http://data.coa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=111";
+    private final String service = "http://localhost:8080/swcb_cctv/service";
 
     @Override
     public void run() {

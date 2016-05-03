@@ -85,9 +85,9 @@ public class SwcbXML extends ObservationXML {
                 + observablePropertyGroup()
                 + "    <swes:metadata>\n"
                 + "        <sos:SosInsertionMetadata>\n"
+                + "            <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>\n"
                 + "            <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TextObservation</sos:observationType>\n"
-                + "            <!-- multiple values possible -->\n"
-                + "           \n"
+                + "            <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_SWEArrayObservation</sos:observationType>\n"
                 + "        </sos:SosInsertionMetadata>\n"
                 + "    </swes:metadata>\n"
                 + "</swes:InsertSensor>";
@@ -97,15 +97,15 @@ public class SwcbXML extends ObservationXML {
 
     private String singleObservationXML(String id, String property){
         String obsXML = "<sos:observation>\n"
-                + "        <om:OM_TextObservation gml:id=\"o" + id + "\">\n"
-                + "            <om:type xlink:href=\"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement\"/>\n"
+                + "        <om:OM_Observation gml:id=\"o" + id + "\">\n"
+                + "            <om:type xlink:href=\"http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_TextObservation\"/>\n"
                 + "            <om:phenomenonTime>\n"
                 + "                <gml:TimeInstant gml:id=\"phenomenonTime_" + id + "\">\n"
                 + "                    <gml:timePosition>" + "2016-04-11T16:22:25.00" + "</gml:timePosition>\n"
                 + "                </gml:TimeInstant>\n"
                 + "            </om:phenomenonTime>\n"
                 + "            <om:resultTime xlink:href=\"#phenomenonTime_" + id + "\"/>\n"
-                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:EPA:sensor" + swcb.getCamera() + "\"/>\n"
+                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:"+ prefix +":sensor:" + siteName() + "\"/>\n"
                 + "            <om:observedProperty xlink:href=\"" + propertyPrefix + "_" + property + "\"/>\n"
                 + "            <om:featureOfInterest>\n"
                 + "                <sams:SF_SpatialSamplingFeature gml:id=\"CCTV\">\n"
@@ -120,8 +120,8 @@ public class SwcbXML extends ObservationXML {
                 + "                    </sams:shape>\n"
                 + "                </sams:SF_SpatialSamplingFeature>\n"
                 + "            </om:featureOfInterest>\n"
-                + "            <om:result>" + swcb.getCctv_url() + "</om:result>\n"
-                + "        </om:OM_TextObservation>\n"
+                + "            <om:result xsi:type=\"xs:string\">" + swcb.getCctv_url().replaceAll("&", "&amp;") + "</om:result>\n"
+                + "        </om:OM_Observation>\n"
                 + "    </sos:observation>\n";
         return obsXML;
     }
