@@ -11,7 +11,6 @@ import java.util.LinkedList;
 public class SwcbDAO extends DAOFactory {
 
     public SwcbDAO(String url) {
-//        there need to make a DTOFactory to parse json
         super(url);
     }
 

@@ -32,25 +32,18 @@ public class Main {
     }
 
     public static void main(String[] args) throws JAXBException {
-//        Timer timer = new Timer( true );
-//        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
-//        System.out.println("現在時間：" + new Date());
-//
-//        try {
-//            Thread.sleep(3 * days);
-//        } catch (InterruptedException ignored) {
-//        }
-//
-//        System.out.println("結束時間：" + new Date());
-//        timer.cancel();
+        Timer timer = new Timer( true );
+        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
+        timer.schedule(new Swcb(), 20 * seconds, 1 * hours);
+        System.out.println("現在時間：" + new Date());
 
-        String response = getSourceFormGOV("http://data.coa.gov.tw/Service/OpenData/DataFileService.aspx?UnitId=111");
-//        System.out.println(response);
-        JSONArray json = new JSONArray(response);
-
-        for(  int i = 0 ; i < json.length(); i++ ){
-            JSONObject j = (JSONObject) json.get(i);
-            System.out.println(j);
+        try {
+            Thread.sleep(3 * days);
+        } catch (InterruptedException ignored) {
         }
+
+        System.out.println("結束時間：" + new Date());
+        timer.cancel();
+
     }
 }
