@@ -1,9 +1,11 @@
 package sosconnector.Adapter;
 
 import sosconnector.DAO.DAOFactory;
+import sosconnector.Filter.Analyze;
 import sosconnector.Filter.Filter;
 import sosconnector.Twed;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -30,6 +32,8 @@ public class SosFactory<T extends DAOFactory> {
 
             LinkedList<String> observationXML = dao.getInsertObservationXML();
             send( observationXML );
+
+            System.out.println("\nTime: " + new Date() + Analyze.result() );
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
             Logger.getLogger(Twed.class.getName()).log(Level.SEVERE, "Can't get Xml", e);;
         }

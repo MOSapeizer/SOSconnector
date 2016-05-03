@@ -1,6 +1,7 @@
 package sosconnector.DAO;
 
 import sosconnector.DTO.DTOFactory;
+import sosconnector.DTO.JsonDTOFactory;
 import sosconnector.Request.Request;
 import sosconnector.XML.ObservationXML;
 import java.io.File;
@@ -22,6 +23,11 @@ abstract public class DAOFactory {
     private Class dtoClass = setDtoClass();
     private Class template = setXmlTemplate();
     private LinkedList<Object> dtoGroup;
+
+    public DAOFactory(String url){
+        this.url = url;
+        this.dtoGroup = new JsonDTOFactory( getSourceFormGOV() ).make( dtoClass );
+    }
 
     public DAOFactory(String url, String configure_path){
         this.url = url;

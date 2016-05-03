@@ -17,7 +17,7 @@ import java.util.logging.Logger;
 public class Twed extends TimerTask {
 
     private final String url = "http://data.wra.gov.tw/Service/OpenData.aspx?id=2D09DB8B-6A1B-485E-88B5-923A462F475C&format=xml";
-    private final String filePath = "src/sosconnector/GovConfigure/twed.xml";
+    private final String filePath = "xml/twed.xml";
     private final String service = "http://localhost:8080/twed_waterLevel/service";
 
     @Override

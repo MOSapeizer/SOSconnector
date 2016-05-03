@@ -1,5 +1,6 @@
 package sosconnector.Adapter;
 
+import sosconnector.Filter.Analyze;
 import sosconnector.Request.InsertRequest;
 
 import java.io.IOException;
@@ -19,7 +20,7 @@ public class SosAdapter {
 
     public void insert(String xml){
         String response = sendInsertRequest(xml);
-        System.out.println(response);
+        Analyze.statistic(response);
     }
 
     protected String sendInsertRequest(String requestBody) {

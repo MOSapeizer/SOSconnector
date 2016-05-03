@@ -63,7 +63,6 @@ public class DTOFactory {
         Object[] params = new Object[size];
         for( int i = 0 ; i < size ; i++ ){
             params[i] = data.get(key[i]);
-            System.out.println(params[i]);
         }
         Constructor constructor = c.getConstructors()[0];
         return constructor.newInstance(params);

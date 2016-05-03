@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configure className="CwbSeaLevel">
+    <root>location</root>
+    <child>locationName</child>
+    <child>stationId</child>
+    <child>obsTime</child>
+    <child type="DUPLICATE">value</child>
+</Configure>
