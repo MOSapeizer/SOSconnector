@@ -7,21 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d31e003-efa3-43d4-93b6-6747acf534bc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SOSConnector_jar/SOSConnector.jar" afterPath="$PROJECT_DIR$/out/artifacts/SOSConnector_jar/SOSConnector.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Adapter/SosAdapter.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Adapter/SosAdapter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DAO/SwcbDAO.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DAO/SwcbDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DTO/JsonDTOFactory.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DTO/JsonDTOFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DTO/SwcbDTO.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/DTO/SwcbDTO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Main.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Swcb.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Swcb.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/XML/ObservationXML.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/XML/ObservationXML.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/XML/SwcbXML.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/XML/SwcbXML.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Adapter/sosAdapter.java" afterPath="$PROJECT_DIR$/src/sosconnector/Adapter/sosAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Main.java" afterPath="$PROJECT_DIR$/src/sosconnector/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Swcb.java" afterPath="$PROJECT_DIR$/src/sosconnector/Swcb.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" afterPath="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/XML/SwcbXML.java" afterPath="$PROJECT_DIR$/src/sosconnector/XML/SwcbXML.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Adapter/SosFactory.java" afterPath="$PROJECT_DIR$/src/sosconnector/Adapter/SosFactory.java" />
     </list>
     <ignored path="SOSConnector.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
+            <state relative-caret-position="374">
+              <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <marker date="1462251244000" expanded="true" signature="590:989" placeholder="//..." />
@@ -57,11 +43,53 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SosFactory.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SosFactory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/Adapter/SosFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="506">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Swcb.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/Swcb.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TwedDAO.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
+              <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SosAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/Adapter/SosAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="330">
+              <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Analyze.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sosconnector/Filter/Analyze.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -131,13 +159,13 @@
         <option value="$PROJECT_DIR$/src/sosconnector/DTO/SwcbDTO.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/DAO/SwcbDAO.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java" />
-        <option value="$PROJECT_DIR$/src/sosconnector/Adapter/SosAdapter.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/Swcb.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/XML/SwcbXML.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/DTO/JsonDTOFactory.java" />
-        <option value="$PROJECT_DIR$/src/sosconnector/Adapter/SosFactory.java" />
         <option value="$PROJECT_DIR$/src/sosconnector/Main.java" />
+        <option value="$PROJECT_DIR$/src/sosconnector/Adapter/SosAdapter.java" />
+        <option value="$PROJECT_DIR$/src/sosconnector/Adapter/SosFactory.java" />
       </list>
     </option>
   </component>
@@ -1000,12 +1028,12 @@
       <workItem from="1461806609222" duration="1376000" />
       <workItem from="1461892631961" duration="161000" />
       <workItem from="1461921736398" duration="1653000" />
-      <workItem from="1462236289344" duration="14612000" />
+      <workItem from="1462236289344" duration="15301000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85275000" />
+    <option name="totallyTimeSpent" value="85964000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="293" y="25" width="2125" height="1264" extended-state="0" />
@@ -1212,17 +1240,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/Filter/Analyze.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
-          <folding>
-            <element signature="e#512#513#0" expanded="false" />
-            <element signature="e#560#561#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/Cwb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
@@ -1275,14 +1292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="660">
           <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -1373,16 +1382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/Swcb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="1" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/DAOFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-652">
@@ -1399,17 +1398,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/Adapter/SosAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding>
-            <element signature="e#330#331#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/Parser/NodeParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1418,22 +1406,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sosconnector/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/DAO/TwedDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/Adapter/SosAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="11" selection-start-line="22" selection-start-column="11" selection-end-line="22" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/Filter/Analyze.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="484">
-          <caret line="22" column="35" selection-start-line="22" selection-start-column="35" selection-end-line="22" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1462251244000" expanded="true" signature="590:989" placeholder="//..." />
-          </folding>
+          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/Adapter/SosFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="506">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/Swcb.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sosconnector/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1462251244000" expanded="true" signature="590:989" placeholder="//..." />
+          </folding>
         </state>
       </provider>
     </entry>

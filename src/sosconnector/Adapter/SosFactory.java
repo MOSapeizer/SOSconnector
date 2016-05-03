@@ -32,10 +32,9 @@ public class SosFactory<T extends DAOFactory> {
 
             LinkedList<String> observationXML = dao.getInsertObservationXML();
             send( observationXML );
-
-            System.out.println("\nTime: " + new Date() + Analyze.result() );
+            System.out.println("\nTime in Class " + dao.getClass().getName() + ": " + new Date() + Analyze.result() );
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            Logger.getLogger(Twed.class.getName()).log(Level.SEVERE, "Can't get Xml", e);;
+            Logger.getLogger(SosFactory.class.getName()).log(Level.SEVERE, "Can't get Xml", e);;
         }
     }
 
