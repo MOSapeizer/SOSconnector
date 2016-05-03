@@ -71,7 +71,7 @@ public abstract class ObservationXML {
         return ObservationXML.getInsertObservationXml(siteName(), allObservations());
     }
 
-    private StringBuffer observablePropertyGroup(){
+    protected StringBuffer observablePropertyGroup(){
         StringBuffer group = new StringBuffer();
         for(String property: properties)
             group.append( observablePropertyTag(property) );
