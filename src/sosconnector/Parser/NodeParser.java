@@ -27,11 +27,12 @@ public class NodeParser {
     }
 
     private void collect(LinkedList<LinkedHashMap> data){
-        for (int index = 0; index < list.getLength(); index++) {
-            Element node = (Element) list.item(index);
-            LinkedHashMap match = match(node);
-            data.push(match);
-        }
+        if(list != null)
+            for (int index = 0; index < list.getLength(); index++) {
+                Element node = (Element) list.item(index);
+                LinkedHashMap match = match(node);
+                data.push(match);
+            }
     }
 
     private LinkedHashMap match(Element node){

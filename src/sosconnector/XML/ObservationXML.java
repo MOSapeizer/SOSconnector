@@ -55,7 +55,7 @@ public abstract class ObservationXML {
                 + "        </sml:SensorML>\n"
                 + "    </swes:procedureDescription>\n"
                 + "    <!-- multiple values possible -->\n"
-                + observablePropertyGroup()
+                +      observablePropertyGroup()
                 + "    <swes:metadata>\n"
                 + "        <sos:SosInsertionMetadata>\n"
                 + "            <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>\n"

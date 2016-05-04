@@ -21,9 +21,9 @@ public class DomParser {
         this.source = source;
     }
 
-    public NodeList getDataList(String dataName){
+    NodeList getDataList(String dataName){
         org.w3c.dom.Document dom = parseSource(source);
-        if (dom == null) throw new AssertionError();
+        if (dom == null) return null;
         return dom.getElementsByTagName(dataName);
     }
 
