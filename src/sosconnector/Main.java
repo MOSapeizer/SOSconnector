@@ -1,12 +1,6 @@
 package sosconnector;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-import sosconnector.DAO.DAOFactory;
-import sosconnector.Request.Request;
-
 import javax.xml.bind.JAXBException;
-import java.io.IOException;
 import java.util.Date;
 import java.util.Timer;
 

@@ -102,6 +102,6 @@ public abstract class ObservationXML {
     }
 
     private String observablePropertyTag(String property){
-        return "<swes:observableProperty>" + propertyPrefix + "_" + property + "</swes:observableProperty>";
+        return "<swes:observableProperty>" + propertyPrefix + property + "</swes:observableProperty>";
     }
 }
