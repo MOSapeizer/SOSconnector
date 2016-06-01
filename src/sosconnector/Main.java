@@ -17,7 +17,7 @@ public class Main {
     public static void main(String[] args) throws JAXBException {
         Timer timer = new Timer( true );
         timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
-        timer.schedule(new Swcb(), 15 * seconds, 5 * hours);
+        timer.schedule(new Swcb(), 15 * seconds, 7 * days);
         System.out.println("現在時間：" + new Date());
 
         try {
