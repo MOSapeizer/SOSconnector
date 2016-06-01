@@ -21,7 +21,7 @@ public class Main {
         System.out.println("現在時間：" + new Date());
 
         try {
-            Thread.sleep(3 * days);
+            Thread.sleep(365 * days);
         } catch (InterruptedException ignored) {
         }
 

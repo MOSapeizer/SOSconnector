@@ -7,14 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4d31e003-efa3-43d4-93b6-6747acf534bc" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/SOSConnector_jar/SOSConnector.jar" afterPath="$PROJECT_DIR$/out/artifacts/SOSConnector_jar/SOSConnector.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Parser/DomParser.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Parser/DomParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Parser/NodeParser.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Parser/NodeParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/XML/SwcbXML.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/XML/SwcbXML.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Main.class" afterPath="$PROJECT_DIR$/out/production/SOSConnector/sosconnector/Main.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/Main.java" afterPath="$PROJECT_DIR$/src/sosconnector/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" afterPath="$PROJECT_DIR$/src/sosconnector/XML/ObservationXML.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sosconnector/XML/SwcbXML.java" afterPath="$PROJECT_DIR$/src/sosconnector/XML/SwcbXML.java" />
     </list>
     <ignored path="SOSConnector.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,7 +35,7 @@
       <file leaf-file-name="TwedXML.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/XML/TwedXML.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
+            <state relative-caret-position="616">
               <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
               <folding />
             </state>
@@ -70,11 +65,11 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sosconnector/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+            <state relative-caret-position="374">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1462520367000" expanded="true" signature="433:832" placeholder="//..." />
+                <marker date="1464747352000" expanded="true" signature="433:834" placeholder="//..." />
               </folding>
             </state>
           </provider>
@@ -197,6 +192,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -230,50 +227,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sosconnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOSConnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOSConnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sosconnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="XML" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOSConnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SOSConnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sosconnector" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Adapter" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -329,8 +282,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -946,12 +897,13 @@
       <workItem from="1462236289344" duration="20619000" />
       <workItem from="1462327083949" duration="9923000" />
       <workItem from="1462426539964" duration="3275000" />
-      <workItem from="1462502537194" duration="2027000" />
+      <workItem from="1462502537194" duration="2208000" />
+      <workItem from="1464747344252" duration="946000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106507000" />
+    <option name="totallyTimeSpent" value="107634000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="182" y="69" width="1835" height="1238" extended-state="0" />
@@ -1140,7 +1092,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="287">
           <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,10 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="25" column="1" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-          <folding>
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#264#265#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1271,7 +1218,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,7 +1239,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1717">
           <caret line="88" column="110" selection-start-line="88" selection-start-column="110" selection-end-line="88" selection-end-column="110" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1321,7 +1266,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/XML/TwedXML.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="616">
           <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
           <folding />
         </state>
@@ -1345,11 +1290,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sosconnector/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="594">
-          <caret line="27" column="41" selection-start-line="27" selection-start-column="41" selection-end-line="27" selection-end-column="41" />
+        <state relative-caret-position="374">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1462520367000" expanded="true" signature="433:832" placeholder="//..." />
+            <marker date="1464747352000" expanded="true" signature="433:834" placeholder="//..." />
           </folding>
         </state>
       </provider>
