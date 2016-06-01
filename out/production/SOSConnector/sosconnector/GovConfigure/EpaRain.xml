@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configure className="Twed">
+    <root>Data</root>
+    <child>SiteId</child>
+    <child>SiteName</child>
+    <child>TWD67LonTWD67Lon</child>
+    <child>TWD67LatTWD67Lat</child>
+    <child>Rainfall10min</child>
+    <child>Rainfall1hrRainfall1hr</child>
+    <child>Rainfall3hrRainfall3hr</child>
+    <child>Rainfall6hrRainfall6hr</child>
+    <child>Rainfall12hrRainfall12hr</child>
+    <child>Rainfall24hrRainfall24hr</child>
+    <child>Now</child>
+    <child>PublishTime</child>
+</Configure>

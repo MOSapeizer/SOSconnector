@@ -34,7 +34,7 @@ public class SosFactory<T extends DAOFactory> {
             send( observationXML );
             System.out.println("\nTime in Class " + dao.getClass().getName() + ": " + new Date() + Analyze.result() );
         } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            Logger.getLogger(SosFactory.class.getName()).log(Level.SEVERE, "Can't get Xml", e);;
+            Logger.getLogger(SosFactory.class.getName()).log(Level.SEVERE, "Can't get Xml", e);
         }
     }
 

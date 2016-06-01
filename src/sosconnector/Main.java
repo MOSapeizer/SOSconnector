@@ -17,6 +17,7 @@ public class Main {
     public static void main(String[] args) throws JAXBException {
         Timer timer = new Timer( true );
         timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
+//        timer.schedule(new Epa(), 5 * seconds, 10 * minutes);
         timer.schedule(new Swcb(), 15 * seconds, 7 * days);
         System.out.println("現在時間：" + new Date());
 
@@ -27,6 +28,5 @@ public class Main {
 
         System.out.println("結束時間：" + new Date());
         timer.cancel();
-
     }
 }
