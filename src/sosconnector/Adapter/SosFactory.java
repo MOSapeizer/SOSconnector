@@ -38,6 +38,16 @@ public class SosFactory<T extends DAOFactory> {
         }
     }
 
+    public void update(){
+        LinkedList<String> observationXML = null;
+        try {
+            observationXML = dao.getInsertObservationXML();
+            send( observationXML );
+        } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
+            Logger.getLogger(SosFactory.class.getName()).log(Level.SEVERE, "Can't get Xml", e);
+        }
+    }
+
     private void clean(LinkedList<String> list){
         if( filter == null )
             filter = new Filter(list);
