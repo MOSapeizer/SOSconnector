@@ -3,6 +3,6 @@
     <root>location</root>
     <child>locationName</child>
     <child>stationId</child>
-    <child>obsTime</child>
+    <child type="DUPLICATE">obsTime</child>
     <child type="DUPLICATE">value</child>
 </Configure>
