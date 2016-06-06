@@ -7,11 +7,11 @@ import java.util.TimerTask;
 /**
  * Created by zil on 2016/4/22.
  */
-public class Cwb extends TimerTask {
+public class CwbSea extends TimerTask {
 
     private final static String url = "http://opendata.cwb.gov.tw/govdownload?dataid=O-A0019-001&authorizationkey=rdec-key-123-45678-011121314";
-    private final static String filePath = "src/sosconnector/GovConfigure/CwbSea.xml";
-    private final static String service = "http://localhost:8080/CwbSea/service";
+    private final static String filePath = "xml/CwbSea.xml";
+    private final static String service = "http://localhost:8080/cwb_sea/service";
 
     @Override
     public void run() {

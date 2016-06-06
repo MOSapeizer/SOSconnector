@@ -15,12 +15,12 @@ public class CwbSeaXML extends ObservationXML {
 
     @Override
     protected String setPrefix() {
-        return "Cwb";
+        return "CWB";
     }
 
     @Override
     protected String[] setProperties() {
-        return new String[]{ "depth", "degree" };
+        return new String[]{ "depth", "temperature" };
     }
 
     @Override
