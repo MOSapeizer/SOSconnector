@@ -28,7 +28,7 @@ class ParserAdapter {
             } else if (tag.type.equals("DUPLICATE")) {
                 putDupliTagsContent(packet, tagName);
             } else if (tag.type.equals("MULTIPLE")) {
-                packet.put(tagName, getMultiTagContent(tagName));
+                putMultiTagsContent(packet, tagName);
             }
         }
         return packet;
@@ -39,6 +39,15 @@ class ParserAdapter {
         if(split.length >= 2)
             return split[1];
         return split[0];
+    }
+
+    private void putMultiTagsContent(LinkedHashMap<String, Object> packet , String name){
+        Integer id = 1;
+        String[] multiTagContent = getMultiTagContent(name);
+        for( String tagContent: multiTagContent ){
+            packet.put(name + id, tagContent);
+            id++;
+        }
     }
 
     private void putDupliTagsContent(LinkedHashMap<String, Object> packet , String name){

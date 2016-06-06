@@ -9,7 +9,7 @@ public class CwbSeaXML extends ObservationXML {
 
     private final CwbSeaDTO cwb;
 
-    private CwbSeaXML(CwbSeaDTO cwb){
+    public CwbSeaXML(CwbSeaDTO cwb){
         this.cwb = cwb;
     }
 
@@ -36,8 +36,8 @@ public class CwbSeaXML extends ObservationXML {
     @Override
     protected StringBuffer allObservations() {
         StringBuffer allObs = new StringBuffer();
-        allObs.append( singleObservationXML("1", "depth", "m", cwb.getDepth()) );
-        allObs.append( singleObservationXML("2", "degree", "deg", cwb.getDegree()) );
+        allObs.append( singleObservationXML("1", properties[0], "m", cwb.getDepth()) );
+        allObs.append( singleObservationXML("2", properties[1], "deg", cwb.getDegree()) );
         return allObs;
     }
 
@@ -56,8 +56,8 @@ public class CwbSeaXML extends ObservationXML {
                 + "                </gml:TimeInstant>\n"
                 + "            </om:phenomenonTime>\n"
                 + "            <om:resultTime xlink:href=\"#phenomenonTime_" + id + "\"/>\n"
-                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + prefix + ":sensor" + cwb.getStation() + "\"/>\n"
-                + "            <om:observedProperty xlink:href=\"" + propertyPrefix + "_" + property + "\"/>\n"
+                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + prefix + ":sensor:" + cwb.getStation() + "\"/>\n"
+                + "            <om:observedProperty xlink:href=\"" + propertyPrefix + property + "\"/>\n"
                 + "            <om:featureOfInterest xlink:href=\"" + cwb.getStation()  + "\"/>\n"
                 + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"" + uom + "\">" + value + "</om:result>\n"
                 + "        </om:OM_Observation>\n"

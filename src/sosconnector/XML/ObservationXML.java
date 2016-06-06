@@ -20,7 +20,7 @@ public abstract class ObservationXML {
                 + "    xmlns:sos=\"http://www.opengis.net/sos/2.0\"\n"
                 + "    xmlns:swe=\"http://www.opengis.net/swe/1.0.1\"\n"
                 + "    xmlns:sml=\"http://www.opengis.net/sensorML/1.0.1\"\n"
-                + "    xmlns:gml=\"http://www.opengis.net/gml/3.2\"\n"
+                + "    xmlns:gml=\"http://www.opengis.net/gml\"\n"
                 + "    xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n"
                 + "    xmlns:xs=\"http://www.w3.org/2001/XMLSchema\"\n"
                 + "    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" service=\"SOS\" version=\"2.0.0\" xsi:schemaLocation=\"http://www.opengis.net/sos/2.0 http://schemas.opengis.net/sos/2.0/sosInsertSensor.xsd   http://www.opengis.net/swes/2.0 http://schemas.opengis.net/swes/2.0/swes.xsd\">\n"

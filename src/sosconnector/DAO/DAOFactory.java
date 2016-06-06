@@ -68,7 +68,8 @@ abstract public class DAOFactory {
     }
 
     private Object newInstanceOfXML(Object params) throws IllegalAccessException, InvocationTargetException, InstantiationException {
-        Constructor constructor = template.getConstructors()[0];
+        Constructor[] constructors = template.getConstructors();
+        Constructor constructor = constructors[0];
         return constructor.newInstance(params);
     }
 
