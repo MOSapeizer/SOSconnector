@@ -6,11 +6,11 @@ package sosconnector.DTO;
 public class CwbSeaLevelDTO {
     private String station;
     private String stationId;
-    private String obsTime;
+    private String[] obsTime;
     private String[] seaLevel;
 
 
-    public CwbSeaLevelDTO(String station, String stationId, String obsTime, String[] seaLevel) {
+    public CwbSeaLevelDTO(String station, String stationId, String[] obsTime, String[] seaLevel) {
         this.station = station;
         this.stationId = stationId;
         this.obsTime = obsTime;
@@ -25,7 +25,7 @@ public class CwbSeaLevelDTO {
         return stationId;
     }
 
-    public String getObsTime() {
+    public String[] getObsTime() {
         return obsTime;
     }
 

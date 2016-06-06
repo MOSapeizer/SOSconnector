@@ -43,7 +43,7 @@ class ParserAdapter {
 
     private void putMultiTagsContent(LinkedHashMap<String, Object> packet , String name){
         Integer id = 1;
-        String[] multiTagContent = getMultiTagContent(name);
+        String[] multiTagContent = getAllSameTagValue(name);
         for( String tagContent: multiTagContent ){
             packet.put(name + id, tagContent);
             id++;
@@ -51,18 +51,21 @@ class ParserAdapter {
     }
 
     private void putDupliTagsContent(LinkedHashMap<String, Object> packet , String name){
-        NodeList list = node.getElementsByTagName(name);
-        for( int index = 0 ; index < list.getLength() ; index++ ){
-            Element item = (Element) list.item(index);
-            packet.put(name, item.getTextContent());
-        }
+        String[] allSameTagValue = getAllSameTagValue(name);
+        packet.put(name, allSameTagValue);
+//        NodeList list = node.getElementsByTagName(name);
+//        String[] content = new String[ list.getLength() ];
+//        for( int index = 0 ; index < list.getLength() ; index++ ){
+//            Element item = (Element) list.item(index);
+//            packet.put(name + index, item.getTextContent());
+//        }
     }
 
     private String getTagContent(String name) {
         return node.getElementsByTagName(name).item(0).getTextContent();
     }
 
-    private String[] getMultiTagContent(String name){
+    private String[] getAllSameTagValue(String name){
         NodeList list = node.getElementsByTagName(name);
         String[] content = new String[ list.getLength() ];
 
