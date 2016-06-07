@@ -62,7 +62,7 @@ public class CwbSeaLevelXML extends ObservationXML {
                 + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + prefix + ":sensor:" + cwb.getStation() + "\"/>\n"
                 + "            <om:observedProperty xlink:href=\"" + propertyPrefix + property + "\"/>\n"
                 + "            <om:featureOfInterest xlink:href=\"" + cwb.getStation()  + "\"/>\n"
-                + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"m\">" + value + "</om:result>\n"
+                + "            <om:result xsi:type=\"gml:MeasureType\" uom=\"cm\">" + value + "</om:result>\n"
                 + "        </om:OM_Observation>\n"
                 + "    </sos:observation>\n";
         return obsXML;
