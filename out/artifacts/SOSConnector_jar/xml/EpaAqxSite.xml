@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Configure className="EpaAqxSite">
+    <root>Data</root>
+    <child>SiteName</child>
+    <child>SiteEngName</child>
+    <child>AreaName</child>
+    <child>County</child>
+    <child>Township</child>
+    <child>SiteAddress</child>
+    <child>TWD97Lon</child>
+    <child>TWD97Lat</child>
+    <child>SiteType</child>
+</Configure>

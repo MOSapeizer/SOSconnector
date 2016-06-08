@@ -22,6 +22,8 @@ abstract public class DAOFactory {
     private String url;
     private Class dtoClass = setDtoClass();
     private Class template = setXmlTemplate();
+    protected Class siteClass = null;
+    private LinkedList<Object> siteDtoGroup;
     private LinkedList<Object> dtoGroup;
 
     public DAOFactory(String url){
@@ -34,26 +36,42 @@ abstract public class DAOFactory {
         this.dtoGroup = dtoFactory( configure_path,  getSourceFormGOV() ).make( dtoClass );
     }
 
+    public void setSiteResource(String url, String configure_path , Class dto){
+        this.siteClass = dto;
+        this.siteDtoGroup = dtoFactory( configure_path,  getSourceFormGOV(url) ).make( siteClass );
+    }
+
+    protected Object injectDtoGroup(Object dto, LinkedList siteDtoGroup){
+        return null;
+    }
+
     protected abstract Class setXmlTemplate();
 
     protected abstract Class setDtoClass();
 
     public LinkedList<String> getInsertSensorXML() throws IllegalAccessException, InstantiationException, InvocationTargetException {
         LinkedList<String> sensorXMLGroup = new LinkedList<>();
-        for( Object dto : dtoGroup ){
-            String sensorXML = invoke(newInstanceOfXML(dto), "getInsertSensorXml");
-            sensorXMLGroup.push( sensorXML );
-        }
+        collectXML(sensorXMLGroup, "getInsertSensorXml");
         return sensorXMLGroup;
     }
 
     public LinkedList<String> getInsertObservationXML() throws IllegalAccessException, InstantiationException, InvocationTargetException {
         LinkedList<String> observationXMLGroup = new LinkedList<>();
-        for( Object dto : dtoGroup ){
-            String observationXML = invoke(newInstanceOfXML(dto), "getInsertObservationXML");
-            observationXMLGroup.push( observationXML );
-        }
+        collectXML(observationXMLGroup, "getInsertObservationXML");
         return observationXMLGroup;
+    }
+
+    private void collectXML(LinkedList xmlGroup, String method)  throws IllegalAccessException, InstantiationException, InvocationTargetException {
+        for( Object dto : dtoGroup ){
+            String xml = "";
+            if( siteClass == null )
+                xml = invoke(newInstanceOfXML(dto), method);
+            else{
+                Object obj = injectDtoGroup(dto, siteDtoGroup);
+                xml = invoke(obj, method);
+            }
+            xmlGroup.push( xml );
+        }
     }
 
     private String invoke(Object obj, String method){
@@ -73,12 +91,27 @@ abstract public class DAOFactory {
         return constructor.newInstance(params);
     }
 
+    private Object newInstanceOfXML(Object[] params) throws IllegalAccessException, InvocationTargetException, InstantiationException {
+        Constructor[] constructors = template.getConstructors();
+        Constructor constructor = constructors[0];
+        return constructor.newInstance(params);
+    }
+
     private DTOFactory dtoFactory(String configure_path, String source){
         File file = new File( configure_path );
         return new DTOFactory( file, source);
     }
 
     private String getSourceFormGOV(){
+        try {
+            return new Request("GET", url).getResponseBody();
+        } catch (IOException e) {
+            Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, "Can't get Resource From gov URL.", e);
+        }
+        return null;
+    }
+
+    private String getSourceFormGOV(String url){
         try {
             return new Request("GET", url).getResponseBody();
         } catch (IOException e) {

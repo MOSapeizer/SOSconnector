@@ -5,7 +5,7 @@ import org.w3c.dom.Element;
 /**
  * Created by zil on 2016/3/30.
  */
-public class EpaSiteDTO {
+public class EpaAqxSiteDTO {
 
     private String SiteName;
     private String SiteEngName;
@@ -17,7 +17,7 @@ public class EpaSiteDTO {
     private String TWD97Lat;
     private String SiteType;
 
-    public EpaSiteDTO(String siteName, String siteEngName, String areaName, String county, String township, String siteAddress, String twd97Lon, String twd97Lat, String siteType) {
+    public EpaAqxSiteDTO(String siteName, String siteEngName, String areaName, String county, String township, String siteAddress, String twd97Lon, String twd97Lat, String siteType) {
         SiteName = siteName;
         SiteEngName = siteEngName;
         AreaName = areaName;

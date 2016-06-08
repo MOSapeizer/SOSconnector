@@ -18,8 +18,10 @@ public class Main {
         Timer timer = new Timer( true );
 //        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
 //        timer.schedule(new CwbSea(), 5 * seconds, 1 * days);
-        timer.schedule(new CwbSeaLevel(), 5 * seconds, 6 * hours);
+//        timer.schedule(new CwbSeaLevel(), 5 * seconds, 6 * hours);
 //        timer.schedule(new Swcb(), 15 * seconds, 7 * days);
+        timer.schedule(new Epa(), 15 * seconds, 7 * days);
+        timer.schedule(new EpaAQX(), 15 * seconds, 7 * days);
         System.out.println("現在時間：" + new Date());
 
         try {

@@ -1,48 +1,46 @@
 package sosconnector.DTO;
 
-import org.w3c.dom.Element;
-
 /**
  * Created by zil on 2016/3/30.
  */
-public class EpaDTO {
+public class EpaAqxDTO {
 
-    private String County;
-    private String PSI;
-    private String MajorPollutant;
-    private String Status;
-    private String SO2;
     private String CO;
+    private String County;
+    private String FPMI;
+    private String MajorPollutant;
+    private String NO;
+    private String NO2;
+    private String NOx;
     private String O3;
     private String PM10;
     private String PM2_5;
-    private String NO2;
-    private String WindSpeed;
-    private String WindDirec;
-    private String FPMI;
-    private String NOx;
-    private String NO;
+    private String PSI;
     private String PublishTime;
     private String SiteName;
+    private String SO2;
+    private String Status;
+    private String WindSpeed;
+    private String WindDirec;
 
-    public EpaDTO(String county, String psi, String majorPollutant, String status, String so2, String co, String o3, String pm10, String pm2_5, String no2, String windSpeed, String windDirec, String fpmi, String nOx, String no, String publishTime, String siteName) {
-        County = county;
-        PSI = psi;
-        MajorPollutant = majorPollutant;
-        Status = status;
-        SO2 = so2;
+    public EpaAqxDTO(String co, String county, String fpmi, String majorPollutant, String no, String no2, String nOx, String o3, String pm10, String pm2_5, String psi, String publishTime, String siteName, String so2, String status, String windSpeed, String windDirec) {
         CO = co;
+        County = county;
+        FPMI = fpmi;
+        MajorPollutant = majorPollutant;
+        NO = no;
+        NO2 = no2;
+        NOx = nOx;
         O3 = o3;
         PM10 = pm10;
         PM2_5 = pm2_5;
-        NO2 = no2;
-        WindSpeed = windSpeed;
-        WindDirec = windDirec;
-        FPMI = fpmi;
-        NOx = nOx;
-        NO = no;
+        PSI = psi;
         PublishTime = publishTime;
         SiteName = siteName;
+        SO2 = so2;
+        Status = status;
+        WindSpeed = windSpeed;
+        WindDirec = windDirec;
     }
 
 
