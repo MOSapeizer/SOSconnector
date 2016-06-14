@@ -27,7 +27,7 @@ public class EpaAqxDAO extends DAOFactory {
     }
 
     @Override
-    protected Object injectDtoGroup(Object dto, LinkedList siteDtoGroup) {
+    protected Object injectXMLCreation(Object dto, LinkedList siteDtoGroup) {
         EpaAqxDTO epa = (EpaAqxDTO) dto;
         for( Object obj: siteDtoGroup){
             EpaAqxSiteDTO epaSite = (EpaAqxSiteDTO) obj;
