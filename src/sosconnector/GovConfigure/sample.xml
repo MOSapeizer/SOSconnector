@@ -20,6 +20,8 @@
         <propertyPrefix>urn:ogc:def:phenomenon:OGC:2.0:AQX:</propertyPrefix>
         <property>CO</property>
         <property>PM2.5</property>
+        <!--<longitude>lon</longitude>-->
+        <!--<latitude>lat</latitude>-->
     </insertSite>
 
     <insertObservation>

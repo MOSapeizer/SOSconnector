@@ -5,18 +5,30 @@ package sosconnector.DTO;
  */
 public class ObservationDTO {
     private String siteName;
-    private String[] data;
+    private String longitude;
+    private String latitude;
+    private Observation[] observations;
 
-    public ObservationDTO(String siteName, String[] data) {
+    public ObservationDTO(String siteName, String longitude, String latitude, Observation[] observations) {
         this.siteName = siteName;
-        this.data = data;
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.observations = observations;
     }
 
     public String getSiteName() {
         return siteName;
     }
 
-    public String[] getData() {
-        return data;
+    public Observation[] getObservations() {
+        return observations;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public String getLatitude() {
+        return latitude;
     }
 }
