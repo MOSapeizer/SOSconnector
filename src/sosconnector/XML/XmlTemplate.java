@@ -142,7 +142,7 @@ public class XmlTemplate {
 
     protected StringBuffer observablePropertyGroup() {
         StringBuffer group = new StringBuffer();
-        for (String property : site.getPropertyPrefix())
+        for (String property : site.getProperty())
             group.append(observablePropertyTag(property));
         return group;
     }

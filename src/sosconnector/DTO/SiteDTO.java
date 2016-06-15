@@ -7,11 +7,11 @@ public class SiteDTO {
     private String prefix;
     private String offering;
     private String procedure;
-    private String[] propertyPrefix;
+    private String propertyPrefix;
     private String[] property;
 
 
-    public SiteDTO(String prefix, String offering, String procedure, String[] properyPrefix, String[] property) {
+    public SiteDTO(String prefix, String offering, String procedure, String properyPrefix, String[] property) {
         this.prefix = prefix;
         this.offering = offering;
         this.procedure = procedure;
@@ -27,7 +27,7 @@ public class SiteDTO {
         return procedure;
     }
 
-    public String[] getPropertyPrefix() {
+    public String getPropertyPrefix() {
         return propertyPrefix;
     }
 
