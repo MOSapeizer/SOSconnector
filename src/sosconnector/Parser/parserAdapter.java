@@ -53,12 +53,6 @@ class ParserAdapter {
     private void putDupliTagsContent(LinkedHashMap<String, Object> packet , String name){
         String[] allSameTagValue = getAllSameTagValue(name);
         packet.put(name, allSameTagValue);
-//        NodeList list = node.getElementsByTagName(name);
-//        String[] content = new String[ list.getLength() ];
-//        for( int index = 0 ; index < list.getLength() ; index++ ){
-//            Element item = (Element) list.item(index);
-//            packet.put(name + index, item.getTextContent());
-//        }
     }
 
     private String getTagContent(String name) {
