@@ -12,16 +12,12 @@ import java.util.TimerTask;
  */
 public class Connector extends TimerTask {
 
-    private final String url;
-    private final String filePath;
-    private final String service;
-    private final DAOFactory dao;
+    private String filePath;
+    private String service;
+    private DAOFactory dao;
 
-    public Connector(String url, String filePath, String service, DAOFactory dao) {
-        this.url = url;
-        this.filePath = filePath;
-        this.service = service;
-        this.dao = dao;
+    public Connector(String filePath) {
+
     }
 
     @Override
