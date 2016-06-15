@@ -3,6 +3,8 @@ package sosconnector.Parser;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import sosconnector.Configure.Child;
+import sosconnector.Configure.Observation;
+
 import java.util.LinkedHashMap;
 
 /**
@@ -18,9 +20,9 @@ class ParserAdapter {
         this.node = node;
     }
 
-    LinkedHashMap parse(Child[] tags) {
+    LinkedHashMap parse(Observation[] tags) {
         LinkedHashMap<String, Object> packet = new LinkedHashMap<>();
-        for (Child tag : tags) {
+        for (Observation tag : tags) {
             String tagName =  tag.value;
             if( tag.type == null ){
                 packet.put(tagName, getTagContent(tagName));

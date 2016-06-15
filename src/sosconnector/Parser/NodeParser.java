@@ -17,7 +17,7 @@ public class NodeParser {
 
     public NodeParser(DomParser dom, Configure configure){
         this.configure = configure;
-        this.list = dom.getDataList( configure.getRoot() );
+        this.list = dom.getDataList( configure.getInfo().getXmlDataRoot() );
     }
 
     public LinkedList<LinkedHashMap> parse(){
@@ -36,7 +36,7 @@ public class NodeParser {
     }
 
     private LinkedHashMap match(Element node){
-        LinkedHashMap objects  = new ParserAdapter(node).parse(configure.getChild());
+        LinkedHashMap objects  = new ParserAdapter(node).parse(configure.getInsertObservation().getObservation());
         return objects;
     }
 

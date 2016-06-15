@@ -9,8 +9,6 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name ="Configure")
 public class Configure {
     private String className;
-    private String root;
-    private Child[] child;
     private Info info;
     private InsertSensor insertSensor;
     private InsertObservation insertObservation;
@@ -19,25 +17,10 @@ public class Configure {
 
     }
 
-    public Configure(String className, String root, Child[] child) {
-        this.className = className;
-        this.root = root;
-        this.child = child;
-    }
-
     public Configure(Info info, InsertSensor insertSensor, InsertObservation insertObservation) {
         this.info = info;
         this.insertSensor = insertSensor;
         this.insertObservation = insertObservation;
-    }
-
-    @XmlElement
-    public String getRoot() {
-        return root;
-    }
-
-    public void setRoot(String root) {
-        this.root = root;
     }
 
     @XmlAttribute
@@ -47,15 +30,6 @@ public class Configure {
 
     public void setClassName(String className) {
         this.className = className;
-    }
-
-    @XmlElement
-    public Child[] getChild() {
-        return child;
-    }
-
-    public void setChild(Child[] child) {
-        this.child = child;
     }
 
     @XmlElement
