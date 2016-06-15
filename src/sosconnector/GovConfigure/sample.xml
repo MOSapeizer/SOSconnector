@@ -17,6 +17,7 @@
     <insertSite>
         <offering>Site</offering>
         <procedu>procedure</procedu>
+        <prefix>AQX</prefix>
         <propertyPrefix>urn:ogc:def:phenomenon:OGC:2.0:AQX:</propertyPrefix>
         <property>CO</property>
         <property>PM2.5</property>

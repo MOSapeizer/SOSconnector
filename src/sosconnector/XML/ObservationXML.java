@@ -4,13 +4,18 @@ package sosconnector.XML;
  * Created by zil on 2016/4/13.
  */
 public abstract class ObservationXML {
-    String prefix  = setPrefix();
+    String prefix = setPrefix();
     protected String[] properties = setProperties();
     protected String propertyPrefix = setPropertyPrefix();
+
     protected abstract String setPrefix();
+
     protected abstract String[] setProperties();
+
     protected abstract String setPropertyPrefix();
+
     protected abstract String siteName();
+
     protected abstract StringBuffer allObservations();
 
     public String getInsertSensorXml() {
@@ -34,7 +39,7 @@ public abstract class ObservationXML {
                 + "                        <sml:IdentifierList>\n"
                 + "                            <sml:identifier name=\"uniqueID\">\n"
                 + "                                <sml:Term definition=\"urn:ogc:def:identifier:OGC:1.0:uniqueID\">\n"
-                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ prefix +":sensor:" + siteName() + "</sml:value>\n"
+                + "                                    <sml:value>urn:ogc:object:feature:Sensor:" + prefix + ":sensor:" + siteName() + "</sml:value>\n"
                 + "                                </sml:Term>\n"
                 + "                            </sml:identifier>\n"
                 + "                        </sml:IdentifierList>\n"
@@ -55,7 +60,7 @@ public abstract class ObservationXML {
                 + "        </sml:SensorML>\n"
                 + "    </swes:procedureDescription>\n"
                 + "    <!-- multiple values possible -->\n"
-                +      observablePropertyGroup()
+                + observablePropertyGroup()
                 + "    <swes:metadata>\n"
                 + "        <sos:SosInsertionMetadata>\n"
                 + "            <sos:observationType>http://www.opengis.net/def/observationType/OGC-OM/2.0/OM_Measurement</sos:observationType>\n"
@@ -68,15 +73,19 @@ public abstract class ObservationXML {
 
     }
 
-    public String getInsertObservationXML(){
+    public String getInsertObservationXML() {
         return ObservationXML.getInsertObservationXml(siteName(), allObservations());
     }
 
-    protected StringBuffer observablePropertyGroup(){
+    protected StringBuffer observablePropertyGroup() {
         StringBuffer group = new StringBuffer();
-        for(String property: properties)
-            group.append( observablePropertyTag(property) );
+        for (String property : properties)
+            group.append(observablePropertyTag(property));
         return group;
+    }
+
+    private String observablePropertyTag(String property) {
+        return "<swes:observableProperty>" + propertyPrefix + property + "</swes:observableProperty>";
     }
 
     private static String getInsertObservationXml(String stationName, StringBuffer allObsString) {
@@ -101,7 +110,5 @@ public abstract class ObservationXML {
         return insertobservationxml;
     }
 
-    private String observablePropertyTag(String property){
-        return "<swes:observableProperty>" + propertyPrefix + property + "</swes:observableProperty>";
-    }
+
 }
