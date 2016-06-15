@@ -14,16 +14,16 @@
         </period>
     </info>
 
-    <insertSite>
+    <insertSensor>
         <offering>Site</offering>
-        <procedu>procedure</procedu>
+        <procedure>procedure</procedure>
         <prefix>AQX</prefix>
         <propertyPrefix>urn:ogc:def:phenomenon:OGC:2.0:AQX:</propertyPrefix>
         <property>CO</property>
         <property>PM2.5</property>
         <!--<longitude>lon</longitude>-->
         <!--<latitude>lat</latitude>-->
-    </insertSite>
+    </insertSensor>
 
     <insertObservation>
         <longitude>lon</longitude>

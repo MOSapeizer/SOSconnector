@@ -12,6 +12,8 @@ public class Configure {
     private String root;
     private Child[] child;
     private Info info;
+    private InsertSensor insertSensor;
+    private InsertObservation insertObservation;
 
     public Configure(){
 
@@ -21,6 +23,12 @@ public class Configure {
         this.className = className;
         this.root = root;
         this.child = child;
+    }
+
+    public Configure(Info info, InsertSensor insertSensor, InsertObservation insertObservation) {
+        this.info = info;
+        this.insertSensor = insertSensor;
+        this.insertObservation = insertObservation;
     }
 
     @XmlElement
@@ -57,5 +65,23 @@ public class Configure {
 
     public void setInfo(Info info) {
         this.info = info;
+    }
+
+    @XmlElement
+    public InsertSensor getInsertSensor() {
+        return insertSensor;
+    }
+
+    public void setInsertSensor(InsertSensor insertSensor) {
+        this.insertSensor = insertSensor;
+    }
+
+    @XmlElement
+    public InsertObservation getInsertObservation() {
+        return insertObservation;
+    }
+
+    public void setInsertObservation(InsertObservation insertObservation) {
+        this.insertObservation = insertObservation;
     }
 }
