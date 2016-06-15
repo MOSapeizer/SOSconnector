@@ -2,9 +2,7 @@ package sosconnector;
 
 import sosconnector.Adapter.SosFactory;
 import sosconnector.DAO.DAOFactory;
-
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
+import sosconnector.Configure.Configure;
 import java.util.TimerTask;
 
 /**
@@ -16,8 +14,7 @@ public class Connector extends TimerTask {
     private String service;
     private DAOFactory dao;
 
-    public Connector(String filePath) {
-
+    public Connector(Configure configure) {
     }
 
     @Override

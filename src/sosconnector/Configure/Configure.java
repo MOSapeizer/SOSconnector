@@ -1,4 +1,4 @@
-package sosconnector.GovConfigure;
+package sosconnector.Configure;
 
 import javax.xml.bind.annotation.*;
 
@@ -11,6 +11,7 @@ public class Configure {
     private String className;
     private String root;
     private Child[] child;
+    private Info info;
 
     public Configure(){
 
@@ -47,5 +48,14 @@ public class Configure {
 
     public void setChild(Child[] child) {
         this.child = child;
+    }
+
+    @XmlElement
+    public Info getInfo() {
+        return info;
+    }
+
+    public void setInfo(Info info) {
+        this.info = info;
     }
 }

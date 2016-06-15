@@ -1,6 +1,6 @@
 package sosconnector.DTO;
 
-import sosconnector.GovConfigure.Configure;
+import sosconnector.Configure.Configure;
 import sosconnector.Parser.DomParser;
 import sosconnector.Parser.NodeParser;
 
