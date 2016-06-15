@@ -4,20 +4,20 @@ package sosconnector.DTO;
  * Created by zil on 2016/6/14.
  */
 public class ObservationDTO {
-    private String siteName;
+    private String offering;
     private String longitude;
     private String latitude;
     private Observation[] observations;
 
-    public ObservationDTO(String siteName, String longitude, String latitude, Observation[] observations) {
-        this.siteName = siteName;
+    public ObservationDTO(String offering, String longitude, String latitude, Observation[] observations) {
+        this.offering = offering;
         this.longitude = longitude;
         this.latitude = latitude;
         this.observations = observations;
     }
 
-    public String getSiteName() {
-        return siteName;
+    public String getOffering() {
+        return offering;
     }
 
     public Observation[] getObservations() {

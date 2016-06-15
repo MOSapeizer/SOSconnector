@@ -9,12 +9,14 @@ public class Observation {
     private String type;
     private String unit;
     private String value;
+    private String timestamp;
 
-    public Observation(String name, String type, String unit, String value) {
+    public Observation(String name, String type, String unit, String value, String timestamp) {
         this.name = name;
         this.type = type;
         this.unit = unit;
         this.value = value;
+        this.timestamp = timestamp;
     }
 
     public String getName() {
@@ -31,5 +33,9 @@ public class Observation {
 
     public String getValue() {
         return value;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
     }
 }

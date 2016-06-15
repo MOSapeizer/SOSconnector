@@ -28,7 +28,7 @@
     <insertObservation>
         <longitude>lon</longitude>
         <latitude>lat</latitude>
-        <observation name="CO" type="measure" unit="mm">CO</observation>
-        <observation name="PM2.5" type="measure" unit="mm">PM2.5</observation>
+        <observation name="CO" type="gml:MeasureType" unit="mm">CO</observation>
+        <observation name="PM2.5" type="gml:MeasureType" unit="mm">PM2.5</observation>
     </insertObservation>
 </Configure>
