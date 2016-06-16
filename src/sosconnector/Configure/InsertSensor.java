@@ -18,6 +18,20 @@ public class InsertSensor {
     private String longitude;
     private String latitude;
 
+    public InsertSensor(){
+
+    }
+
+    public InsertSensor(String offering, String procedure, String prefix, PropertyPrefix[] propertyPrefix, Property[] property, String longitude, String latitude) {
+        this.offering = offering;
+        this.procedure = procedure;
+        this.prefix = prefix;
+        this.propertyPrefix = propertyPrefix;
+        this.property = property;
+        this.longitude = longitude;
+        this.latitude = latitude;
+    }
+
     @XmlElement
     public String getOffering() {
         return offering;

@@ -16,6 +16,19 @@ public class Period {
     private Integer week;
     private Integer month;
 
+    public Period(){
+
+    }
+
+    public Period(Integer sec, Integer min, Integer hour, Integer day, Integer week, Integer month) {
+        this.sec = sec;
+        this.min = min;
+        this.hour = hour;
+        this.day = day;
+        this.week = week;
+        this.month = month;
+    }
+
     @XmlElement
     public Integer getSec() {
         return sec;

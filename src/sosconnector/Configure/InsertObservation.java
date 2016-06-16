@@ -14,6 +14,16 @@ public class InsertObservation {
     private String latitude;
     private Observation[] observation;
 
+    public InsertObservation(){
+
+    }
+
+    public InsertObservation(String longitude, String latitude, Observation[] observation){
+        this.longitude = longitude;
+        this.latitude = latitude;
+        this.observation = observation;
+    }
+
     @XmlElement
     public String getLongitude() {
         return longitude;
@@ -40,4 +50,5 @@ public class InsertObservation {
     public void setObservation(Observation[] observation) {
         this.observation = observation;
     }
+
 }

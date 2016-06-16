@@ -14,6 +14,17 @@ public class Info {
     private String xmlDataRoot;
     private Period period;
 
+    public Info(){
+
+    }
+
+    public Info(String url, String sos, String xmlDataRoot, Period period){
+        this.url = url;
+        this.sos = sos;
+        this.xmlDataRoot = xmlDataRoot;
+        this.period = period;
+    }
+
     @XmlElement
     public String getUrl() {
         return url;
