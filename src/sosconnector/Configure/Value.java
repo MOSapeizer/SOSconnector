@@ -1,17 +1,14 @@
 package sosconnector.Configure;
 
-import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.XmlValue;
 
 /**
- * Created by zil on 2016/4/26.
+ * Created by zil on 2016/6/16.
  */
-@XmlType
-public class Child {
-    @XmlAttribute
-    public String type;
 
+@XmlType
+public class Value {
     @XmlValue
     public String value;
 }

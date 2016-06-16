@@ -30,5 +30,6 @@
         <latitude>lat</latitude>
         <observation name="CO" type="gml:MeasureType" unit="mm">CO</observation>
         <observation name="PM2.5" type="gml:MeasureType" unit="mm">PM2.5</observation>
+        <timestamp>obsTime</timestamp>
     </insertObservation>
 </Configure>

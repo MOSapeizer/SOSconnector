@@ -1,8 +1,13 @@
 package sosconnector;
 
+import sosconnector.Configure.Configure;
+
+import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import java.util.Date;
-import java.util.Timer;
+import javax.xml.bind.Unmarshaller;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
 
 /**
  * Created by zil on 2016/4/21.
@@ -15,21 +20,21 @@ public class Main {
     private final static int days = 24 * hours;
 
     public static void main(String[] args) throws JAXBException {
-        Timer timer = new Timer( true );
+//        Timer timer = new Timer( true );
 //        timer.schedule(new Twed(), 5 * seconds, 10 * minutes);
 //        timer.schedule(new CwbSea(), 5 * seconds, 1 * days);
 //        timer.schedule(new CwbSeaLevel(), 5 * seconds, 6 * hours);
 //        timer.schedule(new Swcb(), 15 * seconds, 7 * days);
-        timer.schedule(new Epa(), 15 * seconds, 7 * days);
-        timer.schedule(new EpaAQX(), 15 * seconds, 7 * days);
-        System.out.println("現在時間：" + new Date());
-
-        try {
-            Thread.sleep(365 * days);
-        } catch (InterruptedException ignored) {
-        }
-
-        System.out.println("結束時間：" + new Date());
-        timer.cancel();
+//        timer.schedule(new Epa(), 15 * seconds, 7 * days);
+//        timer.schedule(new EpaAQX(), 15 * seconds, 7 * days);
+//        System.out.println("現在時間：" + new Date());
+//
+//        try {
+//            Thread.sleep(365 * days);
+//        } catch (InterruptedException ignored) {
+//        }
+//
+//        System.out.println("結束時間：" + new Date());
+//        timer.cancel();
     }
 }

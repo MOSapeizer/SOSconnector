@@ -11,6 +11,7 @@ public class SiteDTO {
     private String[] property;
 
 
+
     public SiteDTO(String prefix, String offering, String procedure, String properyPrefix, String[] property) {
         this.prefix = prefix;
         this.offering = offering;
@@ -38,4 +39,5 @@ public class SiteDTO {
     public String getPrefix() {
         return prefix;
     }
+
 }

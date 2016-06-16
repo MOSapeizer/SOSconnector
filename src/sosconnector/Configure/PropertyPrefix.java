@@ -9,7 +9,6 @@ import javax.xml.bind.annotation.XmlValue;
  */
 
 @XmlType
-public class PropertyPrefix {
-    @XmlValue
-    public String value;
+public class PropertyPrefix extends Value {
+
 }

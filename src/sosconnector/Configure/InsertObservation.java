@@ -12,15 +12,17 @@ public class InsertObservation {
 
     private String longitude;
     private String latitude;
+    private String timestamp;
     private Observation[] observation;
 
     public InsertObservation(){
 
     }
 
-    public InsertObservation(String longitude, String latitude, Observation[] observation){
+    public InsertObservation(String longitude, String latitude, String timestamp, Observation[] observation){
         this.longitude = longitude;
         this.latitude = latitude;
+        this.timestamp = timestamp;
         this.observation = observation;
     }
 
@@ -51,4 +53,7 @@ public class InsertObservation {
         this.observation = observation;
     }
 
+    public String getTimestamp() {
+        return timestamp;
+    }
 }

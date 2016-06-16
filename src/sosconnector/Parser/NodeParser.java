@@ -3,6 +3,9 @@ package sosconnector.Parser;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 import sosconnector.Configure.Configure;
+import sosconnector.Configure.Info;
+import sosconnector.Configure.InsertObservation;
+import sosconnector.Configure.InsertSensor;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
@@ -13,11 +16,15 @@ import java.util.LinkedList;
 public class NodeParser {
 
     private NodeList list;
-    private Configure configure;
+    private Info info;
+    private InsertSensor insertSensor;
+    private InsertObservation insertObservation;
 
     public NodeParser(DomParser dom, Configure configure){
-        this.configure = configure;
-        this.list = dom.getDataList( configure.getInfo().getXmlDataRoot() );
+        this.insertSensor = configure.getInsertSensor();
+        this.info = configure.getInfo();
+        this.insertObservation = configure.getInsertObservation();
+        this.list = dom.getDataList(info.getXmlDataRoot());
     }
 
     public LinkedList<LinkedHashMap> parse(){
@@ -36,8 +43,7 @@ public class NodeParser {
     }
 
     private LinkedHashMap match(Element node){
-        LinkedHashMap objects  = new ParserAdapter(node).parse(configure.getInsertObservation().getObservation());
-        return objects;
+        return new ParserAdapter(node).parse(insertObservation.getTimestamp(), insertSensor.getOffering(), insertObservation.getObservation());
     }
 
 }

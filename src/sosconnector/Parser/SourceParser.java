@@ -1,5 +1,6 @@
 package sosconnector.Parser;
 
+import sosconnector.Configure.Info;
 import sosconnector.DAO.DAOFactory;
 import sosconnector.Request.Request;
 
@@ -10,21 +11,19 @@ import java.util.logging.Logger;
 /**
  * Created by zil on 2016/6/15.
  */
-public class SoureParser {
+public class SourceParser {
 
     private final String url;
-    private final String configure;
 
-    public SoureParser(String url, String configure_path){
-        this.url = url;
-        this.configure = configure_path;
+    public SourceParser(Info info){
+        this.url = info.getUrl();
     }
 
-    private String getSourceFormGOV(){
+    public String getSourceFormGOV(){
         return getSourceFormGOV(url);
     }
 
-    private String getSourceFormGOV(String url){
+    public String getSourceFormGOV(String url){
         try {
             return new Request("GET", url).getResponseBody();
         } catch (IOException e) {

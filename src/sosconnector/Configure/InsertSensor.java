@@ -13,7 +13,7 @@ public class InsertSensor {
     private String offering;
     private String procedure;
     private String prefix;
-    private PropertyPrefix[] propertyPrefix;
+    private PropertyPrefix propertyPrefix;
     private Property[] property;
     private String longitude;
     private String latitude;
@@ -22,7 +22,7 @@ public class InsertSensor {
 
     }
 
-    public InsertSensor(String offering, String procedure, String prefix, PropertyPrefix[] propertyPrefix, Property[] property, String longitude, String latitude) {
+    public InsertSensor(String offering, String procedure, String prefix, PropertyPrefix propertyPrefix, Property[] property, String longitude, String latitude) {
         this.offering = offering;
         this.procedure = procedure;
         this.prefix = prefix;
@@ -60,11 +60,11 @@ public class InsertSensor {
     }
 
     @XmlElement
-    public PropertyPrefix[] getPropertyPrefix() {
+    public PropertyPrefix getPropertyPrefix() {
         return propertyPrefix;
     }
 
-    public void setPropertyPrefix(PropertyPrefix[] propertyPrefix) {
+    public void setPropertyPrefix(PropertyPrefix propertyPrefix) {
         this.propertyPrefix = propertyPrefix;
     }
 

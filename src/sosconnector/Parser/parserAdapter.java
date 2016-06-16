@@ -2,7 +2,6 @@ package sosconnector.Parser;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
-import sosconnector.Configure.Child;
 import sosconnector.Configure.Observation;
 
 import java.util.LinkedHashMap;
@@ -20,47 +19,32 @@ class ParserAdapter {
         this.node = node;
     }
 
-    LinkedHashMap parse(Observation[] tags) {
+    LinkedHashMap parse(String timestampTag, String offeringTag, Observation[] observations) {
         LinkedHashMap<String, Object> packet = new LinkedHashMap<>();
-        for (Observation tag : tags) {
-            String tagName =  tag.value;
-            if( tag.type == null ){
-                packet.put(tagName, getTagContent(tagName));
-            } else if (tag.type.equals("DUPLICATE")) {
-                putDupliTagsContent(packet, tagName);
-            } else if (tag.type.equals("MULTIPLE")) {
-                putMultiTagsContent(packet, tagName);
-            }
-        }
+        linkTag(packet, "timestamp", timestampTag);
+        linkTag(packet, "offering", offeringTag);
+        linkObservation(packet, observations);
         return packet;
     }
 
-    private String justifyName(String name){
-        String[] split = name.split(":");
-        if(split.length >= 2)
-            return split[1];
-        return split[0];
-    }
-
-    private void putMultiTagsContent(LinkedHashMap<String, Object> packet , String name){
-        Integer id = 1;
-        String[] multiTagContent = getAllSameTagValue(name);
-        for( String tagContent: multiTagContent ){
-            packet.put(name + id, tagContent);
-            id++;
+    private void linkObservation(LinkedHashMap<String, Object> packet, Observation[] observations){
+        int index = 0;
+        String[] allValue = new String[0];
+        for (Observation observation : observations) {
+            String tag =  observation.value;
+            if( allValue.length == index )
+                allValue = getAllValue(tag);
+            String value = allValue[index++];
+            packet.put(observation.name, value);
         }
     }
 
-    private void putDupliTagsContent(LinkedHashMap<String, Object> packet , String name){
-        String[] allSameTagValue = getAllSameTagValue(name);
-        packet.put(name, allSameTagValue);
+    private void linkTag(LinkedHashMap<String, Object> packet, String key, String tagname){
+        String timestamp = getAllValue(tagname)[0];
+        packet.put(key, timestamp);
     }
 
-    private String getTagContent(String name) {
-        return node.getElementsByTagName(name).item(0).getTextContent();
-    }
-
-    private String[] getAllSameTagValue(String name){
+    private String[] getAllValue(String name){
         NodeList list = node.getElementsByTagName(name);
         String[] content = new String[ list.getLength() ];
 

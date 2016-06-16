@@ -8,7 +8,6 @@ import javax.xml.bind.annotation.XmlValue;
  */
 
 @XmlType
-public class Property {
-    @XmlValue
-    public String value;
+public class Property extends Value {
+
 }

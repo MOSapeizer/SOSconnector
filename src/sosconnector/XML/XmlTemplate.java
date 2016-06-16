@@ -114,9 +114,9 @@ public class XmlTemplate {
                 + "                </gml:TimeInstant>\n"
                 + "            </om:phenomenonTime>\n"
                 + "            <om:resultTime xlink:href=\"#phenomenonTime_" + index + "\"/>\n"
-                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + site.getPrefix() + ":sensor:" + site.getOffering() + "\"/>\n"
+                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + site.getPrefix() + ":sensor:" + observations.getOffering() + "\"/>\n"
                 + "            <om:observedProperty xlink:href=\"" + site.getPropertyPrefix() + observation.getName() + "\"/>\n"
-                + "            <om:featureOfInterest xlink:href=\"" + site.getOffering()  + "\"/>\n"
+                + "            <om:featureOfInterest xlink:href=\"" + observations.getOffering()  + "\"/>\n"
                 +              result( observation.getType(), observation )
                 + "        </om:OM_Observation>\n"
                 + "    </sos:observation>\n";

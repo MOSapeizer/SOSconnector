@@ -22,12 +22,12 @@ public class DomParser {
     }
 
     NodeList getDataList(String dataName){
-        org.w3c.dom.Document dom = parseSource(source);
+        org.w3c.dom.Document dom = parseSource();
         if (dom == null) return null;
         return dom.getElementsByTagName(dataName);
     }
 
-    private org.w3c.dom.Document parseSource(String source) {
+    private org.w3c.dom.Document parseSource() {
         try {
             source = replaceIllegalChars(source);
             DocumentBuilder builder = getDOMBuilder();

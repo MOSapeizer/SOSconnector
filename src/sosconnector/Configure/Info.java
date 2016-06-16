@@ -27,7 +27,7 @@ public class Info {
 
     @XmlElement
     public String getUrl() {
-        return url;
+        return url.replace("&amp;", "&");
     }
 
     public void setUrl(String url) {
