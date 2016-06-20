@@ -1,6 +1,6 @@
 package sosconnector.Adapter;
 
-import sosconnector.DAO.XmlDAO;
+import sosconnector.DAO.SourceXmlDAO;
 import sosconnector.Filter.Analyze;
 import sosconnector.Filter.Filter;
 
@@ -13,10 +13,10 @@ import java.util.LinkedList;
 public class SosFactory {
 
     private SosAdapter sos;
-    private XmlDAO dao;
+    private SourceXmlDAO dao;
     private Filter filter;
 
-    public SosFactory(XmlDAO dao, String service) {
+    public SosFactory(SourceXmlDAO dao, String service) {
         this.dao = dao;
         sos = new SosAdapter(service);
     }

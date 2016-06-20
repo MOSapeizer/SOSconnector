@@ -19,9 +19,9 @@ public class TestConfigure {
     }
 
     public static void main(String[] args) throws JAXBException {
-//        File file = new File("src/sosconnector/Configure/");
-//        Configure c = unmarshal(file);
-//        System.out.println(c.getInsertSensor().getPropertyPrefix().value);
+        File file = new File("src/sosconnector/Configure/EpaRain.xml");
+        Configure c = unmarshal(file);
+        System.out.println(c.getInsertSensor().getPropertyPrefix().value);
     }
 
 }

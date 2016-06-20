@@ -32,8 +32,10 @@ class ParserAdapter {
         String[] allValue = new String[0];
         for (Observation observation : observations) {
             String tag =  observation.value;
-            if( allValue.length == index )
+            if( allValue.length == index ) {
                 allValue = getAllValue(tag);
+                if( index > 0 ) index = 0;
+            }
             String value = allValue[index++];
             packet.put(observation.name, value);
         }

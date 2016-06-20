@@ -1,10 +1,10 @@
 package sosconnector;
 
 import sosconnector.Adapter.SosFactory;
-import sosconnector.Configure.Delegate;
+import sosconnector.DAO.ConfigureDAO;
 import sosconnector.Configure.Configure;
 import sosconnector.Configure.Info;
-import sosconnector.DAO.XmlDAO;
+import sosconnector.DAO.SourceXmlDAO;
 import sosconnector.Filter.TimerFilter;
 import sosconnector.Parser.SourceParser;
 
@@ -18,7 +18,7 @@ public class Connector extends TimerTask {
 
     private String filePath;
     private String service;
-    private XmlDAO dao;
+    private SourceXmlDAO dao;
     private TimerFilter timerFilter;
 
     public Connector(Configure configure) {
@@ -33,10 +33,10 @@ public class Connector extends TimerTask {
         new SosFactory( dao, service ).work();
     }
 
-    private XmlDAO makeXmlDAO(Configure configure){
+    private SourceXmlDAO makeXmlDAO(Configure configure){
         SourceParser sourceParser = new SourceParser(configure.getInfo());
-        Delegate delegate = new Delegate(configure, sourceParser);
-        return new XmlDAO( delegate );
+        ConfigureDAO configureDAO = new ConfigureDAO(configure, sourceParser);
+        return new SourceXmlDAO(configureDAO);
     }
 
     public int getPeriod(){

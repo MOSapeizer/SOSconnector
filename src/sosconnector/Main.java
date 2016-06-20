@@ -22,5 +22,9 @@ public class Main {
             Connector connector = new Connector(configure);
             timer.schedule(connector, 15 * 1000, connector.getPeriod());
         }
+        try {
+            Thread.sleep(Long.MAX_VALUE);
+        } catch (InterruptedException ignored) {
+        }
     }
 }

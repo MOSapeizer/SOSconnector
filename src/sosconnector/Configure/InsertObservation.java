@@ -53,7 +53,12 @@ public class InsertObservation {
         this.observation = observation;
     }
 
+    @XmlElement
     public String getTimestamp() {
         return timestamp;
+    }
+
+    public void setTimestamp(String timestamp){
+        this.timestamp = timestamp;
     }
 }
