@@ -6,7 +6,7 @@ import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.util.Arrays;
+import java.io.FilenameFilter;
 
 /**
  * Created by zil on 2016/6/16.
@@ -19,8 +19,9 @@ public class TestConfigure {
     }
 
     public static void main(String[] args) throws JAXBException {
-        File file = new File("src/sosconnector/Configure/sample.xml");
-        Configure c = unmarshal(file);
-        System.out.println(c.getInsertSensor().getPropertyPrefix().value);
+//        File file = new File("src/sosconnector/Configure/");
+//        Configure c = unmarshal(file);
+//        System.out.println(c.getInsertSensor().getPropertyPrefix().value);
     }
+
 }

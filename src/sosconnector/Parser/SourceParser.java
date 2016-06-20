@@ -26,7 +26,7 @@ public class SourceParser {
         try {
             return new Request("GET", url).getResponseBody();
         } catch (IOException e) {
-            Logger.getLogger(DAOFactory.class.getName()).log(Level.SEVERE, "Can't get Resource From gov URL.", e);
+            Logger.getLogger(SourceParser.class.getName()).log(Level.SEVERE, "Can't get Resource From gov URL.", e);
         }
         return null;
     }

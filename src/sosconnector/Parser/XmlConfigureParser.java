@@ -7,6 +7,7 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
 import java.io.FilenameFilter;
+import java.nio.file.NotDirectoryException;
 import java.util.ArrayList;
 
 /**
@@ -14,25 +15,26 @@ import java.util.ArrayList;
  */
 public class XmlConfigureParser {
 
-    private final String dir;
+    private final File file;
 
     public XmlConfigureParser(){
-        dir = "src/sosconnector/Configure/";
+        file = new File("src/sosconnector/Configure/");
     }
 
-    public XmlConfigureParser(String dir){
-        this.dir = dir;
+    public XmlConfigureParser(String dir) throws NotDirectoryException {
+        if( !dir.endsWith("/") )
+            throw new NotDirectoryException("Need Directory");
+        this.file = new File(dir);
     }
 
     public Configure[] configures() {
-        File file = new File(dir);
-        FilenameFilter xmlFilter = xmlFilter();
-        File[] files = file.listFiles(xmlFilter);
+        File[] files = getXmlFiles(file);
         return groupConfigure(files);
     }
 
-    private FilenameFilter xmlFilter(){
-        return (dir, name) -> name.contains(".xml");
+    private static File[] getXmlFiles(File file){
+        FilenameFilter fileFilter = (dir, name) -> name.contains(".xml");
+        return file.listFiles(fileFilter);
     }
 
     private Configure[] groupConfigure(File[] configures) {
