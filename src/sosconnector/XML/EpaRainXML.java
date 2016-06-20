@@ -1,7 +1,5 @@
 package sosconnector.XML;
 
-import sosconnector.DTO.EpaRainDTO;
-
 /**
  * Created by zil on 2016/6/1.
  */

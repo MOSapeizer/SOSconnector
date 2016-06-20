@@ -1,7 +1,5 @@
 package sosconnector.XML;
 
-import sosconnector.DTO.CwbSeaLevelDTO;
-
 /**
  * Created by zil on 2016/6/6.
  */

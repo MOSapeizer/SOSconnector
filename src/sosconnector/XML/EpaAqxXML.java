@@ -1,9 +1,5 @@
 package sosconnector.XML;
 
-import sosconnector.DBManager;
-import sosconnector.DTO.EpaAqxDTO;
-import sosconnector.DTO.EpaAqxSiteDTO;
-
 /**
  * Created by zil on 2016/4/13.
  */

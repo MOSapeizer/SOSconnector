@@ -72,7 +72,7 @@ public class XmlTemplate {
         return xml;
     }
 
-    private String getInsertObservationXml() {
+    public String getInsertObservationXml() {
         String insertobservationxml = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
                 + "<sos:InsertObservation\n"
                 + "    xmlns:sos=\"http://www.opengis.net/sos/2.0\"\n"

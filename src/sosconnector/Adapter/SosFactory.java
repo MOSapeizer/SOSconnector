@@ -1,51 +1,40 @@
 package sosconnector.Adapter;
 
-import sosconnector.DAO.DAOFactory;
+import sosconnector.DAO.XmlDAO;
 import sosconnector.Filter.Analyze;
 import sosconnector.Filter.Filter;
-import sosconnector.Twed;
-import java.lang.reflect.InvocationTargetException;
+
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  * Created by zil on 2016/4/22.
  */
-public class SosFactory<T extends DAOFactory> {
+public class SosFactory {
 
     private SosAdapter sos;
-    private final T dao;
+    private XmlDAO dao;
     private Filter filter;
 
-    public SosFactory(T dao, String service) {
+    public SosFactory(XmlDAO dao, String service) {
         this.dao = dao;
         sos = new SosAdapter(service);
     }
 
     public void work(){
-        try {
-            LinkedList<String> sensorGroup = dao.getInsertSensorXML();
-            clean( sensorGroup );
-            send( sensorGroup );
+        LinkedList<String> sensorGroup = dao.getInsertSensorXML();
+        clean( sensorGroup );
+        send( sensorGroup );
 
-            LinkedList<String> observationXML = dao.getInsertObservationXML();
-            send( observationXML );
-            System.out.println("\nTime in Class " + dao.getClass().getName() + ": " + new Date() + Analyze.result() );
-        } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            Logger.getLogger(SosFactory.class.getName()).log(Level.SEVERE, "Can't get Xml", e);
-        }
+        LinkedList<String> observationXML = dao.getInsertObservationXML();
+        send( observationXML );
+        System.out.println("\nTime in Class " + dao.getClass().getName() + ": " + new Date() + Analyze.result() );
     }
 
     public void update(){
         LinkedList<String> observationXML = null;
-        try {
-            observationXML = dao.getInsertObservationXML();
-            send( observationXML );
-        } catch (IllegalAccessException | InstantiationException | InvocationTargetException e) {
-            Logger.getLogger(SosFactory.class.getName()).log(Level.SEVERE, "Can't get Xml", e);
-        }
+        observationXML = dao.getInsertObservationXML();
+        send( observationXML );
     }
 
     private void clean(LinkedList<String> list){

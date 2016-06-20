@@ -1,13 +1,7 @@
 package sosconnector;
 
-import sosconnector.Configure.Configure;
-
-import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
-import javax.xml.bind.Unmarshaller;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
+
 
 /**
  * Created by zil on 2016/4/21.

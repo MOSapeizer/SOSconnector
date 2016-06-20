@@ -1,7 +1,6 @@
 package sosconnector.Parser;
 
 import sosconnector.Configure.Info;
-import sosconnector.DAO.DAOFactory;
 import sosconnector.Request.Request;
 
 import java.io.IOException;
