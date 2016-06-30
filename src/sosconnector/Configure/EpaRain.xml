@@ -16,7 +16,7 @@
 <Configure className="EPA">
     <info>
         <url>http://opendata.epa.gov.tw/ws/Data/RainTenMin/?%24orderby=PublishTime%20desc&amp;%24skip=0&amp;%24top=1000&amp;format=xml</url>
-        <sos>http://localhost:8080/twed_waterLevel/service</sos>
+        <sos>http://localhost:8080/epa_rainfall/service</sos>
         <xmlDataRoot>Data</xmlDataRoot>
         <period>
             <!--<sec>4</sec>-->
@@ -34,14 +34,14 @@
         <prefix>EPA</prefix>
         <propertyPrefix>urn:ogc:def:phenomenon:OGC:2.0:EPA:</propertyPrefix>
         <property>Rainfall10min</property>
-        <property>Rainfall1hrRainfall1hr</property>
+        <property>Rainfall1hr</property>
         <!--<longitude>lon</longitude>-->
         <!--<latitude>lat</latitude>-->
     </insertSensor>
 
     <insertObservation>
-        <longitude>TWD67LonTWD67Lon</longitude>
-        <latitude>TWD67LatTWD67Lat</latitude>
+        <longitude>TWD67Lon</longitude>
+        <latitude>TWD67Lat</latitude>
         <timestamp>PublishTime</timestamp>
         <observation name="Rainfall10min" type="gml:MeasureType" unit="mm">Rainfall10min</observation>
         <observation name="Rainfall1hrRainfall1hr" type="gml:MeasureType" unit="mm">Rainfall1hr</observation>
