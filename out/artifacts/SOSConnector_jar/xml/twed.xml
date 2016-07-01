@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<Configure className="Twed">
-    <root>twed:RealtimeWaterLevel_OPENDATA</root>
-    <child>twed:RecordTime</child>
-    <child>twed:StationIdentifier</child>
-    <child>twed:WaterLevel</child>
-</Configure>
