@@ -15,8 +15,6 @@ import java.util.TimerTask;
  */
 public class Connector extends TimerTask {
 
-
-    private String filePath;
     private String service;
     private SourceXmlDAO dao;
     private TimerFilter timerFilter;

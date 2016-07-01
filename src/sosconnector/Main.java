@@ -13,14 +13,17 @@ import java.util.Timer;
  */
 public class Main {
 
+    public static final String configures_path = "src/sosconnector/Configure/";
+    public static final int start_buff = 15 * 1000;
+
     public static void main(String[] args) throws JAXBException, NotDirectoryException {
-        XmlConfigureParser xmlConfigureParser = new XmlConfigureParser("src/sosconnector/Configure/");
+        XmlConfigureParser xmlConfigureParser = new XmlConfigureParser( configures_path );
         Configure[] configures = xmlConfigureParser.configures();
         Timer timer = new Timer( true );
 
         for (Configure configure : configures) {
             Connector connector = new Connector(configure);
-            timer.schedule(connector, 15 * 1000, connector.getPeriod());
+            timer.schedule(connector, start_buff, connector.getPeriod());
         }
         try {
             Thread.sleep(Long.MAX_VALUE);
