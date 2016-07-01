@@ -14,7 +14,7 @@ import java.util.Timer;
 public class Main {
 
     public static final String configures_path = "src/sosconnector/Configure/";
-    public static final int start_buff = 15 * 1000;
+    public static final int start_buff = 5 * 1000;
 
     public static void main(String[] args) throws JAXBException, NotDirectoryException {
         XmlConfigureParser xmlConfigureParser = new XmlConfigureParser( configures_path );

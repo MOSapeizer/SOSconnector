@@ -131,7 +131,7 @@ public class XmlTemplate {
                     + "</om:result>\n";
         }
         else if(type.equals("gml:MeasureType")){
-            result += "<om:result xsi:type="
+            result += "<om:result xsi:type=\""
                     + type
                     + "\" uom=\"" + observation.getUnit()
                     + "\">" + observation.getValue()

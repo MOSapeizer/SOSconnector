@@ -74,7 +74,7 @@ public class ConfigureDAO {
         String type = observation.type;
         String value = (String) hash.get(observation.name);
         String timestamp = (String) hash.get("timestamp");
-        return new sosconnector.DTO.Observation(name, unit, type, value, timestamp);
+        return new sosconnector.DTO.Observation(name, type, unit, value, timestamp);
     }
 
     private ObservationDTO makeObservationGroup(String offering, LinkedHashMap hash, InsertObservation insertObservation){

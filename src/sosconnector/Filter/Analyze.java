@@ -10,9 +10,9 @@ public class Analyze {
     private static Packet observation = new Packet( "swes:InsertObservation", "swes:InsertObservationResponse" );
     private static Packet[] packets = new Packet[] { sensor, observation };
 
-    public static void statistic( String message ){
+    public static void statistic( String type, String message ){
         for (Packet packet : packets) {
-            if( packet.isType( message ) )
+            if( packet.isType( type ) )
                 packet.check( message );
         }
     }
