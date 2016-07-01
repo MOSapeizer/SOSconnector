@@ -1,37 +1,53 @@
 package sosconnector.Filter;
 
-import java.util.Date;
-
 /**
  * Created by zil on 2016/4/26.
  */
 public class Analyze {
 
     private static int mb = 1024 * 1024;
-    private static int COUNT = 0;
-    private static int TOTAL = 0;
-    private static String success = "sos:InsertObservationResponse";
-
-    public Analyze(){
-
-    }
+    private static Packet sensor = new Packet( "swes:InsertSensor", "swes:InsertSensorResponse" );;
+    private static Packet observation = new Packet( "swes:InsertObservation", "swes:InsertObservationResponse" );
+    private static Packet[] packets = new Packet[] { sensor, observation };
 
     public static void statistic( String message ){
-        if( check(message) ){
-            COUNT++;
+        for (Packet packet : packets) {
+            if( packet.isType( message ) )
+                packet.check( message );
         }
-        TOTAL++;
     }
 
-    private static Boolean check(String message){
-        return message.contains(success);
+    private static String packet_result( int index, String type ){
+        int total = packets[index].getTOTAL();
+        int success = packets[index].getSUCCESS();
+        String result = "\nTotal " + type + ": " + total + ", new: " + success + ", same: " + (total - success);
+        return result;
     }
 
     public static String result(){
-        String result = "\nTotal data: " + TOTAL + ", success: " + COUNT + ", same: " + (TOTAL-COUNT)
-                        + "\n" + usage() ;
+        int total = getTotal();
+        int success = getSuccess();
+
+        String result = "";
+        result += packet_result(0, "Sensors");
+        result += packet_result(0, "Observations");
+        result += "\nTotal Packets: " + total + ", new: " + success + ", same: " + (total - success)  + "\n" + usage() ;
         clean();
         return result;
+    }
+
+    private static int getTotal() {
+        int total = 0;
+        for (Packet packet : packets)
+            total += packet.getTOTAL();
+        return total;
+    }
+
+    private static int getSuccess() {
+        int success = 0;
+        for (Packet packet : packets)
+                success += packet.getSUCCESS();
+        return success;
     }
 
     private static String usage(){
@@ -45,9 +61,42 @@ public class Analyze {
     }
 
     private static void clean() {
-        TOTAL = 0;
-        COUNT = 0;
+        for (Packet packet : packets)
+            packet.clean();
+    }
+}
+
+class Packet{
+    private int TOTAL = 0;
+    private int SUCCESS = 0;
+    private final String type;
+    private final String success;
+
+    Packet(String type, String success){
+        this.type = type;
+        this.success = success;
     }
 
+    void check(String message){
+        if( message.contains( success ))
+            SUCCESS++;
+        TOTAL++;
+    }
 
+    Boolean isType( String message ){
+        return message.contains(type);
+    }
+
+    int getTOTAL() {
+        return TOTAL;
+    }
+
+    int getSUCCESS() {
+        return SUCCESS;
+    }
+
+    void clean(){
+        TOTAL = 0;
+        SUCCESS = 0;
+    }
 }
