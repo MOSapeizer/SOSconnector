@@ -39,7 +39,7 @@ public class XmlTemplate {
                 + "                        <sml:IdentifierList>\n"
                 + "                            <sml:identifier name=\"uniqueID\">\n"
                 + "                                <sml:Term definition=\"urn:ogc:def:identifier:OGC:1.0:uniqueID\">\n"
-                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ site.getPrefix() +":sensor:" + siteName + "</sml:value>\n"
+                + "                                    <sml:value>urn:ogc:object:feature:Sensor:"+ site.getPrefix().toLowerCase() +":" + siteName + "</sml:value>\n"
                 + "                                </sml:Term>\n"
                 + "                            </sml:identifier>\n"
                 + "                        </sml:IdentifierList>\n"
@@ -114,7 +114,7 @@ public class XmlTemplate {
                 + "                </gml:TimeInstant>\n"
                 + "            </om:phenomenonTime>\n"
                 + "            <om:resultTime xlink:href=\"#phenomenonTime_" + index + "\"/>\n"
-                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + site.getPrefix() + ":sensor:" + observations.getOffering() + "\"/>\n"
+                + "            <om:procedure xlink:href=\"urn:ogc:object:feature:Sensor:" + site.getPrefix().toLowerCase() + ":" + observations.getOffering() + "\"/>\n"
                 + "            <om:observedProperty xlink:href=\"" + site.getPropertyPrefix() + observation.getName() + "\"/>\n"
                 + "            <om:featureOfInterest xlink:href=\"" + observations.getOffering()  + "\"/>\n"
                 +              result( observation.getType(), observation )

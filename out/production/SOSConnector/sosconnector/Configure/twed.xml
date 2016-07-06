@@ -18,7 +18,7 @@
     <offering>twed:StationIdentifier</offering>
     <procedure>twed:StationIdentifier</procedure>
     <prefix>TWED</prefix>
-    <propertyPrefix>urn:ogc:def:phenomenon:OGC:2.0:TWED:</propertyPrefix>
+    <propertyPrefix>urn:ogc:def:phenomenon:OGC:2.0:twed:</propertyPrefix>
     <property>waterLevel</property>
 </insertSensor>
 
