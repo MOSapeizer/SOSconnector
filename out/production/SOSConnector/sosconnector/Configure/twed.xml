@@ -24,6 +24,6 @@
 
 <insertObservation>
     <timestamp>twed:RecordTime</timestamp>
-    <observation name="twed:WaterLevel" type="gml:MeasureType" unit="mm">twed:WaterLevel</observation>
+    <observation name="waterLevel" type="gml:MeasureType" unit="mm">twed:WaterLevel</observation>
 </insertObservation>
 </Configure>

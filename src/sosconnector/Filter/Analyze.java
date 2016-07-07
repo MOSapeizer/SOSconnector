@@ -6,8 +6,8 @@ package sosconnector.Filter;
 public class Analyze {
 
     private static int mb = 1024 * 1024;
-    private static Packet sensor = new Packet( "swes:InsertSensor", "swes:InsertSensorResponse" );;
-    private static Packet observation = new Packet( "swes:InsertObservation", "swes:InsertObservationResponse" );
+    private static Packet sensor = new Packet( "swes:InsertSensor", "swes:InsertSensorResponse" );
+    private static Packet observation = new Packet( "swes:InsertObservation", "sos:InsertObservationResponse" );
     private static Packet[] packets = new Packet[] { sensor, observation };
 
     public static void statistic( String type, String message ){
@@ -30,7 +30,7 @@ public class Analyze {
 
         String result = "";
         result += packet_result(0, "Sensors");
-        result += packet_result(0, "Observations");
+        result += packet_result(1, "Observations");
         result += "\nTotal Packets: " + total + ", new: " + success + ", same: " + (total - success)  + "\n" + usage() ;
         clean();
         return result;
