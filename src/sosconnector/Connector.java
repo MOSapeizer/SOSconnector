@@ -17,26 +17,33 @@ public class Connector extends TimerTask {
 
     private String service;
     private SourceXmlDAO dao;
+    private Info info;
     private TimerFilter timerFilter;
     private Configure configure;
+    private ConfigureDAO configureDAO;
 
     public Connector(Configure configure) {
         this.configure = configure;
-        service = configure.getInfo().getSos();
-        Info info = configure.getInfo();
-        timerFilter = new TimerFilter(info.getPeriod());
+        this.info = configure.getInfo();
+        this.service = info.getSos();
+        this.timerFilter = new TimerFilter(info.getPeriod());
+        this.configureDAO = createConfigureDAO();
+        setPeriod(info);
     }
 
     @Override
     public void run() {
-        dao = makeXmlDAO(configure);
+        dao = new SourceXmlDAO(configureDAO);
         new SosFactory( dao, service ).work();
     }
 
-    private SourceXmlDAO makeXmlDAO(Configure configure){
-        SourceParser sourceParser = new SourceParser(configure.getInfo());
-        ConfigureDAO configureDAO = new ConfigureDAO(configure, sourceParser);
-        return new SourceXmlDAO(configureDAO);
+    private ConfigureDAO createConfigureDAO(){
+        SourceParser sourceParser = new SourceParser(info);
+        return new ConfigureDAO(configure, sourceParser);
+    }
+
+    public void setPeriod(Info info){
+        this.timerFilter = new TimerFilter(info.getPeriod());
     }
 
     public int getPeriod(){
