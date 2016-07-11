@@ -10,8 +10,8 @@ import java.util.LinkedList;
 public class SourceXmlDAO {
 
     private final ConfigureDAO configureDAO;
-    private LinkedList<String> insertSensorXmlList = new LinkedList<>();
-    private LinkedList<String> insertObservationXmlList = new LinkedList<>();
+    private LinkedList<String> insertSensorXmlList;
+    private LinkedList<String> insertObservationXmlList;
 
     public SourceXmlDAO(ConfigureDAO configureDAO){
         this.configureDAO = configureDAO;
@@ -31,6 +31,8 @@ public class SourceXmlDAO {
     }
 
     private void collect(XmlTemplate[] xmlTemplateGroup){
+        insertSensorXmlList = new LinkedList<>();
+        insertObservationXmlList = new LinkedList<>();
         for (XmlTemplate xmlTemplate : xmlTemplateGroup) {
             insertSensorXmlList.add(xmlTemplate.getInsertSensorXml());
             insertObservationXmlList.add(xmlTemplate.getInsertObservationXml());
