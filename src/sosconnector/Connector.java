@@ -33,7 +33,6 @@ public class Connector extends TimerTask {
 
     @Override
     public void run() {
-        configureDAO.reload();
         dao = new SourceXmlDAO(configureDAO);
         new SosFactory( dao, service ).work();
     }

@@ -23,13 +23,12 @@ public class ConfigureDAO {
 
     public ConfigureDAO(Configure configure, SourceParser sourceParser){
         this.sourceParser = sourceParser;
-        DomParser domFromSource = createDomFromSource(sourceParser);
         this.configure = configure;
-        this.hashGroup = new NodeParser( domFromSource, configure ).parse();
     }
 
     public XmlTemplate[] getXmlTemplateGroup(){
         int index = 0;
+        reload();
         XmlTemplate[] xmlTemplates = new XmlTemplate[hashGroup.size()];
         for( LinkedHashMap hash : hashGroup )
             xmlTemplates[index++] = makeXmlTemplate(hash);
