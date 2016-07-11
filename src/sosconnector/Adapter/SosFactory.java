@@ -22,6 +22,7 @@ public class SosFactory {
     }
 
     public void work(){
+        dao.updateInsertXML();
         LinkedList<String> sensorGroup = dao.getInsertSensorXML();
         clean( sensorGroup );
         send( sensorGroup );
@@ -33,6 +34,7 @@ public class SosFactory {
 
     public void update(){
         LinkedList<String> observationXML = null;
+        dao.updateInsertXML();
         observationXML = dao.getInsertObservationXML();
         send( observationXML );
     }
