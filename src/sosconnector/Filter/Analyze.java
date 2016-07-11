@@ -7,7 +7,7 @@ public class Analyze {
 
     private static int mb = 1024 * 1024;
     private static Packet sensor = new Packet( "swes:InsertSensor", "swes:InsertSensorResponse" );
-    private static Packet observation = new Packet( "swes:InsertObservation", "sos:InsertObservationResponse" );
+    private static Packet observation = new Packet( "sos:InsertObservation", "sos:InsertObservationResponse" );
     private static Packet[] packets = new Packet[] { sensor, observation };
 
     public static void statistic( String type, String message ){
