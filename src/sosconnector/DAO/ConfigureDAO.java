@@ -19,8 +19,10 @@ public class ConfigureDAO {
 
     private final Configure configure;
     private LinkedList<LinkedHashMap> hashGroup;
+    private SourceParser sourceParser;
 
     public ConfigureDAO(Configure configure, SourceParser sourceParser){
+        this.sourceParser = sourceParser;
         DomParser domFromSource = createDomFromSource(sourceParser);
         this.configure = configure;
         this.hashGroup = new NodeParser( domFromSource, configure ).parse();
@@ -32,6 +34,11 @@ public class ConfigureDAO {
         for( LinkedHashMap hash : hashGroup )
             xmlTemplates[index++] = makeXmlTemplate(hash);
         return xmlTemplates;
+    }
+
+    public void reload(){
+        DomParser domFromSource = createDomFromSource(sourceParser);
+        this.hashGroup = new NodeParser( domFromSource, configure ).parse();
     }
 
     private XmlTemplate makeXmlTemplate(LinkedHashMap hash){
