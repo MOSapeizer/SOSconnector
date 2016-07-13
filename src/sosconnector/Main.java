@@ -14,10 +14,11 @@ import java.util.Timer;
 public class Main {
 
 //    public static final String configures_path = "src/sosconnector/Configure/";
-    public static final String configures_path = "xml/";
+    public static final String configures_path = "./xml/";
     public static final int start_buff = 5 * 1000;
 
     public static void main(String[] args) throws JAXBException, NotDirectoryException {
+        System.out.println("Working directory= " + System.getProperty("user.dir"));
         XmlConfigureParser xmlConfigureParser = new XmlConfigureParser( configures_path );
         Configure[] configures = xmlConfigureParser.configures();
         Timer timer = new Timer( true );
