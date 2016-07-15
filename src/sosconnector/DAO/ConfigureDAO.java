@@ -28,7 +28,7 @@ public class ConfigureDAO {
 
     public XmlTemplate[] getXmlTemplateGroup(){
         int index = 0;
-        reload();
+        this.hashGroup = reload();
         XmlTemplate[] xmlTemplates = new XmlTemplate[hashGroup.size()];
         for( LinkedHashMap hash : hashGroup )
             xmlTemplates[index++] = makeXmlTemplate(hash);
@@ -36,11 +36,11 @@ public class ConfigureDAO {
 
     }
 
-    public void reload(){
+    public LinkedList<LinkedHashMap> reload(){
         DomParser domFromSource = createDomFromSource(sourceParser);
         if( domFromSource != null )
-            this.hashGroup = new NodeParser( domFromSource, configure ).parse();
-        this.hashGroup = new LinkedList<>();
+            return new NodeParser( domFromSource, configure ).parse();
+        return new LinkedList<>();
     }
 
     private XmlTemplate makeXmlTemplate(LinkedHashMap hash){
