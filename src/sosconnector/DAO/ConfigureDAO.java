@@ -33,11 +33,14 @@ public class ConfigureDAO {
         for( LinkedHashMap hash : hashGroup )
             xmlTemplates[index++] = makeXmlTemplate(hash);
         return xmlTemplates;
+
     }
 
     public void reload(){
         DomParser domFromSource = createDomFromSource(sourceParser);
-        this.hashGroup = new NodeParser( domFromSource, configure ).parse();
+        if( domFromSource != null )
+            this.hashGroup = new NodeParser( domFromSource, configure ).parse();
+        this.hashGroup = new LinkedList<>();
     }
 
     private XmlTemplate makeXmlTemplate(LinkedHashMap hash){
@@ -92,6 +95,8 @@ public class ConfigureDAO {
 
     private DomParser createDomFromSource(SourceParser sourceParser){
         String sourceFormGOV = sourceParser.getSourceFormGOV();
+        if( sourceFormGOV.isEmpty() )
+            return null;
         return new DomParser(sourceFormGOV);
     }
 }

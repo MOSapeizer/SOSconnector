@@ -28,6 +28,6 @@ public class SourceParser {
         } catch (IOException e) {
             Logger.getLogger(SourceParser.class.getName()).log(Level.SEVERE, "Can't get Resource From gov URL.", e);
         }
-        return null;
+        return "";
     }
 }
