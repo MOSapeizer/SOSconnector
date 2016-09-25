@@ -10,6 +10,8 @@
 
     <modules>
         <module>network</module>
+        <module>datasource</module>
+        <module>connector</module>
     </modules>
 
     <dependencyManagement>
@@ -19,6 +21,11 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+                <version>2.1.5</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

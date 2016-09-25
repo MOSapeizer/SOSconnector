@@ -5,7 +5,9 @@ package insertSensorML20;
  */
 public class Text {
 
+    private String definition;
     private String description;
+    private String label;
     private String value;
 
     public Text(){
@@ -27,4 +29,21 @@ public class Text {
     public void setValue(String value) {
         this.value = value;
     }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    public String getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
+    }
+
 }

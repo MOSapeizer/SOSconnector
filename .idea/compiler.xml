@@ -22,12 +22,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="connector" />
         <module name="datasource" />
         <module name="network" />
         <module name="SOSConnector" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="connector" target="1.5" />
       <module name="datasource" target="1.5" />
       <module name="network" target="1.5" />
       <module name="SOSConnector" target="1.5" />

@@ -11,6 +11,11 @@ public class Characteristic {
     public Characteristic() {
     }
 
+    public Characteristic(String name, DataRecord dataRecord) {
+        this.name = name;
+        this.dataRecord = dataRecord;
+    }
+
     public DataRecord getDataRecord() {
         return dataRecord;
     }

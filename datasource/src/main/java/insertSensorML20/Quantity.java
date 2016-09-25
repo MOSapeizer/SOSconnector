@@ -6,6 +6,7 @@ package insertSensorML20;
 public class Quantity {
 
     private String definition;
+    private String label;
     private String uom;
     private String value;
 
@@ -34,5 +35,13 @@ public class Quantity {
 
     public void setDefinition(String definition) {
         this.definition = definition;
+    }
+
+    public String getLabel() {
+        return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 }

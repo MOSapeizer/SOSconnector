@@ -9,6 +9,15 @@ public class Term {
     private String label;
     private String value;
 
+    public Term() {
+    }
+
+    public Term(String definition, String label, String value) {
+        this.definition = definition;
+        this.label = label;
+        this.value = value;
+    }
+
     public String getDefinition() {
         return definition;
     }

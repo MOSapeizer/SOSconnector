@@ -9,6 +9,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/network/pom.xml" />
         <option value="$PROJECT_DIR$/datasource/pom.xml" />
+        <option value="$PROJECT_DIR$/connector/pom.xml" />
       </list>
     </option>
   </component>

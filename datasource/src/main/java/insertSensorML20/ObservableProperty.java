@@ -5,6 +5,7 @@ package insertSensorML20;
  */
 public class ObservableProperty {
 
+    private String definition;
     private String prefix;
     private String name;
 
@@ -26,5 +27,13 @@ public class ObservableProperty {
 
     public void setPrefix(String prefix) {
         this.prefix = prefix;
+    }
+
+    public String getDefinition() {
+        return definition;
+    }
+
+    public void setDefinition(String definition) {
+        this.definition = definition;
     }
 }
