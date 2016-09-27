@@ -26,13 +26,6 @@
             <groupId>CGIS-DEV</groupId>
             <artifactId>network</artifactId>
             <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>CGIS-DEV</groupId>
-            <artifactId>network</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>test</scope>
         </dependency>
     </dependencies>
 

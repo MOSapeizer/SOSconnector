@@ -29,11 +29,15 @@ public class TwedMappingTest extends TestCase {
     }
 
     public void testMappingBasic() throws ParserConfigurationException, SAXException, IOException {
-        TwedInsertSensorAdpater adpater = new TwedInsertSensorAdpater(object);
+        TwedInsertSensorAdpater adpater = new TwedInsertSensorAdpater(object.getHydrologyRiverClass().getRiverStageObservatoryProfile()[0]);
         InsertSensor insertSensor = adpater.getInsertSensor();
         InsertSensorXmlBuilder builder = new InsertSensorXmlBuilder(insertSensor);
         builder.map();
         System.out.println(builder.toXML());
 
+    }
+
+    public void testMappingObservation(){
+//        System.out.println(InsertObservationTemplate.sample_output());
     }
 }

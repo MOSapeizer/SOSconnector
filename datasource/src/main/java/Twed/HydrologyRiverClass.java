@@ -10,17 +10,27 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement( name ="HydrologyRiverClass" )
 public class HydrologyRiverClass {
 
-    private RiverStageObservatoryProfile riverStageObservatoryProfile;
+    private RiverStageObservatoryProfile[] riverStageObservatoryProfile;
+    private RealtimeWaterLevel[] realtimeWaterLevel;
 
     public HydrologyRiverClass() {
     }
 
     @XmlElement( name = "RiverStageObservatoryProfile" )
-    public RiverStageObservatoryProfile getRiverStageObservatoryProfile() {
+    public RiverStageObservatoryProfile[] getRiverStageObservatoryProfile() {
         return riverStageObservatoryProfile;
     }
 
-    public void setRiverStageObservatoryProfile(RiverStageObservatoryProfile riverStageObservatoryProfile) {
+    public void setRiverStageObservatoryProfile(RiverStageObservatoryProfile[] riverStageObservatoryProfile) {
         this.riverStageObservatoryProfile = riverStageObservatoryProfile;
+    }
+
+    @XmlElement( name = "RealtimeWaterLevel" )
+    public RealtimeWaterLevel[] getRealtimeWaterLevel() {
+        return realtimeWaterLevel;
+    }
+
+    public void setRealtimeWaterLevel(RealtimeWaterLevel[] realtimeWaterLevel) {
+        this.realtimeWaterLevel = realtimeWaterLevel;
     }
 }

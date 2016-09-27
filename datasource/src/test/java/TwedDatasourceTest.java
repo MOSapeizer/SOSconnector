@@ -23,7 +23,7 @@ public class TwedDatasourceTest extends TestCase {
     }
 
     public void testUnmarshall() throws JAXBException {
-        double[] latLon = object.getHydrologyRiverClass().getRiverStageObservatoryProfile().getLocationByTWD67().getLatLon();
+        double[] latLon = object.getHydrologyRiverClass().getRiverStageObservatoryProfile()[0].getLocationByTWD67().getLatLon();
         System.out.println(latLon[0] + " " + latLon[1]);
     }
 

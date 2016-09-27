@@ -19,7 +19,7 @@ public class LocationByTWD67 {
     }
 
     @XmlElement( name = "Point" )
-    public Point getPoint() {
+    public Point getPoint(){
         return point;
     }
 

@@ -10,17 +10,25 @@ import java.util.LinkedList;
  */
 public class TwedInsertSensorAdpater extends Object {
 
-    private TaiwanWaterExchangingData twed;
     private RiverStageObservatoryProfile profile;
     private InsertSensor insertSensor = new InsertSensor();
     private InsertSensorML20Helper helper = new InsertSensorML20Helper();
 
-    public TwedInsertSensorAdpater(TaiwanWaterExchangingData twed){
-        this.twed = twed;
-        profile = twed.getHydrologyRiverClass().getRiverStageObservatoryProfile();
+    public TwedInsertSensorAdpater(RiverStageObservatoryProfile profile){
+        this.profile = profile;
+    }
+
+    private void before(){
+        String basinIdentifier = profile.getBasinIdentifier();
+        profile.setBasinIdentifier(basinIdentifier.trim());
+        String observatoryName = profile.getObservatoryName();
+        profile.setObservatoryName(observatoryName.trim());
+        String englishName = profile.getEnglishName();
+        profile.setEnglishName(englishName.trim());
     }
 
     public InsertSensor getInsertSensor(){
+        before();
         setIdentifier();
         setIdentification();
         setCharacteristics();

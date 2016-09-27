@@ -59,6 +59,7 @@ public class Request {
 
     protected void setConnection(String method) throws IOException {
         connection = (HttpURLConnection) url.openConnection();
+        connection.setDoInput(true);
         if( method.equals("POST") ) {
             connection.setDoOutput(true); // Triggers POST.
             connection.setRequestProperty("Content-Type", "application/xml; charset=utf-8");
