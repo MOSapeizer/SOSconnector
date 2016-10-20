@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<twed:TaiwanWaterExchangingData version="0.33.2" xmlns:twed="http://twed.wra.gov.tw/twedml/opendata" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns="http://twed.wra.gov.tw/twedml/opendata">
+  <twed:HydrologyRiverClass>
+    <twed:RiverStageObservatoryProfile>
+      <twed:AffiliatedBasin>1140</twed:AffiliatedBasin>
+      <twed:AffiliatedSubsidiaryBasin></twed:AffiliatedSubsidiaryBasin>
+      <twed:AffiliatedSubSubsidiaryBasin></twed:AffiliatedSubSubsidiaryBasin>
+      <twed:AlertLevel1></twed:AlertLevel1>
+      <twed:AlertLevel2></twed:AlertLevel2>
+      <twed:AlertLevel3></twed:AlertLevel3>
+      <twed:BasinIdentifier>1140H001  </twed:BasinIdentifier>
+      <twed:BrittlenessStatus></twed:BrittlenessStatus>
+      <twed:CarDriveDistanceInHours></twed:CarDriveDistanceInHours>
+      <twed:CityElectricitySupplyStatus></twed:CityElectricitySupplyStatus>
+      <twed:ConstructionManagement></twed:ConstructionManagement>
+      <twed:CrossRiverStructuresNameOfEquipment></twed:CrossRiverStructuresNameOfEquipment>
+      <twed:DataCollectionFrequecy></twed:DataCollectionFrequecy>
+      <twed:DataSubmitted></twed:DataSubmitted>
+      <twed:DrainageStatus></twed:DrainageStatus>
+      <twed:EcologicalEnvironmentMonitoring></twed:EcologicalEnvironmentMonitoring>
+      <twed:ElevationOfWaterLevelZeroPoint>68800.00</twed:ElevationOfWaterLevelZeroPoint>
+      <twed:EnglishAddress>Yufeng T.Jianshi H. Hsinchu H.</twed:EnglishAddress>
+      <twed:EnglishName>YU FENG                                 </twed:EnglishName>
+      <twed:EnglishRiverName>Dahan River                                                                                         </twed:EnglishRiverName>
+      <twed:EquipmentStatus></twed:EquipmentStatus>
+      <twed:EquipmentStatusOnCrossRiverStructures></twed:EquipmentStatusOnCrossRiverStructures>
+      <twed:FloodPreventionPurpose></twed:FloodPreventionPurpose>
+      <twed:HighSedimentStatus></twed:HighSedimentStatus>
+      <twed:HydroFacilityManagement></twed:HydroFacilityManagement>
+      <twed:HydrologicalMonitoringPurpose></twed:HydrologicalMonitoringPurpose>
+      <twed:LightningStatus></twed:LightningStatus>
+      <twed:LocationAddress>新竹縣尖石鄉玉峰村</twed:LocationAddress>
+      <twed:LocationByTWD67>
+        <gml:Point srsName="EPSG:3828">
+          <gml:pos>279345.500 2727961.800</gml:pos>
+        </gml:Point>
+      </twed:LocationByTWD67>
+      <twed:LocationByTWD97>
+        <gml:Point srsName="EPSG:3826">
+          <gml:pos>280175.416 2727757.278</gml:pos>
+        </gml:Point>
+      </twed:LocationByTWD97>
+      <twed:MaintainCycle></twed:MaintainCycle>
+      <twed:NoPeriodicalDataSubmissionReason></twed:NoPeriodicalDataSubmissionReason>
+      <twed:NormalObservationType></twed:NormalObservationType>
+      <twed:ObervationItems>0,1</twed:ObervationItems>
+      <twed:ObservationReason></twed:ObservationReason>
+      <twed:ObservationStatus></twed:ObservationStatus>
+      <twed:ObservatoryIdentifier>19        </twed:ObservatoryIdentifier>
+      <twed:ObservatoryName>玉峰(馬利哥灣)                </twed:ObservatoryName>
+      <twed:ObservatoryReplacementStatus></twed:ObservatoryReplacementStatus>
+      <twed:OnSiteDataCollection></twed:OnSiteDataCollection>
+      <twed:OtherRequirement></twed:OtherRequirement>
+      <twed:RealTimeDataDeliveryFrequency></twed:RealTimeDataDeliveryFrequency>
+      <twed:RealTimeDataDeliveryFrequencyInFloodDefenceTime></twed:RealTimeDataDeliveryFrequencyInFloodDefenceTime>
+      <twed:Remarks></twed:Remarks>
+      <twed:RiverName>大漢溪              </twed:RiverName>
+      <twed:RiverSectionDepositionAndErosionChange></twed:RiverSectionDepositionAndErosionChange>
+      <twed:SetDate></twed:SetDate>
+      <twed:ShortObservationType></twed:ShortObservationType>
+      <twed:SolarPotentialDemage></twed:SolarPotentialDemage>
+      <twed:SolarStatus></twed:SolarStatus>
+      <twed:SolarWatt></twed:SolarWatt>
+      <twed:StealStatus></twed:StealStatus>
+      <twed:StraightRiverStatus></twed:StraightRiverStatus>
+      <twed:SubsidenceStatus></twed:SubsidenceStatus>
+      <twed:SunLightCoverageStatus></twed:SunLightCoverageStatus>
+      <twed:SunshineStatus></twed:SunshineStatus>
+      <twed:TideStatus></twed:TideStatus>
+      <twed:Town></twed:Town>
+      <twed:TownIdentifier>11</twed:TownIdentifier>
+      <twed:TransmissionEquipment></twed:TransmissionEquipment>
+      <twed:VerticalDatumSource></twed:VerticalDatumSource>
+      <twed:WalkDistanceInHours></twed:WalkDistanceInHours>
+      <twed:WaterDrawStatus></twed:WaterDrawStatus>
+      <twed:WaterResourceDistrictIdentifier>11</twed:WaterResourceDistrictIdentifier>
+      <twed:WirelessTransmissionType></twed:WirelessTransmissionType>
+    </twed:RiverStageObservatoryProfile>
+  </twed:HydrologyRiverClass>
+</twed:TaiwanWaterExchangingData>
