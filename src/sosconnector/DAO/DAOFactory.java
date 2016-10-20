@@ -3,7 +3,7 @@ package sosconnector.DAO;
 import sosconnector.DTO.DTOFactory;
 import sosconnector.DTO.JsonDTOFactory;
 import sosconnector.Request.Request;
-import sosconnector.XML.ObservationXML;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -41,7 +41,7 @@ abstract public class DAOFactory {
         this.siteDtoGroup = dtoFactory( configure_path,  getSourceFormGOV(url) ).make( siteClass );
     }
 
-    protected Object injectDtoGroup(Object dto, LinkedList siteDtoGroup){
+    protected Object injectXMLCreation(Object dto, LinkedList siteDtoGroup){
         return null;
     }
 
@@ -66,8 +66,8 @@ abstract public class DAOFactory {
             String xml = "";
             if( siteClass == null )
                 xml = invoke(newInstanceOfXML(dto), method);
-            else{
-                Object obj = injectDtoGroup(dto, siteDtoGroup);
+            else {
+                Object obj = injectXMLCreation(dto, siteDtoGroup);
                 xml = invoke(obj, method);
             }
             xmlGroup.push( xml );
