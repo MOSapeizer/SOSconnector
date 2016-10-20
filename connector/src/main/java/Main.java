@@ -22,12 +22,11 @@ public class Main {
         Connector connector = new SwcbRainConnector("http://localhost:8080/swcb-sos/service");
         Timer timer = new Timer();
         timer.schedule(connector, 5 * sec, 10 * min);
-//        timer.schedule(connector, 5 * sec, 2 * day);
-//        timer.schedule();
         try {
             Thread.sleep(Long.MAX_VALUE);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        timer.cancel();
     }
 }
