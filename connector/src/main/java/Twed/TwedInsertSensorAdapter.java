@@ -8,13 +8,13 @@ import java.util.LinkedList;
 /**
  * Created by Zil on 2016/9/24.
  */
-public class TwedInsertSensorAdpater extends Object {
+public class TwedInsertSensorAdapter {
 
     private RiverStageObservatoryProfile profile;
     private InsertSensor insertSensor = new InsertSensor();
     private InsertSensorML20Helper helper = new InsertSensorML20Helper();
 
-    public TwedInsertSensorAdpater(RiverStageObservatoryProfile profile){
+    public TwedInsertSensorAdapter(RiverStageObservatoryProfile profile){
         this.profile = profile;
     }
 
@@ -33,7 +33,6 @@ public class TwedInsertSensorAdpater extends Object {
         setIdentification();
         setCharacteristics();
         setCapabilities();
-        setDocumentation();
         setDocumentation();
         setInput();
         setOutput();

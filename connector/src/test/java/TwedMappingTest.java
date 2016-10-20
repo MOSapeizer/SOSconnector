@@ -1,5 +1,5 @@
 import Twed.TaiwanWaterExchangingData;
-import Twed.TwedInsertSensorAdpater;
+import Twed.TwedInsertSensorAdapter;
 import XmlBuilder.InsertSensorXmlBuilder;
 import insertSensorML20.InsertSensor;
 import junit.framework.TestCase;
@@ -29,7 +29,7 @@ public class TwedMappingTest extends TestCase {
     }
 
     public void testMappingBasic() throws ParserConfigurationException, SAXException, IOException {
-        TwedInsertSensorAdpater adpater = new TwedInsertSensorAdpater(object.getHydrologyRiverClass().getRiverStageObservatoryProfile()[0]);
+        TwedInsertSensorAdapter adpater = new TwedInsertSensorAdapter(object.getHydrologyRiverClass().getRiverStageObservatoryProfile()[0]);
         InsertSensor insertSensor = adpater.getInsertSensor();
         InsertSensorXmlBuilder builder = new InsertSensorXmlBuilder(insertSensor);
         builder.map();

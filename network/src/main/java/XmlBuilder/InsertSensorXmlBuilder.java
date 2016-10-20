@@ -59,8 +59,11 @@ public class InsertSensorXmlBuilder extends XmlBuilder {
             .append("sml:OutputList");
             for( Output output : outputs ){
                 append("sml:output").attribute("name", output.getName());
-                    if( output.getQuantity() != null )
+                    if( output.getText() != null ) {
+                        setText(output.getText());
+                    } else if( output.getQuantity() != null ) {
                         setQuantity(output.getQuantity());
+                    }
                 up();
             }
             up();
@@ -215,7 +218,9 @@ public class InsertSensorXmlBuilder extends XmlBuilder {
             }
             if( text.getDefinition() != null )
                 attribute("definition", text.getDefinition());
-            append("swe:value").text(text.getValue()).up();
+
+            if( text.getValue() != null )
+                append("swe:value").text(text.getValue()).up();
         up();
     }
 

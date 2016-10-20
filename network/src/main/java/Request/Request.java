@@ -60,14 +60,14 @@ public class Request {
     protected void setConnection(String method) throws IOException {
         connection = (HttpURLConnection) url.openConnection();
         connection.setDoInput(true);
+        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+        connection.setRequestMethod(method);
+        connection.setRequestProperty("User-Agent", USER_AGENT);
+        connection.setRequestProperty("Charset", "UTF-8");
         if( method.equals("POST") ) {
             connection.setDoOutput(true); // Triggers POST.
             connection.setRequestProperty("Content-Type", "application/xml; charset=utf-8");
         }
-        connection.setRequestMethod(method);
-        connection.setRequestProperty("User-Agent", USER_AGENT);
-        connection.setRequestProperty("Charset", "UTF-8");
-
         setConnectionOther();
     }
 

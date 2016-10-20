@@ -29,6 +29,8 @@ public class LocationByTWD67 {
 
     public double[] getLatLon(){
         String[] split = getPoint().getPos().split(" ");
+        if( split.length < 2 )
+            return new double[2];
         double x = Double.parseDouble(split[0]);
         double y = Double.parseDouble(split[1]);
 

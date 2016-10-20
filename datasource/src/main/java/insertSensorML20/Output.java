@@ -6,6 +6,7 @@ package insertSensorML20;
 public class Output {
     private String name;
     private Quantity quantity;
+    private Text text;
 
     public String getName() {
         return name;
@@ -21,5 +22,13 @@ public class Output {
 
     public void setQuantity(Quantity quantity) {
         this.quantity = quantity;
+    }
+
+    public Text getText() {
+        return text;
+    }
+
+    public void setText(Text text) {
+        this.text = text;
     }
 }
